@@ -1,0 +1,118 @@
+ 
+<ion-header>
+  <ion-toolbar>
+    <ion-button class="left backArrow">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+    <ion-title class="pxElement">Create Job</ion-title>  
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>    
+    <div class="infueeFormOuter">
+      <form class="loginForm">
+        <ion-list no-lines>
+          <div class="formGroup">  
+            <ion-input class="formField" type="text" value=""></ion-input>
+            <ion-label>Job Title</ion-label>            
+          </div>
+          <div class="formGroup">  
+            <ion-textarea class="formField" type="email" value=""></ion-textarea>
+            <ion-label>Description</ion-label>            
+          </div>
+          <div class="formGroup selectOptionBar">
+            <ion-select placeholder="Instagram">
+              <ion-select-option value="1">Instagram</ion-select-option>
+              <ion-select-option value="2">Facebook</ion-select-option>
+              <ion-select-option value="3">Twitter</ion-select-option>
+              <ion-select-option value="4">Linkedin</ion-select-option>
+            </ion-select>
+            <ion-label>Select Platform</ion-label>
+          </div>
+          <div class="formGroup selectOptionBar">
+            <ion-select placeholder="Health/Fitness">
+              <ion-select-option value="1">Health/Fitness</ion-select-option>
+              <ion-select-option value="2">Health/Fitness</ion-select-option>
+              <ion-select-option value="3">Health/Fitness</ion-select-option>
+              <ion-select-option value="4">Health/Fitness</ion-select-option>
+            </ion-select>
+            <ion-label>Add Category</ion-label>
+          </div>
+          <div class="formGroup">  
+            <ion-input class="formField" type="file" id="coverImage"></ion-input>
+            <ion-label>Job Cover Image</ion-label>
+          </div>
+          <div class="formGroup">  
+            <ion-input class="formField" type="text" value=""></ion-input>
+            <ion-label>Required Infulencers</ion-label>            
+          </div>
+          <div class="formGroup flexColWrap">
+            <div class="selectOptionBar">
+              <ion-select placeholder="Minutes">
+                <ion-select-option value="1">Minutes</ion-select-option>
+              </ion-select>
+              <ion-label>Time Duration</ion-label>
+            </div>
+            <div class="selectOptionBar">
+              <ion-select placeholder="Seconds">
+                <ion-select-option value="1">1sec</ion-select-option>
+              </ion-select>
+            </div>
+          </div>
+          <div class="formGroup">  
+            <ion-input class="formField" type="text" value=""></ion-input>
+            <ion-label>Promotion Days</ion-label>            
+          </div>
+          <div class="formGroup">  
+            <ion-input class="formField" type="text" value=""></ion-input>
+            <ion-label>Promotion Days</ion-label>            
+          </div>
+          <div class="formGroup">  
+            <ion-input class="formField" type="text" value=""></ion-input>
+            <ion-label>Price($)</ion-label>            
+          </div>
+          <div class="buttonOuter flexColWrap">
+              <div class="buttonOuter__item">
+                <ion-button class="formButton formButton--cancel" type="submit">Cancel</ion-button>
+              </div>
+              <div class="buttonOuter__item">
+                <ion-button class="formButton" type="submit">Create</ion-button>
+              </div>
+          </div>
+        </ion-list>
+      </form>
+    </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+      <div class="bottomFixedLinks">
+        <ul>
+          <li>
+            <a href="javascript:void(0);">
+              <ion-icon name="home-outline"></ion-icon>
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0);">
+              <ion-icon name="chatbubbles-outline"></ion-icon>
+              <span>Chat</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0);">
+              <ion-icon name="notifications-outline"></ion-icon>
+              <span>Notification</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0);">
+              <ion-icon name="person-outline"></ion-icon>
+              <span>Profile</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+  </ion-toolbar>
+</ion-footer>
