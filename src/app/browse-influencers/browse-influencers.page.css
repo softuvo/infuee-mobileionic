@@ -185,6 +185,12 @@ ion-header ion-title {
   text-align: center;
 }
 
+ion-header ion-title span {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+}
+
 ion-header ion-title.pxElement {
   padding-left: 50px;
   padding-right: 50px;
@@ -201,6 +207,7 @@ ion-header ion-button {
   height: auto;
   margin: 0;
   letter-spacing: normal;
+  z-index: 1;
   --background: none;
   --box-shadow: none;
   --padding-start: 0;
@@ -223,6 +230,12 @@ ion-header ion-button.backArrow ion-icon {
   font-size: 20px;
 }
 
+ion-header ion-button.backArrow--middle {
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 ion-header ion-button.menuButton {
   top: -3px;
 }
@@ -235,6 +248,33 @@ ion-header ion-button.addNewButton {
 ion-header ion-button.addNewButton ion-icon {
   font-size: 20px;
   margin-left: 3px;
+}
+
+ion-header ion-button.userLogin .userLogin {
+  width: 35px;
+  height: 35px;
+  position: relative;
+  border-radius: 50%;
+}
+
+ion-header ion-button.userLogin .userLogin .userActive {
+  background-color: #26DB4E;
+  border: 1px solid #fff;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border-radius: 50%;
+}
+
+ion-header ion-button.userLogin .userLogin img {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 
 ion-grid {

@@ -240,6 +240,8 @@ form .selectOptionBar {
 }
 
 form .selectOptionBar ion-select {
+  background-position: 92% center;
+  background-size: 12px;
   height: 50px;
   font-size: 14px;
   font-weight: 500;
@@ -247,6 +249,64 @@ form .selectOptionBar ion-select {
   border: 1px solid #C0C0C0;
   border-radius: 5px;
   color: #777777;
+}
+
+form .flexColWrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -5px;
+}
+
+form .flexColWrap > * {
+  width: 100%;
+  max-width: 50%;
+  flex: 0 0 50%;
+  padding: 0 5px;
+}
+
+form .browseFile {
+  position: relative;
+}
+
+form .browseFile__text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(246, 246, 246, 0.5);
+  border-width: 1px;
+  border-style: dashed;
+  border-color: #C0C0C0;
+  border-radius: 5px;
+  text-align: center;
+  pointer-events: none;
+}
+
+form .browseFile__text h4 {
+  font-size: 14px;
+  color: #222222;
+  margin: 0 0 5px;
+}
+
+form .browseFile__text span {
+  font-size: 12px;
+  display: block;
+  color: #777777;
+}
+
+form .browseFile .formField {
+  position: relative;
+  opacity: 0;
+  height: 90px;
+  z-index: 1;
+  cursor: pointer;
+  --padding-top: 32px;
+  --padding-bottom: 32px;
 }
 
 form .typeToggle {

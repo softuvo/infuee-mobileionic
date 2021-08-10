@@ -186,6 +186,11 @@ ion-header {
         padding-inline-start: 0;
         padding-inline-end: 0;
         text-align: center;
+        span {
+            display: block;
+            font-size: 10px;    
+            font-weight: $fontWeightRegular;
+        }
         &.pxElement {
             padding-left: 50px;
             padding-right: 50px;
@@ -201,6 +206,7 @@ ion-header {
         height: auto;
         margin: 0;
         letter-spacing: normal;
+        z-index: 1;
         --background: none;
         --box-shadow: none;
         --padding-start: 0;
@@ -218,6 +224,11 @@ ion-header {
             ion-icon {
                 font-size: 20px;
             }
+            &--middle {
+                bottom: 0;
+                margin-top: auto;
+                margin-bottom: auto;
+            }
         }
         &.menuButton {
             top: -3px;
@@ -228,6 +239,32 @@ ion-header {
             ion-icon {
                 font-size: 20px;
                 margin-left: 3px;
+            }
+        }
+        &.userLogin {
+            .userLogin {
+                width: 35px;
+                height: 35px;
+                position: relative;
+                border-radius: 50%;
+                .userActive {
+                    background-color: #26DB4E;
+                    border: 1px solid $white;
+                    width: 10px;
+                    height: 10px;
+                    position: absolute;
+                    top: 0px;
+                    right: 0px;
+                    border-radius: 50%;
+                }
+                img {
+                    width: 30px;
+                    height: 30px;
+                    border: 1px solid $white;
+                    border-radius: 50%;
+                    -o-object-fit: cover;
+                    object-fit: cover;
+                }
             }
         }
     }

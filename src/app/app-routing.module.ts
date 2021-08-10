@@ -41,6 +41,26 @@ const routes: Routes = [
   {
     path: 'create-job',
     loadChildren: () => import('./create-job/create-job.module').then( m => m.CreateJobPageModule)
+  },
+  {
+    path: 'campaign-job-discripation',
+    loadChildren: () => import('./campaign-job-discripation/campaign-job-discripation.module').then( m => m.CampaignJobDiscripationPageModule)
+  },
+  {
+    path: 'create-campaign',
+    loadChildren: () => import('./create-campaign/create-campaign.module').then( m => m.CreateCampaignPageModule)
+  },
+  {
+    path: 'chat',
+    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
+  },
+  {
+    path: 'chat-message',
+    loadChildren: () => import('./chat-message/chat-message.module').then( m => m.ChatMessagePageModule)
+  },
+  {
+    path: 'notification',
+    loadChildren: () => import('./notification/notification.module').then( m => m.NotificationPageModule)
   }
 ];
 @NgModule({

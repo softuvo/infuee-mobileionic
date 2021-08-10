@@ -30,6 +30,7 @@
 ion-searchbar {
     .searchbar-input-container {
         .searchbar-input {
+            background-color: transparent;
             &.sc-ion-searchbar-md {
                 font-size: 14px;
                 font-weight: 500;
@@ -56,3 +57,15 @@ ion-searchbar {
         }
     }
 }
+
+.colorChanges {
+    ion-searchbar {
+        .searchbar-search-icon {
+            &.sc-ion-searchbar-md {
+                color: #35B6F7;
+                opacity: 1;
+            }
+        }
+    } 
+}
+
