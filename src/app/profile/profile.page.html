@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button class="left backArrow">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+    <ion-title class="pxElement">Profile</ion-title>
+    <ion-button class="right menuButton">
+      <ion-icon name="menu-sharp" (click)="openFirst()"></ion-icon>
+    </ion-button>
+    <ion-menu>
+      <div class="profileMenu">
+        <ion-header>
+          <ion-toolbar color="primary">
+            <ion-title>Start Menu</ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content>
+          <ion-list>
+            <ion-item>Menu Item</ion-item>
+            <ion-item>Menu Item</ion-item>
+            <ion-item>Menu Item</ion-item>
+            <ion-item>Menu Item</ion-item>
+            <ion-item>Menu Item</ion-item>
+          </ion-list>
+        </ion-content>
+      </div>
+    </ion-menu>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="upperCaseWrap">
+  <div class="commonWrap lightBgColor">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" class="">
+          <ion-list>
+
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="commonWrap whiteBgColor">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" class="">
+          <ion-list>
+
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <div class="bottomFixedLinks">
+      <ul>
+        <li>
+          <a href="javascript:void(0);">
+            <ion-icon name="home-outline"></ion-icon>
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0);">
+            <ion-icon name="chatbubbles-outline"></ion-icon>
+            <span>Chat</span>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0);">
+            <ion-icon name="notifications-outline"></ion-icon>
+            <span>Notification</span>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0);">
+            <ion-icon name="person-outline"></ion-icon>
+            <span>Profile</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </ion-toolbar>
+</ion-footer>
