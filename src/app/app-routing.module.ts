@@ -3,74 +3,117 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: '',
+    loadChildren: () =>
+      import('./login/login.module').then((m) => m.LoginPageModule),
+  },
+  {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () =>
+      import('./login/login.module').then((m) => m.LoginPageModule),
   },
   {
     path: 'signup',
-    loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
+    loadChildren: () =>
+      import('./signup/signup.module').then((m) => m.SignupPageModule),
   },
   {
     path: 'forgotpassword',
-    loadChildren: () => import('./forgotpassword/forgotpassword.module').then( m => m.ForgotpasswordPageModule)
+    loadChildren: () =>
+      import('./forgotpassword/forgotpassword.module').then(
+        (m) => m.ForgotpasswordPageModule
+      ),
   },
   {
     path: 'verification',
-    loadChildren: () => import('./verification/verification.module').then( m => m.VerificationPageModule)
+    loadChildren: () =>
+      import('./verification/verification.module').then(
+        (m) => m.VerificationPageModule
+      ),
   },
   {
     path: 'create-new-password',
-    loadChildren: () => import('./create-new-password/create-new-password.module').then( m => m.CreateNewPasswordPageModule)
+    loadChildren: () =>
+      import('./create-new-password/create-new-password.module').then(
+        (m) => m.CreateNewPasswordPageModule
+      ),
   },
   {
     path: 'browse-influencers',
-    loadChildren: () => import('./browse-influencers/browse-influencers.module').then( m => m.BrowseInfluencersPageModule)
+    loadChildren: () =>
+      import('./browse-influencers/browse-influencers.module').then(
+        (m) => m.BrowseInfluencersPageModule
+      ),
   },
   {
     path: 'influencers-profile',
-    loadChildren: () => import('./influencers-profile/influencers-profile.module').then( m => m.InfluencersProfilePageModule)
+    loadChildren: () =>
+      import('./influencers-profile/influencers-profile.module').then(
+        (m) => m.InfluencersProfilePageModule
+      ),
   },
   {
     path: 'campaign',
-    loadChildren: () => import('./campaign/campaign.module').then( m => m.CampaignPageModule)
+    loadChildren: () =>
+      import('./campaign/campaign.module').then((m) => m.CampaignPageModule),
   },
   {
     path: 'campaign-discripation',
-    loadChildren: () => import('./campaign-discripation/campaign-discripation.module').then( m => m.CampaignDiscripationPageModule)
+    loadChildren: () =>
+      import('./campaign-discripation/campaign-discripation.module').then(
+        (m) => m.CampaignDiscripationPageModule
+      ),
   },
   {
     path: 'create-job',
-    loadChildren: () => import('./create-job/create-job.module').then( m => m.CreateJobPageModule)
+    loadChildren: () =>
+      import('./create-job/create-job.module').then(
+        (m) => m.CreateJobPageModule
+      ),
   },
   {
     path: 'campaign-job-discripation',
-    loadChildren: () => import('./campaign-job-discripation/campaign-job-discripation.module').then( m => m.CampaignJobDiscripationPageModule)
+    loadChildren: () =>
+      import(
+        './campaign-job-discripation/campaign-job-discripation.module'
+      ).then((m) => m.CampaignJobDiscripationPageModule),
   },
   {
     path: 'create-campaign',
-    loadChildren: () => import('./create-campaign/create-campaign.module').then( m => m.CreateCampaignPageModule)
+    loadChildren: () =>
+      import('./create-campaign/create-campaign.module').then(
+        (m) => m.CreateCampaignPageModule
+      ),
   },
   {
     path: 'chat',
-    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
+    loadChildren: () =>
+      import('./chat/chat.module').then((m) => m.ChatPageModule),
   },
   {
     path: 'chat-message',
-    loadChildren: () => import('./chat-message/chat-message.module').then( m => m.ChatMessagePageModule)
+    loadChildren: () =>
+      import('./chat-message/chat-message.module').then(
+        (m) => m.ChatMessagePageModule
+      ),
   },
   {
     path: 'notification',
-    loadChildren: () => import('./notification/notification.module').then( m => m.NotificationPageModule)
+    loadChildren: () =>
+      import('./notification/notification.module').then(
+        (m) => m.NotificationPageModule
+      ),
   },
   {
     path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
-  }
+    loadChildren: () =>
+      import('./profile/profile.module').then((m) => m.ProfilePageModule),
+  },
 ];
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
