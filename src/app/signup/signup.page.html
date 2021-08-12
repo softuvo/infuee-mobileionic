@@ -1,77 +1,87 @@
-
- 
-  
-  
-  <ion-header>
-    <ion-toolbar>
-        <div class="commonHeader">
-           <img src="../../assets/images/logo.svg" alt="" />
-           <div class="customShapeDividerBottom">
-             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 150" preserveAspectRatio="none">
-               <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
-             </svg>
-           </div>
-        </div>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content>
-
-      <div class="infueeFormOuter">
-        <div class="commonHeading commonHeading--center">
-          <h2>Sign Up</h2>
-        </div>
-        <form class="signUpForm">
-          <ion-list no-lines>
-            <div class="formGroup">  
-              <ion-input class="formField" type="text" value=""></ion-input>
-              <ion-label>Full Name</ion-label>            
-            </div> 
-            <div class="formGroup">  
-              <ion-input class="formField" type="email" value=""></ion-input>
-              <ion-label>Email Address</ion-label>            
-            </div>  
-            <div class="formGroup">  
-              <ion-input class="formField" type="date" value=""></ion-input>
-              <ion-label>Date Of Birth</ion-label>            
-            </div>  
-            <div class="formGroup">  
-              <ion-input class="formField" type="number" value=""></ion-input>
-              <ion-label>Phone Number</ion-label>            
-            </div>
-            <div class="formGroup">  
-              <ion-input class="formField" type="text" value=""></ion-input>
-              <ion-label>Address</ion-label>            
-            </div>
-            <div class="formGroup">  
-              <ion-input class="formField" type="text" value=""></ion-input>
-              <ion-label>School, Highschool, Collage(Optional)</ion-label>            
-            </div>
-            <div class="formGroup">  
-              <ion-input class="formField" type="password" value=""></ion-input>
-              <ion-label>Password</ion-label>
-              <button class="typeToggle">
-                <ion-icon name="eye-outline"></ion-icon>
-              </button>
-            </div>
-            <div class="formGroup">  
-              <ion-input class="formField" type="password" value=""></ion-input>
-              <ion-label>Comfirm Password</ion-label>
-              <button class="typeToggle">
-                <ion-icon name="eye-outline"></ion-icon>
-              </button>
-            </div>
-            <div class="buttonOuter">
-               <ion-button class="formButton" type="submit">Signup</ion-button>
-            </div>
-            <div class="linkText linkText--left">Don’t have an Account? <a class="underline" href="/signup">Sign Up!</a></div>
-          </ion-list>
-        </form>
+<ion-header>
+  <ion-toolbar>
+    <div class="commonHeader" [routerLink]="['/login']">
+      <img src="../../assets/images/logo.svg" alt="" />
+      <div class="customShapeDividerBottom">
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 150"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+            class="shape-fill"
+          ></path>
+        </svg>
       </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
 
-  </ion-content>  
+<ion-content>
+  <div class="infueeFormOuter">
+    <div class="commonHeading commonHeading--center">
+      <h2>Sign Up</h2>
+    </div>
+    <form class="signUpForm">
+      <ion-list no-lines>
+        <div class="formGroup">
+          <ion-input class="formField" type="text" value=""></ion-input>
+          <ion-label>Full Name</ion-label>
+        </div>
+        <div class="formGroup">
+          <ion-input class="formField" type="email" value=""></ion-input>
+          <ion-label>Email Address</ion-label>
+        </div>
+        <div class="formGroup">
+          <ion-input class="formField" type="date" value=""></ion-input>
+          <ion-label>Date Of Birth</ion-label>
+        </div>
+        <div class="formGroup">
+          <ion-input class="formField" type="number" value=""></ion-input>
+          <ion-label>Phone Number</ion-label>
+        </div>
+        <div class="formGroup">
+          <ion-input class="formField" type="text" value=""></ion-input>
+          <ion-label>Address</ion-label>
+        </div>
+        <div class="formGroup">
+          <ion-input class="formField" type="text" value=""></ion-input>
+          <ion-label>School, Highschool, Collage(Optional)</ion-label>
+        </div>
+        <div class="formGroup">
+          <ion-input class="formField" type="password" value=""></ion-input>
+          <ion-label>Password</ion-label>
+          <button class="typeToggle">
+            <ion-icon name="eye-outline"></ion-icon>
+          </button>
+        </div>
+        <div class="formGroup">
+          <ion-input class="formField" type="password" value=""></ion-input>
+          <ion-label>Comfirm Password</ion-label>
+          <button class="typeToggle">
+            <ion-icon name="eye-outline"></ion-icon>
+          </button>
+        </div>
+        <div class="buttonOuter">
+          <ion-button
+            class="formButton"
+            type="submit"
+            [routerLink]="['/influencers-profile']"
+            >Signup</ion-button
+          >
+        </div>
+        <div class="linkText linkText--left">
+          Don’t have an Account?
+          <a class="underline" href="/login">Sign In!</a>
+        </div>
+      </ion-list>
+    </form>
+  </div>
+</ion-content>
 
-  <!-- <ion-footer>
+<!-- <ion-footer>
     <ion-toolbar>
       <ion-title>Footer</ion-title>
     </ion-toolbar>
