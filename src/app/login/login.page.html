@@ -24,33 +24,60 @@
     <div class="commonHeading commonHeading--center">
       <h2>Log In</h2>
     </div>
-    <form class="loginForm">
+    <form [formGroup]="loginForm">
       <ion-list no-lines>
         <div class="formGroup">
-          <ion-input class="formField" type="email" value=""></ion-input>
+          <!-- <ion-input class="formField" type="email" value=""></ion-input> -->
+          <ion-input
+            type="email"
+            placeholder="Email Address"
+            formControlName="email"
+            name="email"
+            class="formField"
+            [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }"
+          ></ion-input>
           <ion-label>Email Address</ion-label>
+          <div
+            *ngIf="f.email.touched && f.email.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.pattern">Please enter valid email</div>
+          </div>
         </div>
         <div class="formGroup">
-          <ion-input class="formField" type="password" value=""></ion-input>
+          <!-- <ion-input class="formField" type="password" value=""></ion-input> -->
+          <ion-input
+            [type]="inputType"
+            placeholder="Password"
+            formControlName="password"
+            name="password"
+            class="formField"
+            [ngClass]="{ 'is-invalid': f.password.touched && f.password.errors }"
+          >
+          </ion-input>
+          <div
+            *ngIf="f.password.touched && f.password.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.password.errors.required">Password is required</div>
+          </div>
           <ion-label>Password</ion-label>
           <button class="typeToggle">
-            <ion-icon name="eye-outline"></ion-icon>
+            <ion-icon name="eye-outline" (click)="showHide()"></ion-icon>
           </button>
         </div>
         <div class="linkText linkText--right">
-          <a href="/forgotpassword">Forgot Password?</a>
+          <a routerLink="/forgotpassword">Forgot Password?</a>
         </div>
         <div class="buttonOuter">
-          <ion-button
-            class="formButton"
-            type="submit"
-            [routerLink]="['/influencers-profile']"
+          <ion-button class="formButton" type="submit" (click)="login()"
             >Login</ion-button
           >
         </div>
         <div class="linkText linkText--left">
           Don’t have an Account?
-          <a class="underline" href="/signup">Sign Up!</a>
+          <a class="underline" routerLink="/signup">Sign Up!</a>
         </div>
       </ion-list>
     </form>

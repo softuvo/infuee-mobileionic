@@ -24,57 +24,177 @@
     <div class="commonHeading commonHeading--center">
       <h2>Sign Up</h2>
     </div>
-    <form class="signUpForm">
+    <form class="signUpForm" [formGroup]="signupForm">
       <ion-list no-lines>
         <div class="formGroup">
-          <ion-input class="formField" type="text" value=""></ion-input>
+          <ion-input
+            type="text"
+            name="first_name"
+            formControlName="first_name"
+            class="formField"
+            [ngClass]="{ 'is-invalid': f.first_name.touched && f.first_name.errors }"
+          ></ion-input>
+          <div
+            *ngIf="f.first_name.touched && f.first_name.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.first_name.errors.required">
+              First Name is required
+            </div>
+          </div>
           <ion-label>Full Name</ion-label>
         </div>
         <div class="formGroup">
-          <ion-input class="formField" type="email" value=""></ion-input>
+          <ion-input
+            type="email"
+            name="email"
+            formControlName="email"
+            class="formField"
+            [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }"
+          ></ion-input>
+          <div
+            *ngIf="f.email.touched && f.email.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.pattern">Please enter valid email.</div>
+          </div>
           <ion-label>Email Address</ion-label>
         </div>
         <div class="formGroup">
-          <ion-input class="formField" type="date" value=""></ion-input>
+          <ion-input
+            displayFormat="MM/DD/YYYY"
+            min="1960-12-01"
+            max="2021-12-31"
+            class="form-control"
+            placeholder="Dob"
+            formControlName="dob"
+            class="formField"
+            type="date"
+          ></ion-input>
+          <!-- <ion-datetime
+            displayFormat="MM/DD/YYYY"
+            min="1960-12-01"
+            max="2021-12-31"
+            class="form-control"
+            placeholder="Dob"
+            formControlName="dob"
+          ></ion-datetime> -->
           <ion-label>Date Of Birth</ion-label>
         </div>
         <div class="formGroup">
-          <ion-input class="formField" type="number" value=""></ion-input>
+          <ion-input
+            type="number"
+            name="phone"
+            formControlName="phone"
+            class="formField"
+            [ngClass]="{ 'is-invalid': f.phone.touched && f.email.errors }"
+          ></ion-input>
+          <div
+            *ngIf="f.phone.touched && f.phone.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.phone.errors.required">Phone is required</div>
+            <div *ngIf="f.phone.errors.pattern">Phone is invalid</div>
+          </div>
           <ion-label>Phone Number</ion-label>
         </div>
         <div class="formGroup">
-          <ion-input class="formField" type="text" value=""></ion-input>
+          <!-- <ion-input class="formField" type="text" value=""></ion-input> -->
+          <ion-input
+            type="text"
+            name="address"
+            formControlName="address"
+            (ionInput)="updateSearchResults()"
+            placeholder="Address"
+            class="formField"
+            (ionBlur)="outsideInput($event)"
+          ></ion-input>
+          <ion-list [hidden]="!autocompleteItems.length">
+            <ion-item
+              *ngFor="let item of autocompleteItems"
+              (click)="selectSearchResult(item)"
+            >
+              {{ item.description }}
+            </ion-item>
+          </ion-list>
           <ion-label>Address</ion-label>
         </div>
         <div class="formGroup">
-          <ion-input class="formField" type="text" value=""></ion-input>
+          <ion-input
+            type="text"
+            name="school"
+            formControlName="school"
+            class="formField"
+          ></ion-input>
           <ion-label>School, Highschool, Collage(Optional)</ion-label>
         </div>
         <div class="formGroup">
-          <ion-input class="formField" type="password" value=""></ion-input>
+          <ion-input
+            [type]="inputType"
+            name="password"
+            formControlName="password"
+            class="formField"
+            [ngClass]="{ 'is-invalid': f.password.touched && f.password.errors }"
+          ></ion-input>
+          <div
+            *ngIf="f.password.touched && f.password.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.password.errors.required">Password is required</div>
+            <div *ngIf="f.password.errors.pattern">
+              Minimum eight characters, at least one uppercase letter, one
+              lowercase letter, one number and one special character
+            </div>
+          </div>
           <ion-label>Password</ion-label>
           <button class="typeToggle">
-            <ion-icon name="eye-outline"></ion-icon>
+            <ion-icon name="eye-outline" (click)="showHide()"></ion-icon>
           </button>
         </div>
-        <div class="formGroup">
+        <!-- <div class="formGroup">
           <ion-input class="formField" type="password" value=""></ion-input>
           <ion-label>Comfirm Password</ion-label>
           <button class="typeToggle">
             <ion-icon name="eye-outline"></ion-icon>
           </button>
+        </div> -->
+        <div class="formGroup">
+          <ion-input
+            [type]="inputTypeConfirm"
+            name="confirm_password"
+            formControlName="confirm_password"
+            class="formField"
+            [ngClass]="{ 'is-invalid': f.confirm_password.touched && f.confirm_password.errors }"
+          ></ion-input>
+          <div
+            *ngIf="f.confirm_password.touched && f.confirm_password.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.confirm_password.errors.required">
+              Confirm Password is required
+            </div>
+            <div *ngIf="f.confirm_password.errors.pattern">
+              Minimum eight characters, at least one uppercase letter, one
+              lowercase letter, one number and one special character
+            </div>
+            <div *ngIf="f.confirm_password.errors.confirmedValidator">
+              Please make sure your passwords match
+            </div>
+          </div>
+          <ion-label>Confirm Password</ion-label>
+          <button class="typeToggle">
+            <ion-icon name="eye-outline" (click)="showHideConfirm()"></ion-icon>
+          </button>
         </div>
         <div class="buttonOuter">
-          <ion-button
-            class="formButton"
-            type="submit"
-            [routerLink]="['/influencers-profile']"
+          <ion-button type="button" class="formButton" (click)="signUp()"
             >Signup</ion-button
           >
         </div>
         <div class="linkText linkText--left">
           Don’t have an Account?
-          <a class="underline" href="/login">Sign In!</a>
+          <a class="underline" routerLink="/login">Sign In!</a>
         </div>
       </ion-list>
     </form>

@@ -3,16 +3,19 @@
     <div class="profileMenu">
       <ion-header>
         <ion-toolbar color="primary">
-          <ion-title>Start Menu</ion-title>
+          <div class="image-div">
+            <img class="userImage" [src]="ProfileData?.image || dummyImg" />
+          </div>
+          <ion-title
+            >{{ ProfileData?.first_name }}
+            {{ ProfileData?.last_name }}</ion-title
+          >
+          <ion-note>{{ ProfileData?.email }}</ion-note>
         </ion-toolbar>
       </ion-header>
       <ion-content>
         <ion-list>
-          <ion-item>Menu Item</ion-item>
-          <ion-item>Menu Item</ion-item>
-          <ion-item>Menu Item</ion-item>
-          <ion-item>Menu Item</ion-item>
-          <ion-item>Menu Item</ion-item>
+          <ion-item (click)="logout()">Logout</ion-item>
         </ion-list>
       </ion-content>
     </div>
