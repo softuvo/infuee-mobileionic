@@ -19,7 +19,7 @@ export class UtilityService {
     moreOption: null,
   };
   public formButton = false;
-
+  public data = [];
   public username = '';
   public profileUrl;
   loader;
@@ -278,6 +278,15 @@ export class UtilityService {
 
   isIos() {
     return this.platform.is('ios');
+  }
+
+  setData(id, data) {
+    this.data[id] = data;
+    console.log(this.data);
+  }
+
+  getData(id) {
+    return this.data[id];
   }
 
   // async downloadFile(url, filename) {

@@ -1,0 +1,50 @@
+/*Bottom Fixed Links*/
+.bottomFixedLinks ul {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.bottomFixedLinks ul li {
+  width: 100%;
+  list-style: none;
+  text-align: center;
+  padding: 0 5px;
+}
+
+.bottomFixedLinks ul li:hover ion-icon {
+  color: #35b6f7;
+}
+
+.bottomFixedLinks ul li:hover span {
+  color: #35b6f7;
+}
+
+.bottomFixedLinks ul li a {
+  display: block;
+}
+
+.bottomFixedLinks ul li ion-icon {
+  font-size: 22px;
+  color: #92a1b4;
+}
+
+.bottomFixedLinks ul li span {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: #92a1b4;
+}
+a,
+button,
+textarea {
+  transition: ease 0.3s;
+  -webkit-transition: ease 0.3s;
+  -moz-transition: ease 0.3s;
+  text-decoration: none;
+  outline: none !important;
+  color: inherit;
+  font-size: inherit;
+  resize: none;
+}

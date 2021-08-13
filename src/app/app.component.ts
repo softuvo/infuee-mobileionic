@@ -42,27 +42,10 @@ export class AppComponent {
     this.userType = this.utility.getfromLocalStorage('type');
     this.userToken = this.utility.getfromLocalStorage('token');
     this.initializeApp();
-    this.setMenu();
+    this.checkUserLogIn();
   }
 
-  ngOnInit() {
-    this.path = window.location.pathname.split('influencer/')[1];
-    if (this.path !== undefined) {
-      if (this.userType && this.userType == 'user') {
-        this.appPages = this.userPage;
-        this.selectedIndex = this.appPages.findIndex(
-          (page) => page.title.toLowerCase() === this.path.toLowerCase()
-        );
-      } else if (this.userType && this.userType == 'influencer') {
-        this.appPages = this.influencerPage;
-        this.selectedIndex = this.appPages.findIndex(
-          (page) => page.title.toLowerCase() === this.path.toLowerCase()
-        );
-      } else if (!this.userType) {
-        this.utility.navigate('/login');
-      }
-    }
-  }
+  ngOnInit() {}
 
   initializeApp() {
     // this.platform.ready().then(() => {
@@ -75,36 +58,24 @@ export class AppComponent {
     // });
   }
 
-  setMenu() {
-    this.utility.sideMenuHandler.subscribe((res: any) => {
-      if (res == 'login') {
-        this.userType = this.utility.getfromLocalStorage('type');
-        console.log('after login userType ==>', this.userType);
-        if (this.userType == 'user') {
-          this.appPages = this.userPage;
-          this.getProfileData();
-          this.ngOnInit();
-        } else if (this.userType == 'influencer') {
-          this.appPages = this.influencerPage;
-          this.getProfileData();
-          this.ngOnInit();
+  checkUserLogIn() {
+    if (this.userToken && this.userToken != undefined) {
+      this.api.getProfileInfo().subscribe((res: any) => {
+        this.utility.checkToken(res);
+        if (res.status == 'Success') {
+          this.ProfileData = res.user;
+          this.utility.saveToLocalStorage(
+            'userObj',
+            JSON.stringify(this.ProfileData)
+          );
+          this.navCtrl.navigateRoot('/influencers-profile');
+        } else {
+          this.navCtrl.navigateRoot('/login');
         }
-      }
-    });
-  }
-
-  getProfileData() {
-    this.api.getProfileInfo().subscribe((res: any) => {
-      console.log('getProfileInfo ===>', res);
-      this.utility.checkToken(res);
-      if (res.status == 'Success') {
-        this.ProfileData = res.user;
-        this.utility.saveToLocalStorage(
-          'userObj',
-          JSON.stringify(this.ProfileData)
-        );
-      }
-    });
+      });
+    } else {
+      this.navCtrl.navigateRoot('/login');
+    }
   }
 
   logout() {

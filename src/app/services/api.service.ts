@@ -7,8 +7,8 @@ import { UtilityService } from './utility.service';
   providedIn: 'root',
 })
 export class ApiService {
-  baseUrl = 'https://infuee.softuvo.xyz/api/';
-  // baseUrl = 'http://127.0.0.1:8000/api/';
+  // baseUrl = 'https://infuee.softuvo.xyz/api/';
+  baseUrl = 'http://127.0.0.1:8000/api/';
   httpOptions;
   constructor(private http: HttpClient, private utility: UtilityService) {
     this.httpOptions = {
@@ -46,6 +46,12 @@ export class ApiService {
     return this.http.post<any>(this.baseUrl + 'forget-password', data).pipe(
       tap((_) => this.utility.log('forget-password')),
       catchError(this.handleError('forget-password', []))
+    );
+  }
+  createNewPswd(data): Observable<any> {
+    return this.http.post<any>(this.baseUrl + 'create-new-password', data).pipe(
+      tap((_) => this.utility.log('create-new-password')),
+      catchError(this.handleError('create-new-password', []))
     );
   }
 
@@ -244,6 +250,12 @@ export class ApiService {
     return this.http.post<any>(this.baseUrl + 'loginOTP', data).pipe(
       tap((_) => this.utility.log('loginwithotp')),
       catchError(this.handleError('loginwithotp', []))
+    );
+  }
+  verifyWithOtp(data) {
+    return this.http.post<any>(this.baseUrl + 'verifyOTP', data).pipe(
+      tap((_) => this.utility.log('verifyOTP')),
+      catchError(this.handleError('verifyOTP', []))
     );
   }
   resendOtp(data) {

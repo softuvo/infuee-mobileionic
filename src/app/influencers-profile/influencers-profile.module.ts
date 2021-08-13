@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { InfluencersProfilePageRoutingModule } from './influencers-profile-routing.module';
 
 import { InfluencersProfilePage } from './influencers-profile.page';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    InfluencersProfilePageRoutingModule
+    InfluencersProfilePageRoutingModule,
+    ComponentsModule,
   ],
-  declarations: [InfluencersProfilePage]
+  declarations: [InfluencersProfilePage],
 })
 export class InfluencersProfilePageModule {}

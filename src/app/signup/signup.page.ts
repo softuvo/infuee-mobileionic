@@ -46,7 +46,6 @@ export class SignupPage implements OnInit {
     this.signupForm = this.fb.group(
       {
         first_name: ['', [Validators.required]],
-        last_name: ['', [Validators.required]],
         dob: ['', [Validators.required]],
         email: [
           '',
