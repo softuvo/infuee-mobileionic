@@ -396,4 +396,12 @@ export class UtilityService {
   checkError(res) {
     return res.status == 'Fail';
   }
+
+  isValidString(d) {
+    if (d == undefined || d == null || d == '') {
+      return false;
+    } else {
+      return true;
+    }
+  }
 }

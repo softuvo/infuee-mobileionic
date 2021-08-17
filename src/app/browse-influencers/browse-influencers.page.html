@@ -1,276 +1,85 @@
-
 <ion-header>
   <ion-toolbar>
     <ion-button class="left">&nbsp;</ion-button>
     <ion-title class="pxElement">Browse Influencers</ion-title>
-    <ion-button class="right menuButton">
-       <ion-icon name="menu-sharp" (click)="openFirst()"></ion-icon>
+    <ion-button class="right menuButton" (click)="openMenu()">
+      <ion-icon name="menu-sharp"></ion-icon>
     </ion-button>
-    <ion-menu>
-       <div class="profileMenu">
-          <ion-header>
-            <ion-toolbar color="primary">
-              <ion-title>Start Menu</ion-title>
-            </ion-toolbar>
-          </ion-header>
-          <ion-content>
-            <ion-list>
-              <ion-item>Menu Item</ion-item>
-              <ion-item>Menu Item</ion-item>
-              <ion-item>Menu Item</ion-item>
-              <ion-item>Menu Item</ion-item>
-              <ion-item>Menu Item</ion-item>
-            </ion-list>
-          </ion-content>
-       </div>
-    </ion-menu>    
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="upperCaseWrap">
-    <div class="commonWrap">
-      <ion-grid>
+  <div class="commonWrap">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" class="searchFilters">
           <ion-row>
-              <ion-col size="12" class="searchFilters">
-                  <ion-row>
-                      <ion-col size="10">
-                          <ion-searchbar class="searchInfluencer" placeholder="Search Influencer"></ion-searchbar>
-                      </ion-col>
-                      <ion-col size="2">
-                          <ion-button>
-                            <ion-icon name="filter-sharp"></ion-icon>
-                          </ion-button>
-                          <ion-content class="pageFilters" fullscreen>
-                            <ion-list>
-                              <div class="pageFiltersInner">
-                                <h3>Filter By</h3>
-                                <div class="filterItem">
-                                    <h4>Influencers</h4>
-                                    <form action="">
-                                      <ion-item>
-                                        <ion-checkbox></ion-checkbox>
-                                        <ion-label><span>Instagram</span></ion-label>
-                                      </ion-item>
-                                      <ion-item>
-                                        <ion-checkbox checked="true"></ion-checkbox>
-                                        <ion-label><span>Facebook</span></ion-label>
-                                      </ion-item>
-                                      <ion-item>
-                                        <ion-checkbox></ion-checkbox>
-                                        <ion-label><span>Youtube</span></ion-label>
-                                      </ion-item>
-                                      <ion-item>
-                                        <ion-checkbox></ion-checkbox>
-                                        <ion-label><span>TikTok</span></ion-label>
-                                      </ion-item>
-                                      <ion-item>
-                                        <ion-checkbox></ion-checkbox>
-                                        <ion-label><span>Twitter</span></ion-label>
-                                      </ion-item>
-                                    </form>
-                                </div><!--Item End-->
-                                <div class="filterItem">
-                                  <h4>Price</h4>
-                                  <form action="">
-                                    <ion-item>
-                                      <ion-checkbox checked="true"></ion-checkbox>
-                                      <ion-label><span>Lower to higher</span></ion-label>
-                                    </ion-item>
-                                    <ion-item>
-                                      <ion-checkbox></ion-checkbox>
-                                      <ion-label><span>Higher to lower</span></ion-label>
-                                    </ion-item>
-                                  </form>
-                                </div><!--Item End-->
-                                <div class="filterItem">
-                                  <h4>Category</h4>
-                                  <form action="">
-                                    <ion-item>
-                                      <ion-checkbox></ion-checkbox>
-                                      <ion-label><span>Writer</span></ion-label>
-                                    </ion-item>
-                                    <ion-item>
-                                      <ion-checkbox></ion-checkbox>
-                                      <ion-label><span>Music</span></ion-label>
-                                    </ion-item>
-                                    <ion-item>
-                                      <ion-checkbox></ion-checkbox>
-                                      <ion-label><span>Dance</span></ion-label>
-                                    </ion-item>
-                                    <ion-item>
-                                      <ion-checkbox></ion-checkbox>
-                                      <ion-label><span>Gaming</span></ion-label>
-                                    </ion-item>
-                                  </form>
-                                </div><!--Item End-->
-                                <div class="filterItem">
-                                  <h4>Price Range</h4>
-                                  <form action="">
-                                    <ion-item lines="none">
-                                        <ion-range name="string" min="-200" max="200">
-                                          <ion-label slot="start">-200</ion-label>
-                                          <ion-label slot="end">200</ion-label>
-                                        </ion-range>
-                                    </ion-item>
-                                  </form>
-                                </div><!--Item End-->
-                                <div class="filterItem">
-                                  <h4>Age</h4>
-                                  <form action="">
-                                    <div class="selectOptionBar">
-                                        <ion-select placeholder="Select">
-                                          <ion-select-option value="1">15</ion-select-option>
-                                          <ion-select-option value="2">18</ion-select-option>
-                                          <ion-select-option value="3">20</ion-select-option>
-                                          <ion-select-option value="4">22</ion-select-option>
-                                        </ion-select>
-                                    </div>
-                                  </form>
-                                </div><!--Item End-->
-                              </div>
-                            </ion-list>
-                          </ion-content>
-                      </ion-col>
-                  </ion-row>
-              </ion-col>
-              <ion-col sizeLg="3" sizeMd="4" sizeXs="6">
-                 <div class="filterDataGrid">
-                    <ion-card>
-                        <div class="cardImg">
-                          <img src="../../assets/images/demo-image1.jpg" alt="ion">
-                        </div>
-                        <ion-card-content>
-                            <h4>@amit.kumar</h4>
-                            <h5>Skin And beauty care</h5>
-                        </ion-card-content>
-                    </ion-card>
-                 </div>
-              </ion-col>
-              <ion-col sizeLg="3" sizeMd="4" sizeXs="6">
-                 <div class="filterDataGrid">
-                    <ion-card>
-                        <div class="cardImg">
-                          <img src="../../assets/images/demo-image1.jpg" alt="ion">
-                        </div>
-                        <ion-card-content>
-                            <h4>@amit.kumar</h4>
-                            <h5>Skin And beauty care</h5>
-                        </ion-card-content>
-                    </ion-card>
-                 </div>
-              </ion-col>
-              <ion-col sizeLg="3" sizeMd="4" sizeXs="6">
-                 <div class="filterDataGrid">
-                    <ion-card>
-                        <div class="cardImg">
-                          <img src="../../assets/images/demo-image1.jpg" alt="ion">
-                        </div>
-                        <ion-card-content>
-                            <h4>@amit.kumar</h4>
-                            <h5>Skin And beauty care</h5>
-                        </ion-card-content>
-                    </ion-card>
-                 </div>
-              </ion-col>
-              <ion-col sizeLg="3" sizeMd="4" sizeXs="6">
-                 <div class="filterDataGrid">
-                    <ion-card>
-                        <div class="cardImg">
-                          <img src="../../assets/images/demo-image1.jpg" alt="ion">
-                        </div>
-                        <ion-card-content>
-                            <h4>@amit.kumar</h4>
-                            <h5>Skin And beauty care</h5>
-                        </ion-card-content>
-                    </ion-card>
-                 </div>
-              </ion-col>
-              <ion-col sizeLg="3" sizeMd="4" sizeXs="6">
-                 <div class="filterDataGrid">
-                    <ion-card>
-                        <div class="cardImg">
-                          <img src="../../assets/images/demo-image1.jpg" alt="ion">
-                        </div>
-                        <ion-card-content>
-                            <h4>@amit.kumar</h4>
-                            <h5>Skin And beauty care</h5>
-                        </ion-card-content>
-                    </ion-card>
-                 </div>
-              </ion-col>
-              <ion-col sizeLg="3" sizeMd="4" sizeXs="6">
-                 <div class="filterDataGrid">
-                    <ion-card>
-                        <div class="cardImg">
-                          <img src="../../assets/images/demo-image1.jpg" alt="ion">
-                        </div>
-                        <ion-card-content>
-                            <h4>@amit.kumar</h4>
-                            <h5>Skin And beauty care</h5>
-                        </ion-card-content>
-                    </ion-card>
-                 </div>
-              </ion-col>
-              <ion-col sizeLg="3" sizeMd="4" sizeXs="6">
-                 <div class="filterDataGrid">
-                    <ion-card>
-                        <div class="cardImg">
-                          <img src="../../assets/images/demo-image1.jpg" alt="ion">
-                        </div>
-                        <ion-card-content>
-                            <h4>@amit.kumar</h4>
-                            <h5>Skin And beauty care</h5>
-                        </ion-card-content>
-                    </ion-card>
-                 </div>
-              </ion-col>
-              <ion-col sizeLg="3" sizeMd="4" sizeXs="6">
-                 <div class="filterDataGrid">
-                    <ion-card>
-                        <div class="cardImg">
-                          <img src="../../assets/images/demo-image1.jpg" alt="ion">
-                        </div>
-                        <ion-card-content>
-                            <h4>@amit.kumar</h4>
-                            <h5>Skin And beauty care</h5>
-                        </ion-card-content>
-                    </ion-card>
-                 </div>
-              </ion-col>
+            <ion-col size="10">
+              <ion-searchbar
+                class="searchInfluencer"
+                placeholder="Search Influencer"
+                debounce="1000"
+                (ionChange)="handleSearch($event)"
+              ></ion-searchbar>
+            </ion-col>
+            <ion-col size="2">
+              <ion-button (click)="presentModal()">
+                <ion-icon name="filter-sharp"></ion-icon>
+              </ion-button>
+            </ion-col>
           </ion-row>
-      </ion-grid>
-    </div>
+        </ion-col>
+      </ion-row>
+      <app-preloader [rowNumber]='4' *ngIf='isPreloader'></app-preloader>
+      <ion-row *ngIf="influencersList.length == 0 && !isPreloader">
+        <ion-col size="12">
+          <app-no-data></app-no-data>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="influencersList.length > 0 && !isPreloader">
+        <ion-col
+          sizeLg="3"
+          sizeMd="4"
+          sizeXs="6"
+          *ngFor="let info of influencersList"
+        >
+          <div class="filterDataGrid">
+            <ion-card>
+              <div class="cardImg" (click)="openProfilePgae(info?.username)">
+                <img
+                  [src]="[info?.imageLink]"
+                  alt="ion"
+                  onError="src = './../assets/images/demo-image1.jpg'"
+                />
+              </div>
+              <ion-card-content>
+                <h4 (click)="openProfilePgae(info?.username)">
+                  {{info?.username ? '@' + info?.username : ''}}
+                </h4>
+                <h5>{{info?.category ? info?.category_type?.name : ''}}</h5>
+              </ion-card-content>
+            </ion-card>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="influencersList.length > 0 && !isPreloader && recordCount > 0 && recordCount == perpage">
+        <ion-infinite-scroll
+          threshold="100px"
+          (ionInfinite)="loadMore($event)"
+          *ngIf="!loadStatus"
+        >
+          <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="Load More"
+          >
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+        <ion-col size="12" *ngIf="loadStatus">
+          <ion-note class="no-more">No more data available...</ion-note>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>
 
-<ion-footer>
-  <ion-toolbar>
-      <div class="bottomFixedLinks">
-        <ul>
-          <li>
-            <a href="javascript:void(0);">
-              <ion-icon name="home-outline"></ion-icon>
-              <span>Home</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0);">
-              <ion-icon name="chatbubbles-outline"></ion-icon>
-              <span>Chat</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0);">
-              <ion-icon name="notifications-outline"></ion-icon>
-              <span>Notification</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0);">
-              <ion-icon name="person-outline"></ion-icon>
-              <span>Profile</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-  </ion-toolbar>
-</ion-footer>
+<app-footer-nav></app-footer-nav>

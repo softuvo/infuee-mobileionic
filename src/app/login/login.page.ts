@@ -75,7 +75,7 @@ export class LoginPage implements OnInit {
             this.utility.saveToLocalStorage('token', res.token);
             this.utility.saveToLocalStorage('type', res.type);
             this.utility.menuHandler.next('login');
-            this.navCtrl.navigateRoot('influencers-profile');
+            this.navCtrl.navigateRoot('browse-influencers');
           } else if (res.code == '404') {
             this.utility.hideLoader();
             this.utility.showAlert('Error', res.message);

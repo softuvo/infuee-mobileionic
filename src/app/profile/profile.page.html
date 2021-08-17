@@ -4,7 +4,7 @@
       <ion-icon name="arrow-back-outline"></ion-icon>
     </ion-button>
     <ion-title class="pxElement">Profile</ion-title>
-    <ion-button class="right menuButton">
+    <ion-button class="right menuButton" (click)="openMenu()">
       <ion-icon name="menu-sharp"></ion-icon>
     </ion-button>
   </ion-toolbar>
@@ -31,8 +31,9 @@
     </ion-grid>
   </div>
 </ion-content>
+<app-footer-nav></app-footer-nav>
 
-<ion-footer>
+<!-- <ion-footer>
   <ion-toolbar>
     <div class="bottomFixedLinks">
       <ul>
@@ -63,4 +64,4 @@
       </ul>
     </div>
   </ion-toolbar>
-</ion-footer>
+</ion-footer> -->

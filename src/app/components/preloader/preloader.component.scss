@@ -1,0 +1,38 @@
+.filterDataGrid {
+    margin: 0;
+    ion-card {
+    //   --background: #fbfbfb;
+    //   border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+    //   -webkit-box-shadow: none;
+      box-shadow: none;
+      margin: 0;
+      padding: 20px 5px;
+      width:100%;
+    }
+    .cardImg {
+      text-align: center;
+      margin: 0 0 10px;
+      ion-avatar {
+          margin:0 auto;
+      }
+      img {
+        background: linear-gradient(to bottom, #7923bd, #c4296a, #dd923f);
+        width: 100px;
+        height: 100px;
+        display: inline-block;
+        border-radius: 50%;
+        padding: 2px;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
+    }
+    ion-card-content {
+      text-align: center;
+      padding: 0;
+      
+      h5 {
+        margin: 8px 0 0;
+      }
+    }
+  }

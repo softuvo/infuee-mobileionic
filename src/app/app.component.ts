@@ -68,7 +68,7 @@ export class AppComponent {
             'userObj',
             JSON.stringify(this.ProfileData)
           );
-          this.navCtrl.navigateRoot('/influencers-profile');
+          this.navCtrl.navigateRoot('/browse-influencers');
         } else {
           this.navCtrl.navigateRoot('/login');
         }

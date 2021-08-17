@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-notification',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notification.page.scss'],
 })
 export class NotificationPage implements OnInit {
+  constructor(private menu: MenuController) {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  openMenu() {
+    this.menu.toggle();
   }
-
 }

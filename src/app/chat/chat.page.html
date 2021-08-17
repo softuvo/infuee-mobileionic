@@ -4,27 +4,9 @@
       <ion-icon name="arrow-back-outline"></ion-icon>
     </ion-button>
     <ion-title class="pxElement">Chat</ion-title>
-    <ion-button class="right menuButton">
-      <ion-icon name="menu-sharp" (click)="openFirst()"></ion-icon>
+    <ion-button class="right menuButton" (click)="openMenu()">
+      <ion-icon name="menu-sharp"></ion-icon>
     </ion-button>
-    <ion-menu>
-      <div class="profileMenu">
-        <ion-header>
-          <ion-toolbar color="primary">
-            <ion-title>Start Menu</ion-title>
-          </ion-toolbar>
-        </ion-header>
-        <ion-content>
-          <ion-list>
-            <ion-item>Menu Item</ion-item>
-            <ion-item>Menu Item</ion-item>
-            <ion-item>Menu Item</ion-item>
-            <ion-item>Menu Item</ion-item>
-            <ion-item>Menu Item</ion-item>
-          </ion-list>
-        </ion-content>
-      </div>
-    </ion-menu>
   </ion-toolbar>
 </ion-header>
 
@@ -33,12 +15,17 @@
     <ion-grid>
       <ion-row>
         <ion-col size="12" class="searchFilters colorChanges">
-           <ion-row>
-               <ion-col><ion-searchbar class="searchInfluencer" placeholder="Search..."></ion-searchbar></ion-col>
-           </ion-row>
+          <ion-row>
+            <ion-col
+              ><ion-searchbar
+                class="searchInfluencer"
+                placeholder="Search..."
+              ></ion-searchbar
+            ></ion-col>
+          </ion-row>
         </ion-col>
         <ion-col size="12" class="userListOuter">
-          <ion-list>          
+          <ion-list>
             <ion-item class="userList">
               <div class="userList__img">
                 <span class="userActive"></span>
@@ -103,7 +90,7 @@
                 <h4><span>Alan Walke</span> <small>20 min. ago</small></h4>
                 <p>Sounds good catch you later match.</p>
               </div>
-            </ion-item>       
+            </ion-item>
             <ion-item class="userList">
               <div class="userList__img">
                 <span class="userActive"></span>
@@ -123,7 +110,7 @@
                 <h4><span>Alan Walke</span> <small>20 min. ago</small></h4>
                 <p>Sounds good catch you later match.</p>
               </div>
-            </ion-item>          
+            </ion-item>
           </ion-list>
         </ion-col>
       </ion-row>
@@ -131,35 +118,4 @@
   </div>
 </ion-content>
 
-<ion-footer>
-  <ion-toolbar>
-    <div class="bottomFixedLinks">
-      <ul>
-        <li>
-          <a href="javascript:void(0);">
-            <ion-icon name="home-outline"></ion-icon>
-            <span>Home</span>
-          </a>
-        </li>
-        <li>
-          <a href="javascript:void(0);">
-            <ion-icon name="chatbubbles-outline"></ion-icon>
-            <span>Chat</span>
-          </a>
-        </li>
-        <li>
-          <a href="javascript:void(0);">
-            <ion-icon name="notifications-outline"></ion-icon>
-            <span>Notification</span>
-          </a>
-        </li>
-        <li>
-          <a href="javascript:void(0);">
-            <ion-icon name="person-outline"></ion-icon>
-            <span>Profile</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </ion-toolbar>
-</ion-footer>
+<app-footer-nav></app-footer-nav>

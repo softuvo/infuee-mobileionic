@@ -84,21 +84,60 @@ export class ApiService {
   }
 
   getInfluencers(data): Observable<any> {
-    return this.http.get<any>(this.baseUrl + `influencers?page=${data}`).pipe(
-      tap((_) => this.utility.log('influencers')),
-      catchError(this.handleError('influencers', []))
-    );
+    let urlSearchParams = new URLSearchParams();
+    if (data) {
+      if (data.page) {
+        urlSearchParams.append('page', data.page);
+      }
+      if (data.search) {
+        urlSearchParams.append('search', data.search);
+      }
+      if (data.filter) {
+        urlSearchParams.append('order', data.filter.order?data.filter.order:1); 
+        if (data.filter.age) {
+          urlSearchParams.append('age', data.filter.age);
+        }
+        if (data.filter.category) {
+          let category = '';
+          for (let cat in data.filter.category) {
+            if (data.filter.category[cat] == true) {
+              category += category == '' ? cat : '&' + cat;
+            }
+          }
+          urlSearchParams.append('category', category);
+        }
+
+        if (data.filter.influencers) {
+          for (let item in data.filter.influencers) {
+            if(data.filter.influencers[item] == true) {
+              urlSearchParams.append(item,item);
+            }
+          }
+        }
+
+        if (data.filter.priceRange) {
+          if (
+            data.filter.priceRange.lower >= 0 &&
+            data.filter.priceRange.upper &&
+            data.filter.priceRange.upper > 0
+          ) {
+            urlSearchParams.append('low_price', data.filter.priceRange.lower);
+            urlSearchParams.append('high_price', data.filter.priceRange.upper);
+          }
+        }
+      }
+    }
+
+    return this.http
+      .get<any>(this.baseUrl + `influencers?` + urlSearchParams.toString())
+      .pipe(
+        tap((_) => this.utility.log('influencers')),
+        catchError(this.handleError('influencers', []))
+      );
   }
 
   changePswd(data): Observable<any> {
     return this.http.post<any>(this.baseUrl + 'change-password', data).pipe(
-      tap((_) => this.utility.log('change-password')),
-      catchError(this.handleError('change-password', []))
-    );
-  }
-
-  getSearchlist(data): Observable<any> {
-    return this.http.get<any>(this.baseUrl + `influencers?search=${data}`).pipe(
       tap((_) => this.utility.log('change-password')),
       catchError(this.handleError('change-password', []))
     );
