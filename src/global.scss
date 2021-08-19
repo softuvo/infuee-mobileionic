@@ -16,7 +16,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -25,47 +25,86 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-
 /*ion Searchbar Style*/
 ion-searchbar {
-    .searchbar-input-container {
-        .searchbar-input {
-            background-color: transparent;
-            &.sc-ion-searchbar-md {
-                font-size: 14px;
-                font-weight: 500;
-                color: #ABABAB;
-                -webkit-padding-start: 30px;
-                padding-inline-start: 30px;
-                -webkit-padding-end: 30px;
-                padding-inline-end: 30px;
-            }
-        }
-        .searchbar-search-icon {
-            &.sc-ion-searchbar-md {
-                left: 5px;
-                width: 18px;
-                height: 20px;
-                opacity: 0.4;
-            }
-        }
-        .searchbar-clear-button {
-            &.sc-ion-searchbar-md {
-                right: 5px;
-                opacity: 0.4;
-            }
-        }
+  .searchbar-input-container {
+    .searchbar-input {
+      background-color: transparent;
+      &.sc-ion-searchbar-md {
+        font-size: 14px;
+        font-weight: 500;
+        color: #ababab;
+        -webkit-padding-start: 30px;
+        padding-inline-start: 30px;
+        -webkit-padding-end: 30px;
+        padding-inline-end: 30px;
+      }
     }
+    .searchbar-search-icon {
+      &.sc-ion-searchbar-md {
+        left: 5px;
+        width: 18px;
+        height: 20px;
+        opacity: 0.4;
+      }
+    }
+    .searchbar-clear-button {
+      &.sc-ion-searchbar-md {
+        right: 5px;
+        opacity: 0.4;
+      }
+    }
+  }
 }
 
 .colorChanges {
-    ion-searchbar {
-        .searchbar-search-icon {
-            &.sc-ion-searchbar-md {
-                color: #35B6F7;
-                opacity: 1;
-            }
-        }
-    } 
+  ion-searchbar {
+    .searchbar-search-icon {
+      &.sc-ion-searchbar-md {
+        color: #35b6f7;
+        opacity: 1;
+      }
+    }
+  }
+}
+.is-invalid {
+  border: solid 1px red !important;
+}
+.is-invalid {
+  border: solid 1px #f00 !important;
+}
+.invalid-feedback {
+  text-align: left;
+  color: #f00 !important;
+  font-size: 12px;
+  padding: 5px 5px 5px 12px;
 }
 
+.toasts-css-error {
+  --background: #d40808;
+  --color: white;
+  font-size: 17px;
+  font-weight: 500;
+  font-family: system-ui;
+}
+.toasts-css {
+  --background: #50b322;
+  --color: white;
+  font-size: 17px;
+  font-weight: 500;
+  font-family: system-ui;
+}
+.toast-button-cancel {
+  color: #222428;
+}
+
+.confirmation-alert {
+  --max-width: 300px;
+}
+.no-more {
+  font-size: 18px;
+  color: #aaadb1;
+  text-align: center;
+  width: 100%;
+  float: left;
+}

@@ -1,0 +1,182 @@
+<ion-content class="pageFilters" fullscreen>
+  <ion-list>
+    <div class="pageFiltersInner">
+      <div class="back-box">
+        <ion-icon name="chevron-back-outline" (click)="dismiss()"></ion-icon>
+      </div>
+      <h3>Filter By</h3>
+      <div class="filterItem">
+        <h4>Influencers</h4>
+        <form action="">
+          <ion-item>
+            <ion-checkbox
+              name="influencers"
+              [ngModelOptions]="{ standalone: true }"
+              [(ngModel)]="filter.influencers.instagram"
+            ></ion-checkbox>
+            <ion-label><span>Instagram</span></ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-checkbox
+              name="influencers"
+              [ngModelOptions]="{ standalone: true }"
+              [(ngModel)]="filter.influencers.facebook"
+            ></ion-checkbox>
+            <ion-label><span>Facebook</span></ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-checkbox
+              name="influencers"
+              [(ngModel)]="filter.influencers.youtube"
+              [ngModelOptions]="{ standalone: true }"
+            ></ion-checkbox>
+            <ion-label><span>Youtube</span></ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-checkbox
+              name="influencers"
+              [(ngModel)]="filter.influencers.tikTok"
+              [ngModelOptions]="{ standalone: true }"
+            ></ion-checkbox>
+            <ion-label><span>TikTok</span></ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-checkbox
+              name="influencers"
+              [(ngModel)]="filter.influencers.twitter"
+              [ngModelOptions]="{ standalone: true }"
+            ></ion-checkbox>
+            <ion-label><span>Twitter</span></ion-label>
+          </ion-item>
+        </form>
+      </div>
+      <!--Item End-->
+      <div class="filterItem">
+        <h4>Price</h4>
+        <form action="">
+          <ion-item>
+            <ion-radio-group
+              [value]="filter.order"
+              (ionChange)="radioGroupChange($event)"
+            >
+              <ion-item>
+                <ion-label>Lower to higher</ion-label>
+                <ion-radio slot="start" value="1"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Higher to lower</ion-label>
+                <ion-radio slot="start" value="2"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+          </ion-item>
+          <!-- <ion-item>
+            <ion-checkbox
+              name="order"
+              [checked]="filter.order.asc"
+              [(ngModel)]="filter.order.asc"
+              (ionChange)="changeOrder('lowToHigh')"
+            ></ion-checkbox>
+            <ion-label><span>Lower to higher</span></ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-checkbox
+              (ionChange)="changeOrder('highToLow')"
+              name="order"
+              [(ngModel)]="filter.order.desc"
+              [checked]="filter.order.desc"
+            ></ion-checkbox>
+            <ion-label><span>Higher to lower</span></ion-label>
+          </ion-item> -->
+        </form>
+      </div>
+      <!--Item End-->
+      <div class="filterItem">
+        <h4>Category</h4>
+        <form action="">
+          <ion-item *ngFor="let cat of categoryList">
+            <ion-checkbox
+              name="category"
+              [(ngModel)]="filter.category[cat.id]"
+              [ngModelOptions]="{ standalone: true }"
+            ></ion-checkbox>
+            <ion-label
+              ><span>{{ cat?.name }}</span></ion-label
+            >
+          </ion-item>
+          <!-- <ion-item>
+            <ion-checkbox></ion-checkbox>
+            <ion-label><span>Music</span></ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-checkbox></ion-checkbox>
+            <ion-label><span>Dance</span></ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-checkbox></ion-checkbox>
+            <ion-label><span>Gaming</span></ion-label>
+          </ion-item> -->
+        </form>
+      </div>
+      <!--Item End-->
+      <div class="filterItem">
+        <h4>Price Range</h4>
+        <form action="">
+          <ion-item lines="none">
+            <!-- <ion-range name="string" min="-200" max="200">
+              <ion-label slot="start">-200</ion-label>
+              <ion-label slot="end">200</ion-label>
+            </ion-range> -->
+            <ion-range
+              dualKnobs="true"
+              min="0"
+              max="5000"
+              steps="1"
+              pin="true"
+              id="dual-knobs"
+              bname="priceRange"
+              color="secondary"
+              class="range"
+              #customRange
+              *ngIf="val"
+              (ionChange)="slider(customRange)"
+              (ionFocus)="this.whenToUpdate = false"
+              [ngModelOptions]="{ standalone: true }"
+              [(ngModel)]="filter.price"
+            >
+              <ion-label class="start" slot="start"
+                >${{ filter.price?.lower }}</ion-label
+              >
+              <ion-label class="end" slot="end"
+                >${{
+                  filter.price?.upper > 0 ? filter.price?.upper : 5000
+                }}</ion-label
+              >
+            </ion-range>
+          </ion-item>
+        </form>
+      </div>
+      <!--Item End-->
+      <div class="filterItem">
+        <h4>Age</h4>
+        <form action="">
+          <div class="selectOptionBar">
+            <ion-select
+              placeholder="Select"
+              name="age"
+              [(ngModel)]="filter.age"
+              [ngModelOptions]="{ standalone: true }"
+            >
+              <ion-select-option value="">Select Age</ion-select-option>
+              <ion-select-option value="15">15</ion-select-option>
+              <ion-select-option value="18">18</ion-select-option>
+              <ion-select-option value="20">20</ion-select-option>
+              <ion-select-option value="22">22</ion-select-option>
+            </ion-select>
+          </div>
+        </form>
+      </div>
+      <!--Item End-->
+    </div>
+  </ion-list>
+</ion-content>

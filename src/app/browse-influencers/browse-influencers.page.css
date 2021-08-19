@@ -6,22 +6,41 @@
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 14px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 0;
 }
 
-li, p, span, label, input, select, textarea, button {
-  font-family: 'Montserrat', sans-serif;
+li,
+p,
+span,
+label,
+input,
+select,
+textarea,
+button {
+  font-family: "Montserrat", sans-serif;
 }
 
-ion-title, ion-card-title, ion-card-subtitle, ion-label, ion-input, ion-select, ion-textarea, ion-button {
-  font-family: 'Montserrat', sans-serif;
+ion-title,
+ion-card-title,
+ion-card-subtitle,
+ion-label,
+ion-input,
+ion-select,
+ion-textarea,
+ion-button {
+  font-family: "Montserrat", sans-serif;
 }
 
 ion-select {
@@ -85,7 +104,7 @@ ion-app {
 }
 
 .lightBgColor {
-  background-color: #FBFBFB;
+  background-color: #fbfbfb;
 }
 
 .whiteBgColor {
@@ -93,8 +112,8 @@ ion-app {
 }
 
 .commonBorderBg {
-  background-color: #FBFBFB;
-  border: 1px solid #CBCBCB;
+  background-color: #fbfbfb;
+  border: 1px solid #cbcbcb;
   border-radius: 5px;
   padding: 7px;
 }
@@ -104,12 +123,12 @@ ion-app {
 }
 
 .lightBlue {
-  color: #35B6F7;
+  color: #35b6f7;
 }
 
 /*Common Button*/
 .commonButton {
-  --background: #35B6F7;
+  --background: #35b6f7;
   --border-radius: 5px;
   --box-shadow: none;
   height: 32px;
@@ -127,44 +146,6 @@ ion-app {
 .commonButton ion-icon {
   font-size: 13px;
   margin-left: 3px;
-}
-
-/*Heading Text*/
-.headingText {
-  --min-height: 100%;
-}
-
-.headingText.mb {
-  margin-bottom: 10px;
-}
-
-.headingText ion-title {
-  font-size: 17px;
-  font-weight: 500;
-  color: #222222;
-  padding: 0;
-}
-
-.headingText ion-title.medium {
-  font-size: 20px;
-}
-
-.headingText ion-title.big {
-  font-size: 24px;
-}
-
-.headingText .seeAllText {
-  font-size: 14px;
-  font-weight: 500;
-  color: #777777;
-}
-
-.headingText .seeAllText a {
-  color: #777777;
-}
-
-.headingText .seeAllText a:hover {
-  color: #35B6F7;
 }
 
 /*Header*/
@@ -285,6 +266,124 @@ ion-header ion-button.userLogin .userLogin img {
   object-fit: cover;
 }
 
+/*Header*/
+ion-header::after {
+  display: none;
+}
+
+ion-header .hide {
+  display: none;
+}
+
+ion-header ion-toolbar {
+  position: relative;
+  --background: #35b6f7;
+  --min-height: 22px;
+  padding: 50px 15px 10px;
+}
+
+ion-header ion-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+  text-align: center;
+}
+
+ion-header ion-title span {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+}
+
+ion-header ion-title.pxElement {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+ion-header ion-title.psmlPmdrElement {
+  padding-left: 30px;
+  padding-right: 85px;
+}
+
+ion-header ion-button {
+  position: absolute;
+  top: 0;
+  height: auto;
+  margin: 0;
+  letter-spacing: normal;
+  z-index: 1;
+  --background: none;
+  --box-shadow: none;
+  --padding-start: 0;
+  --padding-end: 0;
+}
+
+ion-header ion-button ion-icon {
+  font-size: 28px;
+}
+
+ion-header ion-button.left {
+  left: 0;
+}
+
+ion-header ion-button.right {
+  right: 0;
+}
+
+ion-header ion-button.backArrow ion-icon {
+  font-size: 20px;
+}
+
+ion-header ion-button.backArrow--middle {
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+ion-header ion-button.menuButton {
+  top: -3px;
+}
+
+ion-header ion-button.addNewButton {
+  font-size: 13px;
+  text-transform: capitalize;
+}
+
+ion-header ion-button.addNewButton ion-icon {
+  font-size: 20px;
+  margin-left: 3px;
+}
+
+ion-header ion-button.userLogin .userLogin {
+  width: 35px;
+  height: 35px;
+  position: relative;
+  border-radius: 50%;
+}
+
+ion-header ion-button.userLogin .userLogin .userActive {
+  background-color: #26db4e;
+  border: 1px solid #fff;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border-radius: 50%;
+}
+
+ion-header ion-button.userLogin .userLogin img {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
 ion-grid {
   --ion-grid-padding: 0;
 }
@@ -304,7 +403,7 @@ ion-grid {
   height: 45px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 14px;
   font-weight: 500;
   --box-shadow: none;
@@ -322,7 +421,7 @@ ion-grid {
   height: 100%;
   margin: 0;
   letter-spacing: normal;
-  --background: #35B6F7;
+  --background: #35b6f7;
   --box-shadow: none;
   --padding-start: 0;
   --padding-end: 0;
@@ -337,7 +436,7 @@ ion-grid {
 }
 
 .filterDataGrid ion-card {
-  --background: #FBFBFB;
+  --background: #fbfbfb;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   -webkit-box-shadow: none;
@@ -352,7 +451,7 @@ ion-grid {
 }
 
 .filterDataGrid .cardImg img {
-  background: linear-gradient(to bottom, #7923BD, #C4296A, #DD923F);
+  background: linear-gradient(to bottom, #7923bd, #c4296a, #dd923f);
   width: 100px;
   height: 100px;
   display: inline-block;
@@ -376,162 +475,8 @@ ion-grid {
 .filterDataGrid ion-card-content h5 {
   font-size: 13px;
   font-weight: 500;
-  color: #A1A1A1;
+  color: #a1a1a1;
   margin: 8px 0 0;
-}
-
-/*Page Filters*/
-.pageFilters {
-  display: none;
-  --background: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  z-index: 102;
-}
-
-.pageFilters ion-list {
-  position: absolute;
-  background-color: transparent;
-  width: 100%;
-  height: 90%;
-  bottom: 0;
-  z-index: 103;
-  padding: 0;
-}
-
-.pageFilters ion-list::before {
-  content: "";
-  position: absolute;
-  top: 10px;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  width: 50px;
-  height: 3px;
-  border-radius: 5px;
-  margin: 0 auto;
-  z-index: 103;
-}
-
-.pageFilters ion-list .pageFiltersInner {
-  background-color: #fff;
-  position: relative;
-  width: 100%;
-  max-height: 100%;
-  padding: 40px 15px 30px;
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
-  overflow: auto;
-}
-
-.pageFilters .filterItem {
-  padding: 20px 0;
-}
-
-.pageFilters .filterItem + .filterItem {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.pageFilters .filterItem:last-of-type {
-  padding-bottom: 0;
-}
-
-.pageFilters .filterItem h3 {
-  font-size: 24px;
-  font-weight: 500;
-  color: #222222;
-}
-
-.pageFilters .filterItem h4 {
-  font-size: 18px;
-  font-weight: 500;
-  color: #222222;
-  margin-bottom: 10px;
-}
-
-.pageFilters .filterItem form {
-  margin: 0;
-  padding: 0;
-}
-
-.pageFilters .filterItem form ion-item {
-  --min-height: 100%;
-  --background: transparent;
-  --background-activated: transparent;
-  --background-focused: transparent;
-  --background-hover: transparent;
-  --background-activated-opacity: 0;
-  --background-focused-opacity: 0;
-  --background-hover-opacity: 0;
-  --padding-start: 0;
-  --inner-border-width: 0;
-  --ripple-color: transparent;
-  --background-hover: transparent;
-}
-
-.pageFilters .filterItem form ion-item + ion-item {
-  margin-top: 10px;
-}
-
-.pageFilters .filterItem form ion-label {
-  font-family: "Montserrat", sans-serif;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 400;
-  color: #777777;
-  margin: 0;
-}
-
-.pageFilters .filterItem form ion-checkbox {
-  --background: #E9E9E9;
-  --border-color: #B0B0B0;
-  --background-checked: #35B6F7;
-  --border-color-checked: #35B6F7;
-  --border-width: 1px;
-  --size: 20px;
-  margin: 0 10px 0 0;
-}
-
-.pageFilters .filterItem form ion-range {
-  position: relative;
-  padding: 0 0 15px;
-  --height: 30px;
-  --bar-height: 5px;
-  --bar-background: rgba(0, 0, 0, 0.1);
-  --bar-background-active: #35B6F7;
-  --knob-size: 25px;
-  --knob-background: #35B6F7;
-  --border-width: 0;
-  --bar-border-radius: 10px;
-}
-
-.pageFilters .filterItem form ion-range ion-label {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  font-size: 12px;
-  font-weight: 500;
-  color: #777777;
-}
-
-.pageFilters .filterItem form ion-range ion-label + ion-label {
-  left: inherit;
-  right: 0;
-}
-
-.pageFilters .filterItem form .selectOptionBar {
-  position: relative;
-}
-
-.pageFilters .filterItem form .selectOptionBar ion-select {
-  height: 40px;
-  font-size: 14px;
-  font-weight: 500;
-  background-color: #F2F2F2;
-  border: 1px solid #B0B0B0;
-  border-radius: 5px;
-  color: #777777;
 }
 
 /*Footer*/
@@ -567,11 +512,11 @@ ion-footer ion-toolbar {
 }
 
 .bottomFixedLinks ul li:hover ion-icon {
-  color: #35B6F7;
+  color: #35b6f7;
 }
 
 .bottomFixedLinks ul li:hover span {
-  color: #35B6F7;
+  color: #35b6f7;
 }
 
 .bottomFixedLinks ul li a {
@@ -580,12 +525,12 @@ ion-footer ion-toolbar {
 
 .bottomFixedLinks ul li ion-icon {
   font-size: 22px;
-  color: #92A1B4;
+  color: #92a1b4;
 }
 
 .bottomFixedLinks ul li span {
   display: block;
   font-size: 12px;
   font-weight: 500;
-  color: #92A1B4;
+  color: #92a1b4;
 }

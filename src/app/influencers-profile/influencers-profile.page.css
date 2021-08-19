@@ -6,22 +6,41 @@
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 14px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 0;
 }
 
-li, p, span, label, input, select, textarea, button {
-  font-family: 'Montserrat', sans-serif;
+li,
+p,
+span,
+label,
+input,
+select,
+textarea,
+button {
+  font-family: "Montserrat", sans-serif;
 }
 
-ion-title, ion-card-title, ion-card-subtitle, ion-label, ion-input, ion-select, ion-textarea, ion-button {
-  font-family: 'Montserrat', sans-serif;
+ion-title,
+ion-card-title,
+ion-card-subtitle,
+ion-label,
+ion-input,
+ion-select,
+ion-textarea,
+ion-button {
+  font-family: "Montserrat", sans-serif;
 }
 
 ion-select {
@@ -85,7 +104,7 @@ ion-app {
 }
 
 .lightBgColor {
-  background-color: #FBFBFB;
+  background-color: #fbfbfb;
 }
 
 .whiteBgColor {
@@ -93,8 +112,8 @@ ion-app {
 }
 
 .commonBorderBg {
-  background-color: #FBFBFB;
-  border: 1px solid #CBCBCB;
+  background-color: #fbfbfb;
+  border: 1px solid #cbcbcb;
   border-radius: 5px;
   padding: 7px;
 }
@@ -104,12 +123,12 @@ ion-app {
 }
 
 .lightBlue {
-  color: #35B6F7;
+  color: #35b6f7;
 }
 
 /*Common Button*/
 .commonButton {
-  --background: #35B6F7;
+  --background: #35b6f7;
   --border-radius: 5px;
   --box-shadow: none;
   height: 32px;
@@ -164,7 +183,7 @@ ion-app {
 }
 
 .headingText .seeAllText a:hover {
-  color: #35B6F7;
+  color: #35b6f7;
 }
 
 /*Header*/
@@ -178,13 +197,13 @@ ion-header .hide {
 
 ion-header ion-toolbar {
   position: relative;
-  --background: #35B6F7;
+  --background: #35b6f7;
   --min-height: 22px;
   padding: 50px 15px 10px;
 }
 
 ion-header ion-title {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 500;
   color: #fff;
@@ -266,7 +285,7 @@ ion-header ion-button.userLogin .userLogin {
 }
 
 ion-header ion-button.userLogin .userLogin .userActive {
-  background-color: #26DB4E;
+  background-color: #26db4e;
   border: 1px solid #fff;
   width: 10px;
   height: 10px;
@@ -305,7 +324,7 @@ ion-grid {
   height: 45px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 14px;
   font-weight: 500;
   --box-shadow: none;
@@ -323,7 +342,7 @@ ion-grid {
   height: 100%;
   margin: 0;
   letter-spacing: normal;
-  --background: #35B6F7;
+  --background: #35b6f7;
   --box-shadow: none;
 }
 
@@ -336,7 +355,7 @@ ion-grid {
 }
 
 .filterDataGrid ion-card {
-  --background: #FBFBFB;
+  --background: #fbfbfb;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   -webkit-box-shadow: none;
@@ -351,7 +370,7 @@ ion-grid {
 }
 
 .filterDataGrid .cardImg img {
-  background: linear-gradient(to bottom, #7923BD, #C4296A, #DD923F);
+  background: linear-gradient(to bottom, #7923bd, #c4296a, #dd923f);
   width: 120px;
   height: 120px;
   display: inline-block;
@@ -375,7 +394,7 @@ ion-grid {
 .filterDataGrid ion-card-content h5 {
   font-size: 14px;
   font-weight: 500;
-  color: #A1A1A1;
+  color: #a1a1a1;
   margin: 8px 0 0;
 }
 
@@ -483,10 +502,10 @@ ion-grid {
 }
 
 .pageFilters .filterItem form ion-checkbox {
-  --background: #E9E9E9;
-  --border-color: #B0B0B0;
-  --background-checked: #35B6F7;
-  --border-color-checked: #35B6F7;
+  --background: #e9e9e9;
+  --border-color: #b0b0b0;
+  --background-checked: #35b6f7;
+  --border-color-checked: #35b6f7;
   --border-width: 1px;
   --size: 20px;
   margin: 0 10px 0 0;
@@ -498,9 +517,9 @@ ion-grid {
   --height: 30px;
   --bar-height: 5px;
   --bar-background: rgba(0, 0, 0, 0.1);
-  --bar-background-active: #35B6F7;
+  --bar-background-active: #35b6f7;
   --knob-size: 25px;
-  --knob-background: #35B6F7;
+  --knob-background: #35b6f7;
   --border-width: 0;
   --bar-border-radius: 10px;
 }
@@ -527,8 +546,8 @@ ion-grid {
   height: 40px;
   font-size: 14px;
   font-weight: 500;
-  background-color: #F2F2F2;
-  border: 1px solid #B0B0B0;
+  background-color: #f2f2f2;
+  border: 1px solid #b0b0b0;
   border-radius: 5px;
   color: #777777;
 }
@@ -541,7 +560,7 @@ ion-grid {
 
 /*Influencers Profile*/
 .influencersProfile {
-  background-color: #F6F6F6;
+  background-color: #f6f6f6;
 }
 
 .influencerInfo {
@@ -597,7 +616,7 @@ ion-grid {
 
 .influencerInfo .influencerName .starRating ion-icon {
   font-size: 14px;
-  color: #DFA91D;
+  color: #dfa91d;
 }
 
 .influencerInfo .influencerName .starRating ion-icon + ion-icon {
@@ -661,7 +680,7 @@ ion-grid {
 }
 
 .influencerSocialMedia ion-item span a:hover {
-  color: #35B6F7;
+  color: #35b6f7;
 }
 
 .influencerSocialMedia ion-item .followersCounter {
@@ -680,7 +699,7 @@ ion-grid {
 }
 
 .influencersPriceGrid {
-  border: 1px solid #35B6F7;
+  border: 1px solid #35b6f7;
   border-radius: 5px;
 }
 
@@ -703,7 +722,7 @@ ion-grid {
 }
 
 .influencersPriceGrid a {
-  background-color: #35B6F7;
+  background-color: #35b6f7;
   display: block;
   font-size: 13px;
   font-weight: 500;
@@ -751,11 +770,11 @@ ion-footer ion-toolbar {
 }
 
 .bottomFixedLinks ul li:hover ion-icon {
-  color: #35B6F7;
+  color: #35b6f7;
 }
 
 .bottomFixedLinks ul li:hover span {
-  color: #35B6F7;
+  color: #35b6f7;
 }
 
 .bottomFixedLinks ul li a {
@@ -764,12 +783,12 @@ ion-footer ion-toolbar {
 
 .bottomFixedLinks ul li ion-icon {
   font-size: 22px;
-  color: #92A1B4;
+  color: #92a1b4;
 }
 
 .bottomFixedLinks ul li span {
   display: block;
   font-size: 12px;
   font-weight: 500;
-  color: #92A1B4;
+  color: #92a1b4;
 }
