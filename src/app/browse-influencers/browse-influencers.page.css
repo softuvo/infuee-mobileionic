@@ -145,6 +145,14 @@ ion-app {
   padding: 0;
 }
 
+.headingText ion-title.medium {
+  font-size: 20px;
+}
+
+.headingText ion-title.big {
+  font-size: 24px;
+}
+
 .headingText .seeAllText {
   font-size: 14px;
   font-weight: 500;

@@ -145,6 +145,14 @@ ion-app {
   padding: 0;
 }
 
+.headingText ion-title.medium {
+  font-size: 20px;
+}
+
+.headingText ion-title.big {
+  font-size: 24px;
+}
+
 .headingText .seeAllText {
   font-size: 14px;
   font-weight: 500;
@@ -329,13 +337,99 @@ ion-grid {
   font-size: 22px;
 }
 
-/*Notification List*/
-.notificationListOuter ion-list {
+/*Profile Information*/
+.profileInformation {
   background-color: transparent;
-  padding: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
-.notificationListOuter ion-list ion-item {
+.profileInformation__img {
+  position: relative;
+  border-radius: 50%;
+}
+
+.profileInformation__img .userActive {
+  background-color: #26DB4E;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  border-radius: 50%;
+}
+
+.profileInformation__img img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid #35B6F7;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.profileInformation__info {
+  position: relative;
+  width: calc(100% - 70px);
+  padding-left: 38px;
+  padding-right: 20px;
+}
+
+.profileInformation__info .countryFlag {
+  position: absolute;
+  left: 12px;
+  top: 0;
+}
+
+.profileInformation__info .countryFlag img {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  border-radius: 50%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.profileInformation__info h4 {
+  font-size: 17px;
+  font-weight: 500;
+  color: #222222;
+  margin: 0 0 2px;
+}
+
+.profileInformation__info span {
+  font-size: 13px;
+  display: block;
+  color: #777777;
+}
+
+.profileInformation .editBuuton {
+  position: absolute;
+  top: 30%;
+  right: 0;
+  --background: transparent;
+  --border-radius: 0;
+  --box-shadow: none;
+  --padding-start: 0;
+  --padding-end: 0;
+  height: auto;
+  font-size: 12px;
+  color: #222222;
+  margin: 0;
+}
+
+.profileInformation .editBuuton:hover {
+  color: #35B6F7;
+}
+
+.userProfileContact {
+  width: 100%;
+  background-color: transparent;
+  padding: 5px;
+}
+
+.userProfileContact ion-item {
   display: flex;
   align-items: center;
   --min-height: 100%;
@@ -351,79 +445,130 @@ ion-grid {
   --ripple-color: transparent;
   --background-hover: transparent;
   --inner-padding-end: 0;
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 
-.notificationListOuter ion-list ion-item + ion-item {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+.userProfileContact ion-item + ion-item {
+  margin-top: 10px;
 }
 
-.notificationListOuter ion-list .notificationList {
+.userProfileContact ion-item > ion-icon {
+  max-width: 20px;
+  color: #35B6F7;
+  margin-right: 10px;
+}
+
+.userProfileContact ion-item span {
+  font-size: 14px;
+  font-weight: 400;
+  color: #777777;
+}
+
+.userProfileContact ion-item span a {
+  color: #777777;
+}
+
+.userProfileContact ion-item span a:hover {
+  color: #35B6F7;
+}
+
+.userSocialLinks {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  padding: 5px;
+}
+
+.userSocialLinks ion-item {
+  margin-top: 10px;
+  --min-height: 100%;
+  --background: transparent;
+  --background-activated: transparent;
+  --background-focused: transparent;
+  --background-hover: transparent;
+  --background-activated-opacity: 0;
+  --background-focused-opacity: 0;
+  --background-hover-opacity: 0;
+  --padding-start: 0;
+  --inner-border-width: 0;
+  --ripple-color: transparent;
+  --background-hover: transparent;
+  --inner-padding-end: 0;
+}
+
+/*Work History*/
+.workHistory {
+  background-color: transparent;
   position: relative;
+  display: flex;
 }
 
-.notificationListOuter ion-list .notificationList__img {
+.workHistory__userRating {
+  text-align: center;
+}
+
+.workHistory .workHistoryImg {
   position: relative;
-  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  background-color: #35B6F7;
+  border-radius: 5px;
 }
 
-.notificationListOuter ion-list .notificationList__img .userActive {
-  background-color: #26DB4E;
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  top: 2px;
-  right: 2px;
+.workHistory .workHistoryImg img {
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
-}
-
-.notificationListOuter ion-list .notificationList__img img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: 2px solid #35B6F7;
+  border: 2px solid #fff;
   -o-object-fit: cover;
   object-fit: cover;
 }
 
-.notificationListOuter ion-list .notificationList__info {
-  position: relative;
-  width: calc(100% - 60px);
-  padding-left: 10px;
-  padding-right: 20px;
+.workHistory .userStarRating {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
-.notificationListOuter ion-list .notificationList__info h4 {
+.workHistory .userStarRating ion-icon {
+  font-size: 12px;
+  color: #E9BB45;
+}
+
+.workHistory__info {
+  position: relative;
+  width: calc(100% - 70px);
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.workHistory__info p {
   font-size: 14px;
   font-weight: 500;
-  color: #222222;
-  margin: 0 0 5px;
-}
-
-.notificationListOuter ion-list .notificationList__info span {
-  font-size: 10px;
-  display: block;
-  color: #C0C0C0;
-}
-
-.notificationListOuter ion-list .notificationList .ellipsisBuuton {
-  position: absolute;
-  top: 0;
-  right: 0;
-  --background: transparent;
-  --border-radius: 0;
-  --box-shadow: none;
-  --padding-start: 0;
-  --padding-end: 0;
-  height: auto;
-  font-size: 12px;
   color: #222222;
   margin: 0;
 }
 
-.notificationListOuter ion-list .notificationList .ellipsisBuuton:hover {
-  color: #35B6F7;
+.workHistory__info h5 {
+  font-size: 13px;
+  font-weight: 400;
+  display: block;
+  color: #777777;
+  margin: 8px 0 0;
+}
+
+.workHistory__info h5 svg, .workHistory__info h5 img, .workHistory__info h5 ion-icon {
+  margin-right: 5px;
+}
+
+.workHistory__info h5 > * {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /*Footer*/

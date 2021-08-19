@@ -70,6 +70,7 @@ $fontWeightExtraBold: 800;
 $white: #fff;
 $black: #000;
 $yellow: #DFA91D;
+$yellowTint1: #E9BB45;
 $lightBlue: #35B6F7;
 $purple: #7B22B9;
 $lightGrey: #C0C0C0;
@@ -150,6 +151,12 @@ ion-app {
         font-weight: $fontWeightMedium;
         color: $darkGrey;
         padding: 0;
+        &.medium {
+            font-size: 20px;
+        }
+        &.big {
+            font-size: 24px;
+        }
     }
     .seeAllText {
         font-size: 14px;
@@ -317,86 +324,116 @@ ion-grid {
     }
 }
 
-/*Notification List*/
-.notificationListOuter {
-    ion-list {
-        background-color: transparent;
-        padding: 0;
-        ion-item {
-            display: flex;
-            align-items: center;
-            --min-height: 100%;
-            --background: transparent;
-            --background-activated: transparent;
-            --background-focused: transparent;
-            --background-hover: transparent;                                
-            --background-activated-opacity: 0;
-            --background-focused-opacity: 0;
-            --background-hover-opacity: 0;
-            --padding-start: 0;
-            --inner-border-width: 0;
-            --ripple-color: transparent;
-            --background-hover: transparent;
-            --inner-padding-end: 0;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            + ion-item {
-                border-top: 1px solid rgba(0,0,0,0.1);
+/*Profile Information*/
+.profileInformation {
+    background-color: transparent;
+    position: relative;
+    display: flex;
+    align-items: center;
+    &__img {
+        position: relative;
+        border-radius: 50%;
+        .userActive {
+            background-color: #26DB4E;
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            border-radius: 50%;
+        }
+        img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 2px solid $lightBlue;
+            -o-object-fit: cover;
+            object-fit: cover;
+        }
+    }
+    &__info {
+        position: relative;
+        width: calc(100% - 70px);
+        padding-left: 38px;
+        padding-right: 20px;
+        .countryFlag {
+            position: absolute;
+            left: 12px;
+            top: 0;
+            img {
+                width: 18px;
+                height: 18px;
+                vertical-align: middle;
+                border-radius: 50%;
+                -o-object-fit: cover;
+                object-fit: cover;
             }
         }
-        .notificationList {
-            position: relative;
-            &__img {
-                position: relative;
-                border-radius: 50%;
-                .userActive {
-                    background-color: #26DB4E;
-                    width: 10px;
-                    height: 10px;
-                    position: absolute;
-                    top: 2px;
-                    right: 2px;
-                    border-radius: 50%;
-                }
-                img {
-                    width: 60px;
-                    height: 60px;
-                    border-radius: 50%;
-                    border: 2px solid $lightBlue;
-                    -o-object-fit: cover;
-                    object-fit: cover;
-                }
-            }
-            &__info {
-                position: relative;
-                width: calc(100% - 60px);
-                padding-left: 10px;
-                padding-right: 20px;
-                h4 {
-                    font-size: 14px;
-                    font-weight: $fontWeightMedium;
-                    color: $darkGrey;
-                    margin: 0 0 5px;
-                }
-                span {
-                    font-size: 10px;
-                    display: block;
-                    color: $lightGrey;
-                }
-            }
-            .ellipsisBuuton {
-                position: absolute;
-                top: 0;
-                right: 0;
-                --background: transparent;
-                --border-radius: 0;
-                --box-shadow: none;
-                --padding-start: 0;
-                --padding-end: 0;            
-                height: auto;
-                font-size: 12px;
-                color: $darkGrey;
-                margin: 0;
+        h4 {
+            font-size: 17px;
+            font-weight: $fontWeightMedium;
+            color: $darkGrey;
+            margin: 0 0 2px;
+        }
+        span {
+            font-size: 13px;
+            display: block;
+            color: $greyTint2;
+        }
+    }
+    .editBuuton {
+        position: absolute;
+        top: 30%;
+        right: 0;
+        --background: transparent;
+        --border-radius: 0;
+        --box-shadow: none;
+        --padding-start: 0;
+        --padding-end: 0;            
+        height: auto;
+        font-size: 12px;
+        color: $darkGrey;
+        margin: 0;
+        &:hover {
+            color: $lightBlue;
+        }
+    }
+}
+
+.userProfileContact {
+    width: 100%;
+    background-color: transparent;
+    padding: 5px;
+    ion-item {
+        display: flex;
+        align-items: center;
+        --min-height: 100%;
+        --background: transparent;
+        --background-activated: transparent;
+        --background-focused: transparent;
+        --background-hover: transparent;                                
+        --background-activated-opacity: 0;
+        --background-focused-opacity: 0;
+        --background-hover-opacity: 0;
+        --padding-start: 0;
+        --inner-border-width: 0;
+        --ripple-color: transparent;
+        --background-hover: transparent;
+        --inner-padding-end: 0;
+        + ion-item {
+            margin-top: 10px;
+        }
+        > ion-icon {
+            max-width: 20px;
+            color: $lightBlue;
+            margin-right: 10px;
+        }
+        span {
+            font-size: 14px;
+            font-weight: $fontWeightRegular;
+            color: $greyTint2;
+            a {
+                color: $greyTint2;
                 &:hover {
                     color: $lightBlue;
                 }
@@ -404,6 +441,95 @@ ion-grid {
         }
     }
 }
+.userSocialLinks {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent;
+    padding: 5px;
+    ion-item {
+        margin-top: 10px;
+        --min-height: 100%;
+        --background: transparent;
+        --background-activated: transparent;
+        --background-focused: transparent;
+        --background-hover: transparent;                                
+        --background-activated-opacity: 0;
+        --background-focused-opacity: 0;
+        --background-hover-opacity: 0;
+        --padding-start: 0;
+        --inner-border-width: 0;
+        --ripple-color: transparent;
+        --background-hover: transparent;
+        --inner-padding-end: 0;
+    }
+}
+
+/*Work History*/
+.workHistory {
+    background-color: transparent;
+    position: relative;
+    display: flex;
+    &__userRating {
+        text-align: center;
+    }
+    .workHistoryImg {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70px;
+        height: 70px;
+        background-color: $lightBlue;
+        border-radius: 5px;
+        img {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            border: 2px solid $white;
+            -o-object-fit: cover;
+            object-fit: cover;
+        }
+    }
+    .userStarRating {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 10px;
+        ion-icon {
+            font-size: 12px;
+            color: $yellowTint1;
+        }
+    }
+    &__info {
+        position: relative;
+        width: calc(100% - 70px);
+        padding-left: 15px;
+        padding-right: 15px;
+        p {
+            font-size: 14px;
+            font-weight: $fontWeightMedium;
+            color: $darkGrey;
+            margin: 0;
+        }
+        h5 {
+            font-size: 13px;
+            font-weight: $fontWeightRegular;
+            display: block;
+            color: $greyTint2;
+            margin: 8px 0 0;
+            svg, img, ion-icon {
+                margin-right: 5px;
+            }
+            > * {
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+
 
 
 /*Footer*/

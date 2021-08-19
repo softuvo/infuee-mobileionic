@@ -150,6 +150,12 @@ ion-app {
         font-weight: $fontWeightMedium;
         color: $darkGrey;
         padding: 0;
+        &.medium {
+            font-size: 20px;
+        }
+        &.big {
+            font-size: 24px;
+        }
     }
     .seeAllText {
         font-size: 14px;
