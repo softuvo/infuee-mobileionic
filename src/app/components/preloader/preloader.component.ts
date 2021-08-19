@@ -8,17 +8,15 @@ import { Component, Input, OnInit } from '@angular/core';
 export class PreloaderComponent implements OnInit {
   public row: any = [1, 2, 3];
   @Input() rowNumber: any;
-  constructor() { }
+  @Input() template: any;
+  constructor() {}
 
   ngOnInit() {
-    
-    if(this.rowNumber && this.rowNumber != undefined && this.rowNumber > 0) {
+    if (this.rowNumber && this.rowNumber != undefined && this.rowNumber > 0) {
       this.row = [];
-      for(let i =1; i<= this.rowNumber;i++) {
+      for (let i = 1; i <= this.rowNumber; i++) {
         this.row.push(i);
       }
     }
-    
   }
-
 }

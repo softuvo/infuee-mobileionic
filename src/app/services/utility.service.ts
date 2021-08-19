@@ -289,6 +289,9 @@ export class UtilityService {
     return this.data[id];
   }
 
+  clearData() {
+    this.data = [];
+  }
   // async downloadFile(url, filename) {
   //   this.showLoader();
   //   let blob = await fetch(url).then((r) => r.blob());
@@ -357,7 +360,7 @@ export class UtilityService {
   checkToken(res) {
     if (res.code == 301) {
       console.log('Token is expired');
-      this.showToast(res.message);
+      this.showToast(res.message, 'error');
       localStorage.clear();
       return this.router.navigateByUrl('/login');
     }

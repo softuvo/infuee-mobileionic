@@ -7,41 +7,75 @@
     <ion-button class="right menuButton" (click)="openMenu()">
       <ion-icon name="menu-sharp"></ion-icon>
     </ion-button>
-    <!-- <ion-menu-toggle lass="right menuButton">
-      <ion-icon name="menu-sharp"></ion-icon>
-    </ion-menu-toggle> -->
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="upperCaseWrap">
-  <div class="heroImage">
+  <app-preloader
+    [rowNumber]="4"
+    [template]="'profile'"
+    *ngIf="isProfilePreloader"
+  ></app-preloader>
+  <ion-row *ngIf="!allAccountData?.user && !isProfilePreloader">
+    <ion-col size="12">
+      <app-no-data></app-no-data>
+    </ion-col>
+  </ion-row>
+  <div
+    class="heroImage"
+    *ngIf="allAccountData?.user?.email && !isProfilePreloader"
+  >
     <img src="../../assets/images/dodge.jpg" alt="ion" />
   </div>
-  <div class="influencersProfile">
+  <div
+    class="influencersProfile"
+    *ngIf="allAccountData?.user?.email && !isProfilePreloader"
+  >
     <div class="commonWrap">
       <ion-grid>
         <ion-row>
           <ion-col size="9">
             <div class="influencerInfo">
               <div class="influencerImage">
-                <img src="../../assets/images/client-image.jpg" alt="ion" />
+                <img
+                  [src]="[allAccountData?.user?.image]"
+                  alt="ion"
+                  onError="src = './../assets/images/client-image.jpg'"
+                />
               </div>
               <div class="influencerName">
                 <h4>
-                  Amit Kumar
+                  {{allAccountData?.user?.first_name &&
+                  allAccountData?.user?.first_name != undefined &&
+                  allAccountData?.user?.first_name !=
+                  null?allAccountData?.user?.first_name:'' +
+                  allAccountData?.user?.last_name &&
+                  allAccountData?.user?.last_name != undefined &&
+                  allAccountData?.user?.last_name !=
+                  null?allAccountData?.user?.last_name:''}}
                   <span class="countryFlag"
-                    ><img src="../../assets/images/usa-flag.jpg" alt="ion"
+                    ><img
+                      *ngIf="allAccountData?.user?.country_flag"
+                      [src]="allAccountData?.user?.country_flag"
+                      alt="ion"
                   /></span>
                 </h4>
-                <div class="starRating">
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star-half"></ion-icon>
-                  <span>4.0* (3 user)</span>
+                <div
+                  class="starRating"
+                  *ngIf="allAccountData?.rating?.total_users > 0"
+                >
+                  <span
+                    [innerHTML]="sanitizer.bypassSecurityTrustHtml(getRatingStar(allAccountData?.rating?.average))"
+                  ></span>
+                  <span
+                    >{{allAccountData?.rating?.average}}*
+                    ({{allAccountData?.rating?.total_users}} Users)</span
+                  >
                 </div>
-                <h5>Skin and beauty care</h5>
+                <h5>
+                  {{allAccountData?.user?.category ?
+                  allAccountData?.user?.category_type?.name : ''}}
+                </h5>
               </div>
             </div>
           </ion-col>
@@ -50,33 +84,48 @@
               <ion-button class="commonButton" expand="block">Hire</ion-button>
             </div>
           </ion-col>
-          <ion-col size="12">
+          <ion-col
+            size="12"
+            *ngIf="allAccountData?.userPlatforms && allAccountData?.userPlatforms.length > 0"
+          >
             <div class="influencerSocialMedia">
               <ion-list>
-                <ion-item>
-                  <img src="../../assets/icon/instagram-icon.svg" alt="ion" />
-                  <span><a href="mailto:@instaamit">@instaamit</a></span>
-                  <h5 class="followersCounter">2M Followers</h5>
-                </ion-item>
-                <ion-item>
-                  <img src="../../assets/icon/facebook-icon.svg" alt="ion" />
-                  <span><a href="mailto:@fbamit">@fbamit</a></span>
-                  <h5 class="followersCounter">2M Followers</h5>
-                </ion-item>
-                <ion-item>
-                  <img src="../../assets/icon/youtube-icon.svg" alt="ion" />
-                  <span><a href="mailto:@amitvlog">@amitvlog</a></span>
-                  <h5 class="followersCounter">2M Followers</h5>
-                </ion-item>
-                <ion-item>
-                  <img src="../../assets/icon/twitter-icon.svg" alt="ion" />
-                  <span><a href="mailto:@twitteramit">@twitteramit</a></span>
-                  <h5 class="followersCounter">2M Followers</h5>
-                </ion-item>
-                <ion-item>
-                  <img src="../../assets/icon/tiktok-icon.svg" alt="ion" />
-                  <span><a href="mailto:@tiktokamit">@tiktokamit</a></span>
-                  <h5 class="followersCounter">2M Followers</h5>
+                <ion-item *ngFor="let social of allAccountData?.userPlatforms">
+                  <img
+                    *ngIf='social?.slug == "Instagram"'
+                    src="../../assets/icon/instagram-icon.svg"
+                    alt="ion"
+                  />
+                  <img
+                    *ngIf='social?.slug == "Facebook"'
+                    src="../../assets/icon/facebook-icon.svg"
+                    alt="ion"
+                  />
+                  <img
+                    *ngIf='social?.slug == "Youtube"'
+                    src="../../assets/icon/youtube-icon.svg"
+                    alt="ion"
+                  />
+                  <img
+                    *ngIf='social?.slug == "Tiktok"'
+                    src="../../assets/icon/twitter-icon.svg"
+                    alt="ion"
+                  />
+                  <img
+                    *ngIf='social?.slug == "Twitter"'
+                    src="../../assets/icon/tiktok-icon.svg"
+                    alt="ion"
+                  />
+                  <span
+                    ><a href=""
+                      >{{social?.username && social?.username != null &&
+                      social?.username != undefined ?social.username:''}}</a
+                    ></span
+                  >
+
+                  <h5 class="followersCounter" *ngIf="social?.followers > 0">
+                    {{social?.followers}} Followers
+                  </h5>
                 </ion-item>
               </ion-list>
             </div>
@@ -85,119 +134,49 @@
       </ion-grid>
     </div>
   </div>
-  <div class="influencersPriceInfo">
-    <div class="commonWrap">
-      <ion-grid>
-        <ion-row>
+
+  <app-preloader [rowNumber]="4" *ngIf="isProfilePreloader"></app-preloader>
+  <div
+    class="influencersPriceInfo"
+    *ngIf="allAccountData?.user?.email && !isProfilePreloader"
+  >
+    <div
+      class="commonWrap"
+      *ngIf="allAccountData?.planCategories && allAccountData?.planCategories.length > 0"
+    >
+      <ion-grid *ngFor="let plan of allAccountData?.planCategories">
+        <ion-row
+          *ngIf='(plan?.slug == "Music-Promotions" || plan?.slug == "Video") && plan?.plans_front.length > 0'
+        >
           <ion-col size="12">
             <ion-toolbar class="headingText">
-              <ion-title slot="start">Music Promotion</ion-title>
+              <ion-title slot="start"
+                >{{plan?.name != null && plan?.name !=
+                undefined?plan?.name:''}}</ion-title
+              >
               <ion-title class="seeAllText" slot="end"
                 ><a href="javascript:void(0);">See All</a></ion-title
               >
             </ion-toolbar>
           </ion-col>
-          <ion-col sizeLg="3" sizeMd="4" sizeXs="6">
+          <ion-col
+            sizeLg="3"
+            sizeMd="4"
+            sizeXs="6"
+            *ngFor="let planDetail of plan?.plans_front|slice:0:4"
+          >
             <div class="influencersPriceGrid">
               <div class="influencersPriceItem">
-                <h4>$500.00</h4>
-                <p>Permanent Shoutout 1hr shoutout +bio link</p>
-              </div>
-              <a href="javascript:void(0);"
-                ><span>Add to Promotion</span>
-                <ion-icon name="chevron-forward"></ion-icon>
-              </a>
-            </div>
-          </ion-col>
-          <ion-col sizeLg="3" sizeMd="4" sizeXs="6">
-            <div class="influencersPriceGrid">
-              <div class="influencersPriceItem">
-                <h4>$500.00</h4>
-                <p>Permanent Shoutout 1hr shoutout +bio link</p>
-              </div>
-              <a href="javascript:void(0);"
-                ><span>Add to Promotion</span>
-                <ion-icon name="chevron-forward"></ion-icon>
-              </a>
-            </div>
-          </ion-col>
-          <ion-col sizeLg="3" sizeMd="4" sizeXs="6">
-            <div class="influencersPriceGrid">
-              <div class="influencersPriceItem">
-                <h4>$500.00</h4>
-                <p>Permanent Shoutout 1hr shoutout +bio link</p>
-              </div>
-              <a href="javascript:void(0);"
-                ><span>Add to Promotion</span>
-                <ion-icon name="chevron-forward"></ion-icon>
-              </a>
-            </div>
-          </ion-col>
-          <ion-col sizeLg="3" sizeMd="4" sizeXs="6">
-            <div class="influencersPriceGrid">
-              <div class="influencersPriceItem">
-                <h4>$500.00</h4>
-                <p>Permanent Shoutout 1hr shoutout +bio link</p>
-              </div>
-              <a href="javascript:void(0);"
-                ><span>Add to Promotion</span>
-                <ion-icon name="chevron-forward"></ion-icon>
-              </a>
-            </div>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-      <ion-grid>
-        <ion-row>
-          <ion-col size="12">
-            <ion-toolbar class="headingText">
-              <ion-title slot="start">Videos</ion-title>
-              <ion-title class="seeAllText" slot="end"
-                ><a href="javascript:void(0);">See All</a></ion-title
-              >
-            </ion-toolbar>
-          </ion-col>
-          <ion-col sizeLg="3" sizeMd="4" sizeXs="6">
-            <div class="influencersPriceGrid">
-              <div class="influencersPriceItem">
-                <h4>$200.00</h4>
-                <p>Permanent Shoutout 1hr shoutout +bio link</p>
-              </div>
-              <a href="javascript:void(0);"
-                ><span>Add to Promotion</span>
-                <ion-icon name="chevron-forward"></ion-icon>
-              </a>
-            </div>
-          </ion-col>
-          <ion-col sizeLg="3" sizeMd="4" sizeXs="6">
-            <div class="influencersPriceGrid">
-              <div class="influencersPriceItem">
-                <h4>$200.00</h4>
-                <p>Permanent Shoutout 1hr shoutout +bio link</p>
-              </div>
-              <a href="javascript:void(0);"
-                ><span>Add to Promotion</span>
-                <ion-icon name="chevron-forward"></ion-icon>
-              </a>
-            </div>
-          </ion-col>
-          <ion-col sizeLg="3" sizeMd="4" sizeXs="6">
-            <div class="influencersPriceGrid">
-              <div class="influencersPriceItem">
-                <h4>$200.00</h4>
-                <p>Permanent Shoutout 1hr shoutout +bio link</p>
-              </div>
-              <a href="javascript:void(0);"
-                ><span>Add to Promotion</span>
-                <ion-icon name="chevron-forward"></ion-icon>
-              </a>
-            </div>
-          </ion-col>
-          <ion-col sizeLg="3" sizeMd="4" sizeXs="6">
-            <div class="influencersPriceGrid">
-              <div class="influencersPriceItem">
-                <h4>$200.00</h4>
-                <p>Permanent Shoutout 1hr shoutout +bio link</p>
+                <h4>
+                  {{$any(planDetail)?.price != null && $any(planDetail)?.price
+                  != undefined && $any(planDetail)?.price !=
+                  ''?'$'+$any(planDetail)?.price:''}}
+                </h4>
+                <p>
+                  {{$any(planDetail)?.description != null &&
+                  $any(planDetail)?.description !=
+                  undefined?$any(planDetail)?.description:''}}
+                </p>
               </div>
               <a href="javascript:void(0);"
                 ><span>Add to Promotion</span>

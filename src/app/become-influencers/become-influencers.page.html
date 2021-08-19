@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button class="left backArrow" (click)="goBack()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+    <ion-button class="left">&nbsp;</ion-button>
+    <ion-title class="pxElement">Become an Influencer</ion-title>
+    <ion-button class="right menuButton" (click)="openMenu()">
+      <ion-icon name="menu-sharp"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="upperCaseWrap">
+  <ion-row>
+    <ion-col class="topContent" size="12">
+      <h4>Apply To Be an Influencer</h4>
+      <p>
+        Please verify your atleast one account with us. You will be able to
+        apply to the jobs
+      </p>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="6" (click)='becomeInfluencer("instagram")'>
+      <img src="../../assets/icon/instagram-icon.svg" alt="ion" />
+      Verify your account
+    </ion-col>
+    <ion-col size="6" (click)='becomeInfluencer("facebook")'>
+      <img src="../../assets/icon/facebook-icon.svg" alt="ion" />
+      Verify your account
+    </ion-col>
+    <ion-col size="6" (click)='becomeInfluencer("youtube")'>
+      <img src="../../assets/icon/youtube-icon.svg" alt="ion" />
+      Verify your account
+    </ion-col>
+    <ion-col size="6" (click)='becomeInfluencer("twitter")'>
+      <img src="../../assets/icon/twitter-icon.svg" alt="ion" />
+      Verify your account
+    </ion-col>
+    <ion-col size="6" (click)='becomeInfluencer("tiktok")'>
+      <img src="../../assets/icon/tiktok-icon.svg" alt="ion" />
+      Verify your account
+    </ion-col>
+    <ion-col size="12">
+      <ion-item>
+        <ion-select
+          placeholder="Select Category"
+          name="category"
+          [(ngModel)]="category"
+          class="form-control"
+        >
+          <ion-select-option *ngFor="let c of categoryList" [value]="c?.id"
+            >{{c?.name}}</ion-select-option
+          >
+        </ion-select>
+
+        <div class="invalid-feedback" *ngIf="islicked && !category">
+          <div>Category is required</div>
+        </div>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<app-footer-nav></app-footer-nav>

@@ -10,13 +10,13 @@ import { UtilityService } from '../services/utility.service';
   styleUrls: ['./signup.page.scss'],
 })
 export class SignupPage implements OnInit {
-  eyeIcon = 'eye-off';
-  inputType = 'password';
-  eyeIconConfirm = 'eye-off';
-  inputTypeConfirm = 'password';
-  signupForm: FormGroup;
-  GoogleAutocomplete: any;
-  autocompleteItems: any[];
+  public eyeIcon = 'eye-off';
+  public inputType = 'password';
+  public eyeIconConfirm = 'eye-off';
+  public inputTypeConfirm = 'password';
+  public signupForm: FormGroup;
+  public GoogleAutocomplete: any;
+  public autocompleteItems: any[];
 
   constructor(
     public utility: UtilityService,

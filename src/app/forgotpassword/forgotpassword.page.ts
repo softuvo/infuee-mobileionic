@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { ApiService } from '../services/api.service';
 import { UtilityService } from '../services/utility.service';
@@ -10,12 +11,13 @@ import { UtilityService } from '../services/utility.service';
   styleUrls: ['./forgotpassword.page.scss'],
 })
 export class ForgotpasswordPage implements OnInit {
-  forgetForm: FormGroup;
+  public forgetForm: FormGroup;
   constructor(
     public utility: UtilityService,
     private api: ApiService,
     private fb: FormBuilder,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private router: Router
   ) {
     this.createForm();
   }
@@ -47,7 +49,7 @@ export class ForgotpasswordPage implements OnInit {
         if (res.status == 'Success') {
           this.utility.showToast(res.message);
           this.utility.setData('forgetEmail', this.forgetForm.value);
-          this.navCtrl.navigateRoot('verification');
+          this.router.navigate(['/verification']);
         }
         if (res.code == '404') this.utility.showAlert('Error', res.message);
       });

@@ -30,7 +30,7 @@
           </ion-row>
         </ion-col>
       </ion-row>
-      <app-preloader [rowNumber]='4' *ngIf='isPreloader'></app-preloader>
+      <app-preloader [rowNumber]="4" *ngIf="isPreloader"></app-preloader>
       <ion-row *ngIf="influencersList.length == 0 && !isPreloader">
         <ion-col size="12">
           <app-no-data></app-no-data>
@@ -45,7 +45,7 @@
         >
           <div class="filterDataGrid">
             <ion-card>
-              <div class="cardImg" (click)="openProfilePgae(info?.username)">
+              <div class="cardImg" (click)="openProfilePgae(info?.email)">
                 <img
                   [src]="[info?.imageLink]"
                   alt="ion"
@@ -53,7 +53,7 @@
                 />
               </div>
               <ion-card-content>
-                <h4 (click)="openProfilePgae(info?.username)">
+                <h4 (click)="openProfilePgae(info?.email)">
                   {{info?.username ? '@' + info?.username : ''}}
                 </h4>
                 <h5>{{info?.category ? info?.category_type?.name : ''}}</h5>
@@ -62,7 +62,9 @@
           </div>
         </ion-col>
       </ion-row>
-      <ion-row *ngIf="influencersList.length > 0 && !isPreloader && recordCount > 0 && recordCount == perpage">
+      <ion-row
+        *ngIf="influencersList.length > 0 && !isPreloader && recordCount > 0 && recordCount == perpage"
+      >
         <ion-infinite-scroll
           threshold="100px"
           (ionInfinite)="loadMore($event)"
@@ -82,4 +84,4 @@
   </div>
 </ion-content>
 
-<app-footer-nav></app-footer-nav>
+<app-footer-nav (footerEvent)="getFooterEvent($event)"></app-footer-nav>

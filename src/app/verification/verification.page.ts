@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { ApiService } from '../services/api.service';
 import { UtilityService } from '../services/utility.service';
@@ -18,7 +19,8 @@ export class VerificationPage implements OnInit {
   constructor(
     private utility: UtilityService,
     private api: ApiService,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    public activatedRoute: ActivatedRoute
   ) {
     if (
       this.utility.getData('forgetEmail') &&
@@ -26,7 +28,6 @@ export class VerificationPage implements OnInit {
     ) {
       this.email = this.utility.getData('forgetEmail').email;
     }
-    console.log(this.email);
   }
 
   ngOnInit() {}
@@ -56,20 +57,50 @@ export class VerificationPage implements OnInit {
       this.isValid(this.otp4)
     ) {
       this.utility.showLoader();
-      const obj = {
-        email: this.email,
-        otp: this.otp1 + this.otp2 + this.otp3 + this.otp4,
-      };
-      this.api.verifyWithOtp(obj).subscribe((res: any) => {
-        this.utility.hideLoader();
-        this.utility.checkToken(res);
-        if (res.status.toLowerCase() == 'success') {
-          this.utility.saveToLocalStorage('token', res.token);
-          this.navCtrl.navigateRoot('create-new-password');
-        } else {
-          this.utility.showToast(res.message, 'error');
-        }
-      });
+
+      if (
+        this.activatedRoute.snapshot.paramMap.get('isLogin') &&
+        this.activatedRoute.snapshot.paramMap.get('isLogin') != undefined
+      ) {
+        this.utility.showLoader();
+        const obj = {
+          email: this.utility.getfromLocalStorage('email'),
+          otp: this.otp1 + this.otp2 + this.otp3 + this.otp4,
+        };
+        this.api.loginWithOtp(obj).subscribe((res: any) => {
+          this.utility.hideLoader();
+          this.utility.checkToken(res);
+          if (res.status.toLowerCase() == 'success') {
+            this.utility.saveToLocalStorage('token', res.token);
+            this.utility.saveToLocalStorage('type', res.type);
+            this.utility.menuHandler.next('login');
+
+            this.utility.saveToLocalStorage(
+              'userObj',
+              JSON.stringify(res.user)
+            );
+            this.navCtrl.navigateRoot('browse-influencers');
+            this.utility.showToast(res.message);
+          } else {
+            this.utility.showToast(res.message, 'error');
+          }
+        });
+      } else {
+        const obj = {
+          email: this.email,
+          otp: this.otp1 + this.otp2 + this.otp3 + this.otp4,
+        };
+        this.api.verifyWithOtp(obj).subscribe((res: any) => {
+          this.utility.hideLoader();
+          this.utility.checkToken(res);
+          if (res.status.toLowerCase() == 'success') {
+            this.utility.saveToLocalStorage('token', res.token);
+            this.navCtrl.navigateRoot('create-new-password');
+          } else {
+            this.utility.showToast(res.message, 'error');
+          }
+        });
+      }
     }
   }
 

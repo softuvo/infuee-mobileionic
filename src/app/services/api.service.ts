@@ -7,9 +7,12 @@ import { UtilityService } from './utility.service';
   providedIn: 'root',
 })
 export class ApiService {
-  baseUrl = 'https://infuee.softuvo.xyz/api/';
-  // baseUrl = 'http://127.0.0.1:8000/api/';
-  httpOptions;
+  public baseUrl = 'https://infuee.softuvo.xyz/api/';
+  // public baseUrl = 'http://127.0.0.1:8000/api/';
+
+  public webUrl = 'https://infuee.softuvo.xyz/';
+  // public webUrl = 'http://127.0.0.1:8000/';
+  public httpOptions;
   constructor(private http: HttpClient, private utility: UtilityService) {
     this.httpOptions = {
       // headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -93,7 +96,10 @@ export class ApiService {
         urlSearchParams.append('search', data.search);
       }
       if (data.filter) {
-        urlSearchParams.append('order', data.filter.order?data.filter.order:1); 
+        urlSearchParams.append(
+          'order',
+          data.filter.order ? data.filter.order : 1
+        );
         if (data.filter.age) {
           urlSearchParams.append('age', data.filter.age);
         }
@@ -109,8 +115,8 @@ export class ApiService {
 
         if (data.filter.influencers) {
           for (let item in data.filter.influencers) {
-            if(data.filter.influencers[item] == true) {
-              urlSearchParams.append(item,item);
+            if (data.filter.influencers[item] == true) {
+              urlSearchParams.append(item, item);
             }
           }
         }

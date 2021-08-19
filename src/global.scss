@@ -108,3 +108,10 @@ ion-searchbar {
   width: 100%;
   float: left;
 }
+.rating-icn {
+  font-size: 14px;
+  color: #dfa91d;
+  + ion-icon {
+    margin-left: 1px;
+  }
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {
+  IonContent,
   IonInfiniteScroll,
   MenuController,
   ModalController,
@@ -7,6 +8,8 @@ import {
 import { ApiService } from '../services/api.service';
 import { UtilityService } from '../services/utility.service';
 import { FiltersPageComponent } from '../components/filters-page/filters-page.component';
+import { Router } from '@angular/router';
+import { Content } from '@angular/compiler/src/render3/r3_ast';
 @Component({
   selector: 'app-browse-influencers',
   templateUrl: './browse-influencers.page.html',
@@ -37,23 +40,24 @@ export class BrowseInfluencersPage implements OnInit {
     age: '',
   };
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
+  @ViewChild(IonContent) content: IonContent;
   constructor(
     private menu: MenuController,
     private api: ApiService,
     public utility: UtilityService,
-    private modalController: ModalController
+    private modalController: ModalController,
+    private router: Router
   ) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  ionViewWillEnter() {
     this.isPreloader = true;
     this.getCategories();
   }
 
-  ionViewWillEnter() {}
-
   getCategories() {
     this.api.getCategories().subscribe((res: any) => {
-      
       this.utility.checkToken(res);
       this.category = res.categories;
       if (res.status == 'Success') {
@@ -113,10 +117,10 @@ export class BrowseInfluencersPage implements OnInit {
         });
         this.influencersList = this.influencersList.concat(res.list.data);
         this.recordCount = 0;
-        if(res && res.list && res.list.data) {
+        if (res && res.list && res.list.data) {
           this.recordCount = res.list.data.length;
         }
-        
+
         event.target.complete();
 
         if (!res.list.data.length) {
@@ -161,7 +165,7 @@ export class BrowseInfluencersPage implements OnInit {
   }
 
   openProfilePgae(user) {
-    this.utility.navigate(`influencers-profile?username=${user}`);
+    this.router.navigate(['influencers-profile', { username: user }]);
   }
 
   async presentModal() {
@@ -179,66 +183,17 @@ export class BrowseInfluencersPage implements OnInit {
     return await modal.present();
   }
 
-  updateFilter(val: any) {
-    const value = val.toString().toLowerCase().trim();
-    const count = 5;
-    // const keys = Object.keys(this.temp[0]);
-    const keys = [
-      'price',
-      'username',
-      'category_type.name',
-      'lender_name',
-      'followers',
-    ];
-    this.influencersList = this.temp.filter((item) => {
-      for (let i = 0; i < count; i++) {
-        if (
-          (item[keys[i]] &&
-            item[keys[i]].toString().toLowerCase().indexOf(value) !== -1) ||
-          !value
-        ) {
-          return true;
-        }
-      }
-    });
-  }
-
-  filterData(data) {
-    console.log(data);
-    let param = this.generateParam(data);
-    this.api.getFilteredInfluencers(param).subscribe((res: any) => {
-      console.log('getInfluencers ===>', res);
-      this.utility.checkToken(res);
-      //this.setData(res);
-      if (!res.list.data.length) {
-        this.loadStatus = true;
-        return;
-      }
-    });
-  }
-  generateParam(data) {
-    let param = '?page=' + 1;
-    if (data.low_price != '') {
-      param += '&low_price=' + data.low_price;
-    }
-    if (data.high_price != '') {
-      param += '&high_price=' + data.high_price;
-    }
-
-    if (data.category != '') {
-      param += '&category=' + data.category;
-    }
-    if (data.order != '') {
-      param += '&order=' + data.order;
-    }
-    return param;
+  toggleFilter() {
+    this.isOpenFilter = this.isOpenFilter == true ? false : true;
   }
 
   openMenu() {
     this.menu.toggle();
   }
 
-  toggleFilter() {
-    this.isOpenFilter = this.isOpenFilter == true ? false : true;
+  getFooterEvent(evt) {
+    if (evt && evt == 'scrollTop') {
+      this.content.scrollToTop(400);
+    }
   }
 }

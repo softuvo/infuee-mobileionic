@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,23 +7,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./footer-nav.component.scss'],
 })
 export class FooterNavComponent implements OnInit {
+  @Output() footerEvent: EventEmitter<string> = new EventEmitter();
   constructor(private router: Router) {}
 
   ngOnInit() {}
 
-  goHome() {
-    this.router.navigate(['/browse-influencers']);
-  }
-
-  goChat() {
-    this.router.navigate(['/chat']);
-  }
-
-  goNotification() {
-    this.router.navigate(['/notification']);
-  }
-
-  goProfile() {
-    this.router.navigate(['/profile']);
+  goPage(p: any) {
+    if (this.router.url == '/' + p) {
+      //
+      this.footerEvent.emit('scrollTop');
+    } else {
+      this.router.navigate(['/' + p]);
+    }
   }
 }

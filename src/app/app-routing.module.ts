@@ -114,6 +114,10 @@ const routes: Routes = [
     loadChildren: () =>
       import('./edit-profile/edit-profile.module').then((m) => m.EditProfilePageModule),
   },
+  {
+    path: 'become-influencers',
+    loadChildren: () => import('./become-influencers/become-influencers.module').then( m => m.BecomeInfluencersPageModule)
+  },
 ];
 @NgModule({
   imports: [

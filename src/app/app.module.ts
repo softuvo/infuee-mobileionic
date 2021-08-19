@@ -11,6 +11,10 @@ import { AppComponent } from './app.component';
 import { ApiService } from './services/api.service';
 import { UtilityService } from './services/utility.service';
 import { TokenInterceptor } from './auth.intercepter';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { SpinnerDialog } from '@ionic-native/spinner-dialog/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,6 +36,10 @@ import { TokenInterceptor } from './auth.intercepter';
     },
     UtilityService,
     ApiService,
+    InAppBrowser,
+    SpinnerDialog,
+    StatusBar,
+    SplashScreen,
   ],
   bootstrap: [AppComponent],
 })

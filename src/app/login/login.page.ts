@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NavController, ToastController } from '@ionic/angular';
 import { ApiService } from '../services/api.service';
 import { UtilityService } from '../services/utility.service';
@@ -18,7 +19,8 @@ export class LoginPage implements OnInit {
     private api: ApiService,
     private fb: FormBuilder,
     public toastController: ToastController,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private router: Router
   ) {
     this.createForm();
   }
@@ -49,8 +51,6 @@ export class LoginPage implements OnInit {
   }
 
   login() {
-    console.log('login =====>');
-
     if (this.utility.formValidation(this.loginForm)) {
       this.utility.showLoader();
 
@@ -68,7 +68,7 @@ export class LoginPage implements OnInit {
                 'email',
                 this.loginForm.value.email
               );
-              this.navCtrl.navigateRoot('otp');
+              this.router.navigate(['verification', { isLogin: 1 }]);
               return;
             }
             this.presentToastWithOptions(res.message);
