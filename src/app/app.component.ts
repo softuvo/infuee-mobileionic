@@ -76,7 +76,7 @@ export class AppComponent {
     this.userType = this.utility.getfromLocalStorage('type');
     this.userToken = this.utility.getfromLocalStorage('token');
     this.initializeApp();
-    this.setMenu();
+    //this.checkUserLogIn();
   }
 
   initializeApp() {

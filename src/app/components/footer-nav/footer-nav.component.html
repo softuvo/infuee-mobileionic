@@ -1,32 +1,32 @@
 <ion-footer>
   <ion-toolbar>
-    <div class="bottomFixedLinks">
-      <ul>
-        <li>
-          <a href="javascript:void(0);" (click)="goPage('browse-influencers')">
-            <ion-icon name="home-outline"></ion-icon>
-            <span>Home</span>
-          </a>
-        </li>
-        <li>
-          <a href="javascript:void(0);" (click)="goPage('chat')">
-            <ion-icon name="chatbubbles-outline"></ion-icon>
-            <span>Chat</span>
-          </a>
-        </li>
-        <li>
-          <a href="javascript:void(0);" (click)="goPage('notification')">
-            <ion-icon name="notifications-outline"></ion-icon>
-            <span>Notification</span>
-          </a>
-        </li>
-        <li>
-          <a href="javascript:void(0);" (click)="goPage('profile')">
-            <ion-icon name="person-outline"></ion-icon>
-            <span>Profile</span>
-          </a>
-        </li>
-      </ul>
-    </div>
+    <ion-col size="12" class="bottomFixedLinks">
+       <ion-list>
+          <ion-item>
+            <a href="javascript:void(0);" (click)="goHome()">
+              <ion-icon name="home-outline"></ion-icon>
+              <span>Home</span>
+            </a>
+          </ion-item>
+          <ion-item>
+            <a href="javascript:void(0);" (click)="goChat()">
+              <ion-icon name="chatbubbles-outline"></ion-icon>
+              <span>Chat</span>
+            </a>
+          </ion-item>
+          <ion-item>
+            <a href="javascript:void(0);" (click)="goNotification()">
+              <ion-icon name="notifications-outline"></ion-icon>
+              <span>Notification</span>
+            </a>
+          </ion-item>
+          <ion-item>
+            <a href="javascript:void(0);" (click)="goProfile()">
+              <ion-icon name="person-outline"></ion-icon>
+              <span>Profile</span>
+            </a>
+          </ion-item>
+       </ion-list>
+    </ion-col>
   </ion-toolbar>
 </ion-footer>
