@@ -82,12 +82,14 @@ export class BrowseInfluencersPage implements OnInit {
 
   setData(res) {
     let link = res.image_link;
-    res.list.data.forEach((element) => {
-      element['imageLink'] = link + '/' + element.image;
-      element['category_type'] = this.category.find((item) => {
-        return item.id == element.category;
+    if (res && res.list && res.list.data) {
+      res.list.data.forEach((element) => {
+        element['imageLink'] = link + '/' + element.image;
+        element['category_type'] = this.category.find((item) => {
+          return item.id == element.category;
+        });
       });
-    });
+    }
     this.influencersList = [];
     this.recordCount = 0;
     if (res && res.list && res.list.data) {

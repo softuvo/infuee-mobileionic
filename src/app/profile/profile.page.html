@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-button class="left backArrow">
+    <ion-button class="left backArrow" (click)="goBack()">
       <ion-icon name="arrow-back-outline"></ion-icon>
     </ion-button>
     <ion-title class="pxElement">Profile</ion-title>
@@ -16,7 +16,11 @@
       <ion-row>
         <ion-col size="12" class="profileInformation">
           <div class="profileInformation__img">
-            <img src="../../assets/images/activejob.jpg" alt="ion" />
+            <img
+              [src]="[userObj?.image]"
+              alt="ion"
+              onError="src = './../assets/images/client-image.jpg'"
+            />
           </div>
           <div class="profileInformation__info">
             <span class="countryFlag"
