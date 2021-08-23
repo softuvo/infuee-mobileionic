@@ -68,3 +68,636 @@ input[type="number"] {
 
 /*Fonts*/
 /*Colors*/
+/*Main*/
+ion-app {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.upperCaseWrap {
+  position: relative;
+  z-index: 101;
+}
+
+.commonWrap {
+  padding: 15px 10px;
+}
+
+.lightBgColor {
+  background-color: #FBFBFB;
+}
+
+.whiteBgColor {
+  background-color: #fff;
+}
+
+.commonBorderBg {
+  background-color: #FBFBFB;
+  border: 1px solid #CBCBCB;
+  border-radius: 5px;
+  padding: 7px;
+}
+
+.commonBorderBg + .commonBorderBg {
+  margin-top: 10px;
+}
+
+.lightBlue {
+  color: #35B6F7;
+}
+
+/*Common Button*/
+.commonButton {
+  --background: #35B6F7;
+  --border-radius: 5px;
+  --box-shadow: none;
+  height: 32px;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.commonButton > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.commonButton ion-icon {
+  font-size: 13px;
+  margin-left: 3px;
+}
+
+/*Heading Text*/
+.headingText {
+  --min-height: 100%;
+}
+
+.headingText.mb {
+  margin-bottom: 10px;
+}
+
+.headingText ion-title {
+  font-size: 17px;
+  font-weight: 500;
+  color: #222222;
+  padding: 0;
+}
+
+.headingText ion-title.medium {
+  font-size: 20px;
+}
+
+.headingText ion-title.big {
+  font-size: 24px;
+}
+
+.headingText .seeAllText {
+  font-size: 14px;
+  font-weight: 500;
+  color: #777777;
+}
+
+.headingText .seeAllText a {
+  color: #777777;
+}
+
+.headingText .seeAllText a:hover {
+  color: #35B6F7;
+}
+
+/*Header*/
+ion-header::after {
+  display: none;
+}
+
+ion-header .hide {
+  display: none;
+}
+
+ion-header ion-toolbar {
+  position: relative;
+  --background: #35B6F7;
+  --min-height: 22px;
+  padding: 50px 15px 10px;
+}
+
+ion-header ion-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+  text-align: center;
+}
+
+ion-header ion-title span {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+}
+
+ion-header ion-title.pxElement {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+ion-header ion-title.psmlPmdrElement {
+  padding-left: 30px;
+  padding-right: 85px;
+}
+
+ion-header ion-button {
+  position: absolute;
+  top: 0;
+  height: auto;
+  margin: 0;
+  letter-spacing: normal;
+  z-index: 1;
+  --background: none;
+  --box-shadow: none;
+  --padding-start: 0;
+  --padding-end: 0;
+}
+
+ion-header ion-button ion-icon {
+  font-size: 28px;
+}
+
+ion-header ion-button.left {
+  left: 0;
+}
+
+ion-header ion-button.right {
+  right: 0;
+}
+
+ion-header ion-button.bottom {
+  bottom: 0;
+}
+
+ion-header ion-button.backArrow ion-icon {
+  font-size: 20px;
+}
+
+ion-header ion-button.backArrow--middle {
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+ion-header ion-button.menuButton {
+  top: -3px;
+}
+
+ion-header ion-button.addNewButton {
+  font-size: 13px;
+  text-transform: capitalize;
+}
+
+ion-header ion-button.addNewButton ion-icon {
+  font-size: 20px;
+  margin-left: 3px;
+}
+
+ion-header ion-button.userLogin .userLogin {
+  width: 35px;
+  height: 35px;
+  position: relative;
+  border-radius: 50%;
+}
+
+ion-header ion-button.userLogin .userLogin .userActive {
+  background-color: #26DB4E;
+  border: 1px solid #fff;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border-radius: 50%;
+}
+
+ion-header ion-button.userLogin .userLogin img {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+/*Grid*/
+ion-grid {
+  --ion-grid-padding: 0;
+}
+
+.my-custom-menu {
+  --width: 500px;
+}
+
+/*Search Filters*/
+.searchFilters {
+  padding: 0;
+  margin: 0 0 5px;
+}
+
+.searchFilters ion-searchbar {
+  width: 100%;
+  height: 45px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  --box-shadow: none;
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  -webkit-padding-start: 5px;
+  padding-inline-start: 5px;
+  -webkit-padding-end: 5px;
+  padding-inline-end: 5px;
+}
+
+.searchFilters ion-button {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  letter-spacing: normal;
+  --background: #35B6F7;
+  --box-shadow: none;
+}
+
+.searchFilters ion-button ion-icon {
+  font-size: 22px;
+}
+
+.filterDataGrid {
+  margin: 0;
+}
+
+.filterDataGrid ion-card {
+  --background: #FBFBFB;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 20px 5px;
+}
+
+.filterDataGrid .cardImg {
+  text-align: center;
+  margin: 0 0 10px;
+}
+
+.filterDataGrid .cardImg img {
+  background: linear-gradient(to bottom, #7923BD, #C4296A, #DD923F);
+  width: 120px;
+  height: 120px;
+  display: inline-block;
+  border-radius: 50%;
+  padding: 2px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.filterDataGrid ion-card-content {
+  text-align: center;
+  padding: 0;
+}
+
+.filterDataGrid ion-card-content h4 {
+  font-size: 19px;
+  font-weight: 500;
+  color: #000;
+}
+
+.filterDataGrid ion-card-content h5 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #A1A1A1;
+  margin: 8px 0 0;
+}
+
+/*Edit Profile*/
+.changeUserImg {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid #35B6F7;
+  margin: 0 auto 50px;
+}
+
+.changeUserImg__border {
+  width: 94px;
+  height: 94px;
+  border: 2px solid #35B6F7;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.changeUserImg__border img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.changeUserImg__browseImage {
+  background-color: #35B6F7;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.changeUserImg__browseImage ion-input {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.changeUserImg__browseImage ion-icon {
+  font-size: 22px;
+  color: #fff;
+}
+
+/*Forms*/
+.infueeFormOuter {
+  padding: 40px 25px;
+}
+
+.infueeFormOuter .buttonOuter {
+  margin-top: 30px;
+}
+
+.infueeFormOuter ion-button {
+  --background: #7B22B9;
+  --box-shadow: none;
+  width: 100%;
+  height: 55px;
+  font-size: 18px;
+  font-weight: 500;
+  display: block;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  transition: all 0.5s ease;
+}
+
+.infueeFormOuter ion-button:hover {
+  --background: #be1979;
+}
+
+.infueeFormOuter ion-button.formButton--cancel {
+  --background: #C8C8C8;
+  color: #222222;
+}
+
+.infueeFormOuter ion-button.formButton--cancel:hover {
+  --background: #222222;
+  color: #C8C8C8;
+}
+
+.commonHeading {
+  margin: 0 0 30px;
+}
+
+.commonHeading--left {
+  text-align: left;
+}
+
+.commonHeading--center {
+  text-align: center;
+}
+
+.commonHeading--right {
+  text-align: right;
+}
+
+.commonHeading h2 {
+  font-size: 27px;
+  font-weight: 500;
+  color: #222222;
+}
+
+.commonHeading p {
+  font-size: 17px;
+  font-weight: 400;
+  color: #777777;
+  margin: 15px 0 0;
+}
+
+form ion-item {
+  --border-width: 0;
+}
+
+form .formGroup {
+  position: relative;
+  overflow: visible;
+}
+
+form .formGroup + .formGroup {
+  margin-top: 32px;
+}
+
+form .formGroup.item-has-focus {
+  border-bottom: 0;
+}
+
+form .formGroup.item-has-focus .item-highlight {
+  background: transparent;
+  height: auto;
+}
+
+form .formGroup .item-native {
+  display: none;
+}
+
+form .formGroup ion-label {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,f6f6f6+50,ffffff+50,f6f6f6+100 */
+  background: #ffffff;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #ffffff 0%, #f6f6f6 50%, #ffffff 50%, #f6f6f6 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #ffffff 0%, #f6f6f6 50%, #ffffff 50%, #f6f6f6 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #ffffff 0%, #f6f6f6 50%, #ffffff 50%, #f6f6f6 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 );
+  /* IE6-9 */
+  font-size: 13px;
+  font-weight: 500;
+  color: #222222;
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  pointer-events: none;
+  margin: 0;
+  padding: 0 5px;
+  z-index: 10;
+}
+
+form .formField {
+  height: 50px;
+  background-color: rgba(246, 246, 246, 0.5);
+  border-width: 1px;
+  border-style: solid;
+  border-color: #C0C0C0;
+  border-radius: 5px;
+  font-size: 14px;
+  --padding-top: 10px;
+  --padding-end: 15px;
+  --padding-bottom: 10px;
+  --padding-start: 15px;
+}
+
+form .formField[type='password'] {
+  --padding-end: 45px;
+}
+
+form ion-textarea.formField {
+  height: 80px;
+}
+
+form .selectOptionBar {
+  position: relative;
+}
+
+form .selectOptionBar ion-select {
+  background-position: 92% center;
+  background-size: 12px;
+  height: 50px;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: rgba(246, 246, 246, 0.5);
+  border: 1px solid #C0C0C0;
+  border-radius: 5px;
+  color: #777777;
+}
+
+form .flexColWrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -5px;
+}
+
+form .flexColWrap > * {
+  width: 100%;
+  max-width: 50%;
+  flex: 0 0 50%;
+  padding: 0 5px;
+}
+
+form .browseFile {
+  position: relative;
+}
+
+form .browseFile__text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(246, 246, 246, 0.5);
+  border-width: 1px;
+  border-style: dashed;
+  border-color: #C0C0C0;
+  border-radius: 5px;
+  text-align: center;
+  pointer-events: none;
+}
+
+form .browseFile__text h4 {
+  font-size: 14px;
+  color: #222222;
+  margin: 0 0 5px;
+}
+
+form .browseFile__text span {
+  font-size: 12px;
+  display: block;
+  color: #777777;
+}
+
+form .browseFile .formField {
+  position: relative;
+  opacity: 0;
+  height: 90px;
+  z-index: 1;
+  cursor: pointer;
+  --padding-top: 32px;
+  --padding-bottom: 32px;
+}
+
+form .typeToggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+  z-index: 10;
+}
+
+form .typeToggle ion-icon {
+  font-size: 20px;
+}
+
+form .item-native {
+  -webkit-padding-start: 0;
+  padding-inline-start: 0;
+}
+
+form .linkText {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  color: #5C5C5C;
+  margin: 15px 0 0;
+}
+
+form .linkText--left {
+  text-align: left;
+}
+
+form .linkText--center {
+  text-align: center;
+}
+
+form .linkText--right {
+  text-align: right;
+}
+
+form .linkText a {
+  display: inline-block;
+  color: #5C5C5C;
+}
+
+form .linkText a.underline {
+  text-decoration: underline;
+}
+
+form .linkText a:hover {
+  color: #7B22B9;
+}

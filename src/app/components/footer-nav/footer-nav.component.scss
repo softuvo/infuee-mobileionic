@@ -1,16 +1,57 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+ion-title, ion-card-title, ion-card-subtitle, ion-toolbar, ion-list, ion-item, ion-label, ion-input, ion-select, ion-textarea, ion-button {
+    font-family: 'Montserrat', sans-serif;
+}
 a,
 button,
 textarea {
-  transition: ease 0.3s;
-  -webkit-transition: ease 0.3s;
-  -moz-transition: ease 0.3s;
-  text-decoration: none;
-  outline: none !important;
-  color: inherit;
-  font-size: inherit;
-  resize: none;
+    transition: ease 0.3s;
+    -webkit-transition: ease 0.3s;
+    -moz-transition: ease 0.3s;
+    text-decoration: none;
+    outline: none !important;
+    color: inherit;
+    font-size: inherit;
+    resize: none;
 }
+
+/*Fonts*/
+$fontFamily: 'Montserrat', sans-serif;
+$fontWeightLight: 300;
+$fontWeightRegular: 400;
+$fontWeightMedium: 500;
+$fontWeightSemiBold: 600;
+$fontWeightBold: 700;
+$fontWeightExtraBold: 800;
+
+/*Colors*/
+$white: #fff;
+$black: #000;
+$yellow: #DFA91D;
+$lightBlue: #35B6F7;
+$purple: #7B22B9;
+$lightGrey: #C0C0C0;
+$darkGrey: #222222;
+$grey: #5C5C5C;
+$greyTint2: #777777;
+$greyTint3: #A1A1A1;
+$greyTint4: #92A1B4;
+$greyTint5: #B0B0B0;
+$greyTint6: #585858;
+$greyTint7: #C4C4C4;
+$greyTint8: #CBCBCB;
+$creemColor: #F6F6F6;
+$creemTint1: #FBFBFB;
+$creemTint2: #F2F2F2;
 
 /*Footer*/
 ion-footer {

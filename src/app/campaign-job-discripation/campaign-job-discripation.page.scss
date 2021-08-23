@@ -16,7 +16,7 @@ h1, h2, h3, h4, h5, h6 {
 li, p, span, label, input, select, textarea, button {
     font-family: 'Montserrat', sans-serif;
 }
-ion-title, ion-card-title, ion-card-subtitle, ion-label, ion-input, ion-select, ion-textarea, ion-button {
+ion-title, ion-card-title, ion-card-subtitle, ion-toolbar, ion-list, ion-item, ion-label, ion-input, ion-select, ion-textarea, ion-button {
     font-family: 'Montserrat', sans-serif;
 }
 ion-select {
@@ -359,141 +359,7 @@ ion-grid {
     }
 }
 
-/*Page Filters*/
-.pageFilters {
-    display: none;
-    --background: rgba(0,0,0,0.5);
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    z-index: 102;
-    ion-list {
-        position: absolute;
-        background-color: transparent;
-        width: 100%;
-        height: 90%;
-        bottom: 0;
-        z-index: 103;
-        padding: 0;
-        &::before {
-            content: "";
-            position: absolute;
-            top: 10px;
-            left: 0;
-            right: 0;
-            background-color: rgba(0,0,0,0.2);
-            width: 50px;
-            height: 3px;
-            border-radius: 5px;
-            margin: 0 auto;
-            z-index: 103;
-        }
-        .pageFiltersInner {
-            background-color: #fff;
-            position: relative;
-            width: 100%;
-            max-height: 100%;
-            padding: 40px 15px 30px;
-            border-top-left-radius: 50px;
-            border-top-right-radius: 50px;            
-            overflow: auto;
-        }        
-    }
-    .filterItem {
-        padding: 20px 0;
-        + .filterItem {
-            border-top: 1px solid rgba(0,0,0,0.1);
-        }
-        &:last-of-type {
-            padding-bottom: 0;
-        }
-        h3 {
-            font-size: 24px;
-            font-weight: $fontWeightMedium;
-            color: $darkGrey;
-        }
-        h4 {
-            font-size: 18px;
-            font-weight: $fontWeightMedium;
-            color: $darkGrey;
-            margin-bottom: 10px;
-        }
-        form {
-            margin: 0;
-            padding: 0;
-            ion-item {
-                --min-height: 100%;
-                --background: transparent;
-                --background-activated: transparent;
-                --background-focused: transparent;
-                --background-hover: transparent;                                
-                --background-activated-opacity: 0;
-                --background-focused-opacity: 0;
-                --background-hover-opacity: 0;
-                --padding-start: 0;
-                --inner-border-width: 0;
-                --ripple-color: transparent;
-                --background-hover: transparent;
-                + ion-item {
-                    margin-top: 10px;
-                }
-            }
-            ion-label {
-                font-family: "Montserrat", sans-serif;
-                cursor: pointer;
-                font-size: 16px;
-                font-weight: $fontWeightRegular;
-                color: $greyTint2;              
-                margin: 0;  
-            }
-            ion-checkbox {
-                --background: #E9E9E9;
-                --border-color: #B0B0B0;
-                --background-checked: #35B6F7;
-                --border-color-checked: #35B6F7;
-                --border-width: 1px;
-                --size: 20px;
-                margin: 0 10px 0 0;
-            }
-            ion-range {
-                position: relative;
-                padding: 0 0 15px;
-                --height: 30px;
-                --bar-height: 5px;
-                --bar-background: rgba(0,0,0,0.1);
-                --bar-background-active: #35B6F7;
-                --knob-size: 25px;
-                --knob-background: #35B6F7;
-                --border-width: 0;
-                --bar-border-radius: 10px;
-                ion-label {
-                    position: absolute;
-                    left: 0;
-                    bottom: 0;
-                    font-size: 12px;
-                    font-weight: $fontWeightMedium;
-                    color: $greyTint2;
-                    + ion-label {
-                        left: inherit;
-                        right: 0;
-                    }
-                }
-            }
-            .selectOptionBar {
-                position: relative;
-                ion-select {
-                    height: 40px;
-                    font-size: 14px;
-                    font-weight: $fontWeightMedium;
-                    background-color: $creemTint2;
-                    border: 1px solid $greyTint5;
-                    border-radius: 5px;
-                    color: $greyTint2;
-                }
-            }
-        }
-    }
-}
+
 
 /*Campaign Discripation*/
 .editCampaignGrid {

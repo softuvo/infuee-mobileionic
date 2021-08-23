@@ -46,11 +46,7 @@
           <div class="filterDataGrid">
             <ion-card>
               <div class="cardImg" (click)="openProfilePgae(info?.email)">
-                <img
-                  [src]="[info?.imageLink]"
-                  alt="ion"
-                  onError="src = './../assets/images/demo-image1.jpg'"
-                />
+                <img [src]="[info?.imageLink]" alt="ion" onError="src = './../assets/images/demo-image1.jpg'" />
               </div>
               <ion-card-content>
                 <h4 (click)="openProfilePgae(info?.email)">

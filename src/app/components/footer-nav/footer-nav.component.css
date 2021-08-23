@@ -1,3 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+
+ion-title, ion-card-title, ion-card-subtitle, ion-toolbar, ion-list, ion-item, ion-label, ion-input, ion-select, ion-textarea, ion-button {
+  font-family: 'Montserrat', sans-serif;
+}
+
 a,
 button,
 textarea {
@@ -11,6 +27,8 @@ textarea {
   resize: none;
 }
 
+/*Fonts*/
+/*Colors*/
 /*Footer*/
 ion-footer {
   padding-top: 10px;
