@@ -1,9 +1,62 @@
+ 
 <ion-header>
   <ion-toolbar>
-    <ion-title>edit-profile</ion-title>
+    <ion-button class="left backArrow">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+    <ion-title class="pxElement">Profile</ion-title> 
+    <ion-button class="right bottom addNewButton">
+      <span>Save</span>
+  </ion-button>     
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content>    
+    <div class="infueeFormOuter">
+      <div class="changeUserImg">
+         <div class="changeUserImg__border">
+            <img [src]="[userObj?.image]" alt="ion" onError="src = './../assets/images/client-image.jpg'" />
+         </div>
+         <div class="changeUserImg__browseImage">
+            <ion-input type="file"></ion-input>
+            <ion-icon name="camera"></ion-icon>
+         </div>
+      </div>
+      <form class="loginForm">
+        <ion-list no-lines>
+          <div class="formGroup">  
+            <ion-input class="formField" type="text" value=""></ion-input>
+            <ion-label>Name</ion-label>            
+          </div>
+          <div class="formGroup">  
+            <ion-input class="formField" type="email" value=""></ion-input>
+            <ion-label>Email Address</ion-label>            
+          </div>
+          <div class="formGroup">  
+            <ion-input class="formField" type="date" value=""></ion-input>
+            <ion-label>Date of Birth</ion-label>            
+          </div>
+          <div class="formGroup">  
+            <ion-input class="formField" type="text" value=""></ion-input>
+            <ion-label>Password</ion-label>
+            <button class="typeToggle">
+              <ion-icon name="eye-outline" (click)="showHideConfirm()"></ion-icon>
+            </button>
+          </div>
+          <div class="formGroup">
+            <div class="headingText">
+               <ion-title>Two-Fector Authentication</ion-title>
+               <div class="seeAllText">
+                  <span>Want an extra level of account security? Enable Two-facto authentication.</span>
+               </div>
+            </div>
+          </div>
+          <div class="formGroup">  
+            <ion-input class="formField" type="text" value=""></ion-input>
+            <ion-label>Phone Number</ion-label>            
+          </div>
+        </ion-list>
+      </form>
+    </div>
 </ion-content>
+

@@ -1,4 +1,4 @@
-<ion-app>
+<!-- <ion-app>
   <ion-menu contentId="menuContent" side="end">
     <div class="profileMenu">
       <ion-header>
@@ -29,4 +29,57 @@
     </div>
   </ion-menu>
   <ion-router-outlet id="menuContent"></ion-router-outlet>
+</ion-app> -->
+
+
+<ion-app>
+   <ion-menu contentId="menuContent" side="end">
+
+      <ion-header>
+        <ion-toolbar>
+            <div class="userMenuProfile">
+                <div class="userImage"><img class="userImage" [src]="ProfileData?.image || dummyImg" /></div>
+                <div class="userConnect">
+                  <ion-title>Amit Kumar</ion-title>
+                  <span><a href="mailto:amit@gmail.com">amit@gmail.com</a></span>
+                </div>
+            </div>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content class="menuLinks">
+        <ion-list>
+          <ion-item> 
+            <a href="javascript:void(0);" (click)="goPage('browse-jobs')">Browse Jobs</a>           
+          </ion-item>
+          <ion-item> 
+            <a href="javascript:void(0);" (click)="goPage('browse-influencers')">Browse Influencers</a>           
+          </ion-item>
+          <ion-item> 
+            <a href="javascript:void(0);" (click)="goPage('campaign')">Campaign</a>           
+          </ion-item>
+          <ion-item> 
+            <a href="javascript:void(0);" (click)="goPage('browse-jobs')">Browse Jobs</a>             
+          </ion-item>
+          <ion-item> 
+            <a href="javascript:void(0);" (click)="goPage('become-influencer')">Become an Influencer</a>           
+          </ion-item>
+          <ion-item> 
+            <a href="javascript:void(0);" (click)="goPage('how-it-work')">How it Work</a>           
+          </ion-item>
+        </ion-list>
+      </ion-content>
+
+      <ion-footer>
+        <ion-toolbar>
+          <ion-list>
+             <ion-item (click)="logout()"><svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 10V8H15V5L20 9L15 13V10H6Z" fill="white"/><path d="M2 0H11C12.103 0 13 0.897 13 2V6H11V2H2V16H11V12H13V16C13 17.103 12.103 18 11 18H2C0.897 18 0 17.103 0 16V2C0 0.897 0.897 0 2 0Z" fill="white"/></svg> <span>Sign Out</span></ion-item>
+          </ion-list>
+        </ion-toolbar>
+      </ion-footer>
+
+   </ion-menu>
+   <ion-router-outlet id="menuContent"></ion-router-outlet>
 </ion-app>
+
+

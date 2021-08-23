@@ -20,7 +20,7 @@ li, p, span, label, input, select, textarea, button {
   font-family: 'Montserrat', sans-serif;
 }
 
-ion-title, ion-card-title, ion-card-subtitle, ion-label, ion-input, ion-select, ion-textarea, ion-button {
+ion-title, ion-card-title, ion-card-subtitle, ion-toolbar, ion-list, ion-item, ion-label, ion-input, ion-select, ion-textarea, ion-button {
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -552,4 +552,21 @@ ion-grid {
   text-transform: capitalize;
   margin: 0;
   z-index: 1;
+}
+
+/*Footer*/
+ion-footer {
+  padding-top: 10px;
+}
+
+ion-footer::before {
+  display: none;
+}
+
+ion-footer ion-toolbar {
+  --background: #fff;
+  --min-height: 60px;
+  box-shadow: 0 -2px 8px 0 rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }

@@ -1,83 +1,64 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
 * {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  word-wrap: break-word;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
 }
 body {
-  font-family: "Montserrat", sans-serif;
-  font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Montserrat", sans-serif;
-  margin: 0;
-  padding: 0;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
 }
-li,
-p,
-span,
-label,
-input,
-select,
-textarea,
-button {
-  font-family: "Montserrat", sans-serif;
+li, p, span, label, input, select, textarea, button {
+    font-family: 'Montserrat', sans-serif;
 }
-ion-title,
-ion-card-title,
-ion-card-subtitle,
-ion-label,
-ion-input,
-ion-select,
-ion-textarea,
-ion-button {
-  font-family: "Montserrat", sans-serif;
+ion-title, ion-card-title, ion-card-subtitle, ion-toolbar, ion-list, ion-item, ion-label, ion-input, ion-select, ion-textarea, ion-button {
+    font-family: 'Montserrat', sans-serif;
 }
 ion-select {
-  background-image: url("../../assets/icon/down-arrow.svg");
-  background-position: 97% center;
-  background-size: 16px;
-  background-repeat: no-repeat;
-  --placeholder-opacity: 1;
-  &::part(icon) {
-    display: none !important;
-  }
+    background-image: url('../../assets/icon/down-arrow.svg');
+    background-position: 97% center;
+    background-size: 16px;
+    background-repeat: no-repeat;
+    --placeholder-opacity: 1;
+    &::part(icon) {
+        display: none !important;
+    }
 }
 
 input:focus,
 select:focus,
 textarea:focus {
-  outline: none !important;
-  box-shadow: none !important;
+    outline: none !important;
+    box-shadow: none !important;
 }
 a,
 button,
 textarea {
-  transition: ease 0.3s;
-  -webkit-transition: ease 0.3s;
-  -moz-transition: ease 0.3s;
-  text-decoration: none;
-  outline: none !important;
-  color: inherit;
-  font-size: inherit;
-  resize: none;
+    transition: ease 0.3s;
+    -webkit-transition: ease 0.3s;
+    -moz-transition: ease 0.3s;
+    text-decoration: none;
+    outline: none !important;
+    color: inherit;
+    font-size: inherit;
+    resize: none;
 }
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 input[type="number"] {
-  -moz-appearance: textfield;
+    -moz-appearance: textfield;
 }
 
 /*Fonts*/
-$fontFamily: "Montserrat", sans-serif;
+$fontFamily: 'Montserrat', sans-serif;
 $fontWeightLight: 300;
 $fontWeightRegular: 400;
 $fontWeightMedium: 500;
@@ -88,22 +69,23 @@ $fontWeightExtraBold: 800;
 /*Colors*/
 $white: #fff;
 $black: #000;
-$yellow: #dfa91d;
-$lightBlue: #35b6f7;
-$purple: #7b22b9;
-$lightGrey: #c0c0c0;
+$yellow: #DFA91D;
+$yellowTint1: #E9BB45;
+$lightBlue: #35B6F7;
+$purple: #7B22B9;
+$lightGrey: #C0C0C0;
 $darkGrey: #222222;
-$grey: #5c5c5c;
+$grey: #5C5C5C;
 $greyTint2: #777777;
-$greyTint3: #a1a1a1;
-$greyTint4: #92a1b4;
-$greyTint5: #b0b0b0;
+$greyTint3: #A1A1A1;
+$greyTint4: #92A1B4;
+$greyTint5: #B0B0B0;
 $greyTint6: #585858;
-$greyTint7: #c4c4c4;
-$greyTint8: #cbcbcb;
-$creemColor: #f6f6f6;
-$creemTint1: #fbfbfb;
-$creemTint2: #f2f2f2;
+$greyTint7: #C4C4C4;
+$greyTint8: #CBCBCB;
+$creemColor: #F6F6F6;
+$creemTint1: #FBFBFB;
+$creemTint2: #F2F2F2;
 
 /*Main*/
 ion-app {
@@ -454,59 +436,3 @@ ion-grid {
     }
   }
 }
-
-/*Footer*/
-ion-footer {
-  padding-top: 10px;
-  &::before {
-    display: none;
-  }
-  ion-toolbar {
-    --background: #fff;
-    --min-height: 60px;
-    box-shadow: 0 -2px 8px 0 rgba(0, 0, 0, 0.1);
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-  }
-}
-
-/*Bottom Fixed Links*/
-.bottomFixedLinks {
-  ul {
-    display: flex;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    li {
-      width: 100%;
-      list-style: none;
-      text-align: center;
-      padding: 0 5px;
-      &:hover {
-        ion-icon {
-          color: $lightBlue;
-        }
-        span {
-          color: $lightBlue;
-        }
-      }
-      a {
-        display: block;
-      }
-      ion-icon {
-        font-size: 22px;
-        color: $greyTint4;
-      }
-      span {
-        display: block;
-        font-size: 12px;
-        font-weight: $fontWeightMedium;
-        color: $greyTint4;
-      }
-    }
-  }
-}
-
-
-
-
