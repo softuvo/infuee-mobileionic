@@ -11,7 +11,14 @@
 </ion-header>
 
 <ion-content class="upperCaseWrap">
-  <div class="commonWrap lightBgColor">
+  <app-preloader *ngIf="isPreloader" [template]="'myprofile'"></app-preloader>
+  <app-no-data *ngIf="!isPreloader && !userObj?.first_name"
+    >No Data Found</app-no-data
+  >
+  <div
+    class="commonWrap lightBgColor"
+    *ngIf="!isPreloader && userObj?.first_name"
+  >
     <ion-grid>
       <ion-row>
         <ion-col size="12" class="profileInformation">
@@ -24,10 +31,21 @@
           </div>
           <div class="profileInformation__info">
             <span class="countryFlag"
-              ><img src="../../assets/images/usa-flag.jpg" alt="ion"
+              ><img
+                *ngIf="userObj?.country_flag"
+                [src]="userObj?.country_flag"
+                alt="ion"
             /></span>
-            <h4>Amit Kumar</h4>
-            <span>Manager of company</span>
+            <h4>
+              {{userObj?.first_name && userObj?.first_name != undefined &&
+              userObj?.first_name != null?userObj?.first_name:'' +
+              userObj?.last_name && userObj?.last_name != undefined &&
+              userObj?.last_name != null?userObj?.last_name:''}}
+            </h4>
+            <span
+              >{{userObj?.category && userObj?.category != undefined &&
+              userObj?.category != null?userObj?.category:''}}</span
+            >
           </div>
           <ion-button class="editBuuton" routerLink="/edit-profile">
             <svg
@@ -52,27 +70,40 @@
           <ion-item>
             <ion-icon name="mail"></ion-icon>
             <span
-              ><a href="mailto:amitkinfo@gmail.com"
-                >amitkinfo@gmail.com</a
+              ><a
+                href="mailto:{{userObj?.email && userObj?.email != undefined &&
+                userObj?.email != null?userObj?.email:''}}"
+                >{{userObj?.email && userObj?.email != undefined &&
+                userObj?.email != null?userObj?.email:''}}</a
               ></span
             >
           </ion-item>
           <ion-item>
             <ion-icon name="headset-sharp"></ion-icon>
-            <span><a href="tel:+9 993-682-1549">+9 993-682-1549</a></span>
+            <span
+              ><a href="tel:+9 993-682-1549"
+                >{{userObj?.phone && userObj?.phone != undefined &&
+                userObj?.phone != null?userObj?.phone:''}}</a
+              ></span
+            >
           </ion-item>
           <ion-item>
             <ion-icon name="location-sharp"></ion-icon>
             <span
-              ><a href="https://goo.gl/maps/nTXu2hXthU6dy1tJA" target="_blank"
-                >Oakland, CA</a
+              ><a href="javascript:void(0);"
+                >{{userObj?.address && userObj?.address != undefined &&
+                userObj?.address != null?userObj?.address:''}}</a
               ></span
             >
           </ion-item> </ion-list
         ><!--User Profile Contact End-->
-        <ion-list size="12" class="userSocialLinks">
-          <ion-item>
-            <a href="javascript:void(0);">
+        <ion-list
+          size="12"
+          class="userSocialLinks"
+          *ngIf="userObj?.userPlatforms.length > 0"
+        >
+          <ion-item *ngFor="let social of userObj?.userPlatforms">
+            <a *ngIf='social?.slug == "Instagram"' href="javascript:void(0);">
               <svg
                 width="50"
                 height="50"
@@ -114,9 +145,8 @@
                 </defs>
               </svg>
             </a>
-          </ion-item>
-          <ion-item>
-            <a href="javascript:void(0);">
+
+            <a *ngIf='social?.slug == "Facebook"' href="javascript:void(0);">
               <svg
                 width="50"
                 height="50"
@@ -131,9 +161,8 @@
                 />
               </svg>
             </a>
-          </ion-item>
-          <ion-item>
-            <a href="javascript:void(0);">
+
+            <a *ngIf='social?.slug == "Youtube"' href="javascript:void(0);">
               <svg
                 width="50"
                 height="50"
@@ -148,9 +177,7 @@
                 />
               </svg>
             </a>
-          </ion-item>
-          <ion-item>
-            <a href="javascript:void(0);">
+            <a *ngIf='social?.slug == "Tiktok"' href="javascript:void(0);">
               <svg
                 width="50"
                 height="50"
@@ -170,28 +197,39 @@
       </ion-row>
     </ion-grid>
   </div>
-  <div class="commonWrap whiteBgColor">
+  <div
+    class="commonWrap whiteBgColor"
+    *ngIf="userObj?.workHistory.length > 0 && !isPreloader"
+  >
     <ion-grid>
       <ion-row>
         <ion-col size="12" class="headingText">
           <ion-title class="medium">Work History</ion-title>
         </ion-col>
-        <ion-col size="12" class="workHistory">
+        <ion-col
+          size="12"
+          class="workHistory"
+          *ngFor="let item of userObj?.workHistory"
+        >
           <div class="workHistory__userRating">
             <div class="workHistoryImg">
-              <img src="../../assets/images/activejob.jpg" alt="ion" />
+              <img
+                [src]="[userObj?.imageUrl+'/'+item?.image]"
+                alt="ion"
+                onError="src = './../assets/images/activejob.jpg'"
+                alt="ion"
+              />
             </div>
             <div class="userStarRating">
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
-              <ion-icon name="star"></ion-icon>
+              <span
+                [innerHTML]="sanitizer.bypassSecurityTrustHtml(utility.getRatingStar(item?.rating))"
+              ></span>
             </div>
           </div>
           <div class="workHistory__info">
             <p>
-              It is a long established fact that a reader will be distracted.
+              {{item?.review && item?.review != undefined && item?.review !=
+              null?item?.review:''}}
             </p>
             <h5>
               <svg
@@ -206,7 +244,12 @@
                   fill="#29AAF3"
                 />
               </svg>
-              <span>Indian Choudhary</span>
+              <span>
+                {{item?.first_name && item?.first_name != undefined &&
+                item?.first_name != null?item?.first_name:'' + item?.last_name
+                && item?.last_name != undefined && item?.last_name !=
+                null?item?.last_name:''}}</span
+              >
             </h5>
           </div>
         </ion-col>

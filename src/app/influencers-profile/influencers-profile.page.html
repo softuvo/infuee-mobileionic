@@ -65,7 +65,7 @@
                   *ngIf="allAccountData?.rating?.total_users > 0"
                 >
                   <span
-                    [innerHTML]="sanitizer.bypassSecurityTrustHtml(getRatingStar(allAccountData?.rating?.average))"
+                    [innerHTML]="sanitizer.bypassSecurityTrustHtml(utility.getRatingStar(allAccountData?.rating?.average))"
                   ></span>
                   <span
                     >{{allAccountData?.rating?.average}}*

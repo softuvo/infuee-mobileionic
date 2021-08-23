@@ -10,7 +10,6 @@ import { NoDataComponent } from './no-data/no-data.component';
 import { FiltersPageComponent } from './filters-page/filters-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PreloaderComponent } from './preloader/preloader.component';
-
 @NgModule({
   declarations: [FooterNavComponent, NoDataComponent, FiltersPageComponent,PreloaderComponent],
   imports: [

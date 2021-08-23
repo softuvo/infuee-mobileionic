@@ -407,4 +407,21 @@ export class UtilityService {
       return true;
     }
   }
+
+  getRatingStar(avg?: any) {
+    let starRating = '';
+    avg = avg ? avg : 0;
+    for (let i = 1; i <= 5; i++) {
+      if (avg >= i) {
+        starRating += '<ion-icon name="star" class="rating-icn"></ion-icon>';
+      } else if (avg > i - 1) {
+        starRating +=
+          '<ion-icon name="star-half" class="rating-icn"></ion-icon>';
+      } else {
+        starRating +=
+          '<ion-icon name="star-outline" class="rating-icn"></ion-icon>';
+      }
+    }
+    return starRating;
+  }
 }

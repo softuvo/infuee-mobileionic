@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { MenuController, NavController } from '@ionic/angular';
 import { ApiService } from '../services/api.service';
 import { UtilityService } from '../services/utility.service';
@@ -15,7 +16,8 @@ export class ProfilePage implements OnInit {
     private menu: MenuController,
     private navCtrl: NavController,
     public utility: UtilityService,
-    private api: ApiService
+    private api: ApiService,
+    public sanitizer: DomSanitizer
   ) {}
 
   ionViewWillEnter() {
@@ -35,7 +37,9 @@ export class ProfilePage implements OnInit {
   getAccountData() {
     this.isPreloader = true;
     this.api.getProfileInfo().subscribe((res: any) => {
-      this.userObj = res;
+      if (res && res.user) {
+        this.userObj = res.user;
+      }
       this.isPreloader = false;
     });
   }

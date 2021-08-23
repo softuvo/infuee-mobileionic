@@ -1,122 +1,230 @@
- 
 <ion-header>
   <ion-toolbar>
-    <ion-button class="left backArrow">
+    <ion-button class="left backArrow" (click)=goBack();>
       <ion-icon name="arrow-back-outline"></ion-icon>
     </ion-button>
-    <ion-title class="pxElement">Create Job</ion-title>  
+    <ion-title class="pxElement">Create Job</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>    
-    <div class="infueeFormOuter">
-      <form class="loginForm">
-        <ion-list no-lines>
-          <div class="formGroup">  
-            <ion-input class="formField" type="text" value=""></ion-input>
-            <ion-label>Job Title</ion-label>            
+<ion-content>
+  <div class="infueeFormOuter">
+    <form class="loginForm" [formGroup]="jobForm">
+      <ion-list no-lines>
+        <div class="formGroup">
+          <ion-input
+            class="formField"
+            type="text"
+            formControlName="title"
+            [ngClass]="{ 'is-invalid': (isSubmit || f.title.touched) && f.title.errors }"
+          ></ion-input>
+          <div
+            *ngIf="(isSubmit || f.title.touched) && f.title.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.title.errors.required">Title is required</div>
           </div>
-          <div class="formGroup">  
-            <ion-textarea class="formField" type="text" value=""></ion-textarea>
-            <ion-label>Description</ion-label>            
+          <ion-label>Job Title</ion-label>
+        </div>
+        <div class="formGroup">
+          <ion-textarea
+            class="formField"
+            type="text"
+            formControlName="description"
+            [ngClass]="{ 'is-invalid': (isSubmit || f.description.touched) && f.description.errors }"
+          ></ion-textarea>
+          <div
+            *ngIf="(isSubmit || f.description.touched) && f.description.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.description.errors.required">
+              Description is required
+            </div>
           </div>
-          <div class="formGroup selectOptionBar">
-            <ion-select placeholder="Instagram">
-              <ion-select-option value="1">Instagram</ion-select-option>
-              <ion-select-option value="2">Facebook</ion-select-option>
-              <ion-select-option value="3">Twitter</ion-select-option>
-              <ion-select-option value="4">Linkedin</ion-select-option>
+          <ion-label>Description</ion-label>
+        </div>
+        <div class="formGroup selectOptionBar">
+          <ion-select
+            placeholder="Select Platform"
+            formControlName="platforms"
+            [ngClass]="{ 'is-invalid': (isSubmit || f.platforms.touched) && f.platforms.errors }"
+            multiple
+          >
+       
+            <ion-select-option value="{{social?.slug}}" *ngFor='let social of plateformList'> {{social?.name}}</ion-select-option>
+            <!-- <ion-select-option value="2">Facebook</ion-select-option>
+            <ion-select-option value="3">Twitter</ion-select-option>
+            <ion-select-option value="4">Linkedin</ion-select-option> -->
+          </ion-select>
+          <div
+            *ngIf="(isSubmit || f.platforms.touched) && f.platforms.errors" 
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.platforms.errors.required">Platform is required</div>
+          </div>
+          <ion-label>Select Platform</ion-label>
+        </div>
+        
+        <div class="formGroup" *ngFor='let item of jobForm.value.platforms'>
+          <ion-input
+            class="formField"
+            type="number"
+            [(ngModel)]='minimum_followers[item]'
+            [ngModelOptions]="{standalone: true}"
+
+          ></ion-input>
+          <ion-label> Minimum {{item}} Followers </ion-label>
+        </div>
+        <div class="formGroup selectOptionBar">
+          <ion-select
+            placeholder="Add Category"
+            formControlName="category"
+            [ngClass]="{ 'is-invalid': (isSubmit || f.category.touched) && f.category.errors }"
+          >
+            <ion-select-option value="{{cat?.id}}" *ngFor='let cat of categoryList'> {{cat?.name}}</ion-select-option>
+            <!-- <ion-select-option value="2">Health/Fitness</ion-select-option>
+            <ion-select-option value="3">Health/Fitness</ion-select-option>
+            <ion-select-option value="4">Health/Fitness</ion-select-option> -->
+          </ion-select>
+          <div
+            *ngIf="(isSubmit || f.category.touched) && f.category.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.category.errors.required">Category is required</div>
+          </div>
+          <ion-label>Add Category</ion-label>
+        </div>
+
+        <div class="formGroup browseFile">
+          <div class="browseFile__text" *ngIf="img_new=='' || img_new == undefined">
+            <h4>Upload an image/video</h4>
+            <span>Choose a file or grag it here</span>
+          </div>
+          <div class="browseFile__text" *ngIf="img_new && img_new != undefined">
+            <img class="logo" class="prevImg" src="{{img_new}}" />
+          </div>
+          <ion-input class="formField" type="file" id="coverImage" (change)="onFileChange($event)" ></ion-input>
+          <ion-label>Job Cover Image</ion-label>
+        </div>
+        <div class="formGroup">
+          <ion-input
+            class="formField"
+            type="number"
+            formControlName="influencers"
+            [ngClass]="{ 'is-invalid': (isSubmit || f.influencers.touched) && f.influencers.errors }"
+          ></ion-input>
+          <div
+            *ngIf="(isSubmit || f.influencers.touched) && f.influencers.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.influencers.errors.required">
+              Required Infulencers is required
+            </div>
+          </div>
+          <ion-label>Required Infulencers</ion-label>
+        </div>
+        <div class="formGroup flexColWrap">
+          <div class="selectOptionBar">
+            <ion-select
+              placeholder="Minutes"
+              formControlName="minutes"
+              [ngClass]="{ 'is-invalid': (isSubmit || f.minutes.touched) && f.minutes.errors }"
+            >
+              <ion-select-option value="{{i}}" *ngFor="let i of countingArray"
+                >{{i}}</ion-select-option
+              >
             </ion-select>
-            <ion-label>Select Platform</ion-label>
+            <div
+              *ngIf="(isSubmit || f.minutes.touched) && f.minutes.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.minutes.errors.required">Minutes is required</div>
+            </div>
+            <ion-label>Time Duration</ion-label>
           </div>
-          <div class="formGroup selectOptionBar">
-            <ion-select placeholder="Health/Fitness">
-              <ion-select-option value="1">Health/Fitness</ion-select-option>
-              <ion-select-option value="2">Health/Fitness</ion-select-option>
-              <ion-select-option value="3">Health/Fitness</ion-select-option>
-              <ion-select-option value="4">Health/Fitness</ion-select-option>
+          <div class="selectOptionBar">
+            <ion-select
+              placeholder="Seconds"
+              formControlName="seconds"
+              [ngClass]="{ 'is-invalid': (isSubmit || f.seconds.touched) && f.seconds.errors }"
+            >
+              <ion-select-option value="{{i}}" *ngFor="let i of countingArray"
+                >{{i}}</ion-select-option
+              >
             </ion-select>
-            <ion-label>Add Category</ion-label>
-          </div>
-          <div class="formGroup browseFile">
-            <div class="browseFile__text">
-               <h4>Upload an image/video</h4>
-               <span>Choose a file or grag it here</span>
-            </div>
-            <ion-input class="formField" type="file" id="coverImage"></ion-input>
-            <ion-label>Job Cover Image</ion-label>
-          </div>
-          <div class="formGroup">  
-            <ion-input class="formField" type="text" value=""></ion-input>
-            <ion-label>Required Infulencers</ion-label>            
-          </div>
-          <div class="formGroup flexColWrap">
-            <div class="selectOptionBar">
-              <ion-select placeholder="Minutes">
-                <ion-select-option value="1">Minutes</ion-select-option>
-              </ion-select>
-              <ion-label>Time Duration</ion-label>
-            </div>
-            <div class="selectOptionBar">
-              <ion-select placeholder="Seconds">
-                <ion-select-option value="1">1sec</ion-select-option>
-              </ion-select>
+            <div
+              *ngIf="(isSubmit || f.seconds.touched) && f.seconds.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.seconds.errors.required">Seconds is required</div>
             </div>
           </div>
-          <div class="formGroup">  
-            <ion-input class="formField" type="text" value=""></ion-input>
-            <ion-label>Promotion Days</ion-label>            
+        </div>
+        <div class="formGroup flexColWrap">
+          <div class="selectOptionBar">
+            <ion-input
+              class="formField"
+              type="number"
+              formControlName="min_age"
+              placeholder="Min age"
+            ></ion-input>
+            <ion-label>Age</ion-label>
           </div>
-          <div class="formGroup">  
-            <ion-input class="formField" type="text" value=""></ion-input>
-            <ion-label>Promotion Days</ion-label>            
+          <div class="selectOptionBar">
+            <ion-input
+              class="formField"
+              type="number"
+              formControlName="max_age"
+              placeholder="Max age"
+            ></ion-input>
           </div>
-          <div class="formGroup">  
-            <ion-input class="formField" type="text" value=""></ion-input>
-            <ion-label>Price($)</ion-label>            
+        </div>
+        <div class="formGroup">
+          <ion-input
+            class="formField"
+            type="text"
+            formControlName="location"
+            (ionInput)="updateSearchResults()"
+            (ionBlur)="outsideInput($event)"
+          ></ion-input>
+          <ion-list [hidden]="!autocompleteItems.length">
+            <ion-item
+              *ngFor="let item of autocompleteItems"
+              (click)="selectSearchResult(item)"
+            >
+              {{ item.description }}
+            </ion-item>
+          </ion-list>
+          <ion-label>Location</ion-label>
+        </div>
+        <div class="formGroup">
+          <ion-input
+            class="formField"
+            type="number"
+            formControlName="price"
+            [ngClass]="{ 'is-invalid': (isSubmit || f.price.touched) && f.price.errors }"
+          ></ion-input>
+          <div
+            *ngIf="(isSubmit || f.price.touched) && f.price.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.price.errors.required">Price is required</div>
           </div>
-          <div class="buttonOuter flexColWrap">
-              <div class="buttonOuter__item">
-                <ion-button class="formButton formButton--cancel" type="submit">Cancel</ion-button>
-              </div>
-              <div class="buttonOuter__item">
-                <ion-button class="formButton" type="submit">Create</ion-button>
-              </div>
+          <ion-label>Price($)</ion-label>
+        </div>
+        <div class="buttonOuter flexColWrap">
+          <div class="buttonOuter__item">
+            <ion-button class="formButton formButton--cancel" type="submit" (click)="cancelForm()"
+              >Cancel</ion-button
+            >
           </div>
-        </ion-list>
-      </form>
-    </div>
+          <div class="buttonOuter__item">
+            <ion-button class="formButton" type="submit" (click)="submitForm()">Create</ion-button>
+          </div>
+        </div>
+      </ion-list>
+    </form>
+  </div>
 </ion-content>
 
-<ion-footer>
-  <ion-toolbar>
-      <div class="bottomFixedLinks">
-        <ul>
-          <li>
-            <a href="javascript:void(0);">
-              <ion-icon name="home-outline"></ion-icon>
-              <span>Home</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0);">
-              <ion-icon name="chatbubbles-outline"></ion-icon>
-              <span>Chat</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0);">
-              <ion-icon name="notifications-outline"></ion-icon>
-              <span>Notification</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0);">
-              <ion-icon name="person-outline"></ion-icon>
-              <span>Profile</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-  </ion-toolbar>
-</ion-footer>
+<app-footer-nav></app-footer-nav>

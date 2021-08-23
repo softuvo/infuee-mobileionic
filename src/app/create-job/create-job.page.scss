@@ -641,13 +641,14 @@ form {
     .browseFile {
         position: relative;
         &__text {
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
             width: 100%;
             height: 100%;
-            position: absolute;
+            position: absolute; 
             top: 0;
             left: 0;
             background-color: rgba(246,246,246,0.5);

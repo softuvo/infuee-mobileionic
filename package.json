@@ -34,8 +34,10 @@
     "@ionic/angular": "^5.5.2",
     "@types/googlemaps": "^3.43.0",
     "cordova-android": "9.1.0",
+    "jquery": "^3.6.0",
     "moment": "^2.29.1",
     "rxjs": "~6.6.0",
+    "save": "^2.4.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
   },

@@ -105,3 +105,38 @@
     </div>
   </div>
 </div>
+
+<div *ngIf="template && template == 'myprofile'">
+  <div class="influencersProfile">
+    <div class="commonWrap">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="9">
+            <div class="influencerInfo">
+              <div class="influencerImage">
+                <ion-avatar slot="start">
+                  <ion-skeleton-text animated></ion-skeleton-text>
+                </ion-avatar>
+              </div>
+              <div class="influencerName">
+                <h4>
+                  <ion-skeleton-text animated></ion-skeleton-text>
+                  <span class="countryFlag">
+                    <ion-skeleton-text animated></ion-skeleton-text
+                  ></span>
+                </h4>
+                <div class="starRating">
+                  <ion-skeleton-text animated></ion-skeleton-text>
+                  <span><ion-skeleton-text animated></ion-skeleton-text></span>
+                </div>
+                <h5>
+                  <ion-skeleton-text animated></ion-skeleton-text>
+                </h5>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</div>
