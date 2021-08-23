@@ -15,10 +15,11 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { SpinnerDialog } from '@ionic-native/spinner-dialog/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { PopoverComponent } from './components/popover/popover.component';
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent,PopoverComponent],
+  entryComponents: [PopoverComponent],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

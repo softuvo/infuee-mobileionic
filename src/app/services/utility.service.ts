@@ -7,8 +7,10 @@ import {
   AlertController,
   Platform,
   ToastController,
+  PopoverController,
 } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
+import { PopoverComponent } from '../components/popover/popover.component';
 
 @Injectable({
   providedIn: 'root',
@@ -34,7 +36,8 @@ export class UtilityService {
     public loadingController: LoadingController,
     public alertController: AlertController,
     public toastController: ToastController,
-    private platform: Platform
+    private platform: Platform,
+    public popoverController: PopoverController,
   ) {}
   async presentLoading() {
     this.loader = await this.loadingController.create({
@@ -423,5 +426,24 @@ export class UtilityService {
       }
     }
     return starRating;
+  }
+
+  async presentPopover(type?: any,data?: any, ev?:any) {
+    const popover = await this.popoverController.create({
+      component: PopoverComponent,
+     // translucent: true,
+      componentProps: {
+        popOverType: type,
+        data: data,
+      },
+      event : ev,
+      keyboardClose: true,
+      cssClass: 'custome',
+      backdropDismiss: false,
+    });
+    await popover.present();
+    return popover.onDidDismiss().then(data => {
+      return true;
+    });
   }
 }

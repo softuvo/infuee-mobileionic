@@ -1,0 +1,17 @@
+<ion-row>
+    <ion-col text-center>
+        <div class="pophover" *ngIf="data?.design == 'success'">
+            <h3>Successful</h3>
+            <p>{{data?.message}}</p>
+        </div>
+        <div class="pophover" *ngIf="data?.design == 'error'">
+            <h3>Error</h3>
+            <p>{{data?.message}}</p>
+        </div>
+       
+        <ion-row class="pop-border" padding text-center>
+            <span *ngIf="data?.ok == 'ok'" class="ok-btn" (click)="popOver()">Okay</span>
+            <span *ngIf="data?.cancel == 'cancel'" (click)="popOver()" class="cancel-btn">Cancel</span>
+        </ion-row>
+    </ion-col>
+</ion-row>

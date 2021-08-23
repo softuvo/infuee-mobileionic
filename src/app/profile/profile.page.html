@@ -100,7 +100,7 @@
         <ion-list
           size="12"
           class="userSocialLinks"
-          *ngIf="userObj?.userPlatforms.length > 0"
+          *ngIf="userObj?.userPlatforms && userObj?.userPlatforms.length > 0"
         >
           <ion-item *ngFor="let social of userObj?.userPlatforms">
             <a *ngIf='social?.slug == "Instagram"' href="javascript:void(0);">
@@ -199,7 +199,7 @@
   </div>
   <div
     class="commonWrap whiteBgColor"
-    *ngIf="userObj?.workHistory.length > 0 && !isPreloader"
+    *ngIf="userObj?.workHistory && userObj?.workHistory.length > 0 && !isPreloader"
   >
     <ion-grid>
       <ion-row>

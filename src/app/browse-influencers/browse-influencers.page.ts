@@ -69,6 +69,7 @@ export class BrowseInfluencersPage implements OnInit {
   }
 
   getInfluencerData() {
+  
     this.pageNumber = 1;
     this.loadStatus = false;
     let d: any = {
