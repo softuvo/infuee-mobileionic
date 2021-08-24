@@ -7,11 +7,11 @@ import { UtilityService } from './utility.service';
   providedIn: 'root',
 })
 export class ApiService {
-  public baseUrl = 'https://infuee.softuvo.xyz/api/';
-  // public baseUrl = 'http://127.0.0.1:8000/api/';
+  // public baseUrl = 'https://infuee.softuvo.xyz/api/';
+  public baseUrl = 'http://127.0.0.1:8000/api/';
 
-  public webUrl = 'https://infuee.softuvo.xyz/';
-  // public webUrl = 'http://127.0.0.1:8000/';
+  // public webUrl = 'https://infuee.softuvo.xyz/';
+  public webUrl = 'http://127.0.0.1:8000/';
   public httpOptions;
   constructor(private http: HttpClient, private utility: UtilityService) {
     this.httpOptions = {
@@ -239,6 +239,13 @@ export class ApiService {
     return this.http.post<any>(this.baseUrl + 'enable-fa', data).pipe(
       tap((_) => this.utility.log('enable-fa')),
       catchError(this.handleError('enable-fa', []))
+    );
+  }
+
+  disableFA(data): Observable<any> {
+    return this.http.post<any>(this.baseUrl + 'disable-fa', data).pipe(
+      tap((_) => this.utility.log('disable-fa')),
+      catchError(this.handleError('disable-fa', []))
     );
   }
 

@@ -32,7 +32,12 @@ export class AppComponent {
     },
   ];
 
-  public influencerPage = [];
+  public influencerPage = [
+    {
+      title: 'Browse Jobs',
+      url: '',
+    },
+  ];
   @ViewChild(IonRouterOutlet, { static: true }) routerOutlet: IonRouterOutlet;
   public appPages: any[] = [];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
@@ -69,14 +74,14 @@ export class AppComponent {
     private menuCtrl: MenuController,
     private navCtrl: NavController,
     private alertCtrl: AlertController,
-    private router: Router,
+    public router: Router,
     private iab: InAppBrowser,
     private spinnerDialog: SpinnerDialog
   ) {
     this.userType = this.utility.getfromLocalStorage('type');
     this.userToken = this.utility.getfromLocalStorage('token');
     this.initializeApp();
-    //this.checkUserLogIn();
+    this.setMenu();
   }
 
   initializeApp() {
@@ -92,7 +97,7 @@ export class AppComponent {
 
   ngOnInit() {
     this.path = window.location.pathname.split('influencer/')[1];
-    console.log('========================', this.path);
+
     if (this.path !== undefined) {
       if (this.userType && this.userType == 'user') {
         this.appPages = this.userPage;
@@ -117,7 +122,6 @@ export class AppComponent {
     this.utility.sideMenuHandler.subscribe((res: any) => {
       if (res == 'login') {
         this.userType = this.utility.getfromLocalStorage('type');
-        console.log('after login userType ==>', this.userType);
         if (this.userType == 'user') {
           this.appPages = this.userPage;
           this.getProfileData();
@@ -135,6 +139,7 @@ export class AppComponent {
     if (this.userToken && this.userToken != undefined) {
       this.api.getProfileInfo().subscribe((res: any) => {
         this.utility.checkToken(res);
+
         if (res.status == 'Success') {
           this.utility.saveToLocalStorage(
             'userObj',
@@ -191,13 +196,19 @@ export class AppComponent {
       } else {
         this.router.navigate([u]);
       }
+      this.menu.toggle();
     }
   }
 
   goBecomeInfluencers() {
-    if (this.ProfileData && this.ProfileData.email) {
+    if (
+      this.utility.getfromLocalStorage('email') &&
+      this.utility.getfromLocalStorage('email') != undefined
+    ) {
       const url =
-        this.api.webUrl + 'become-influencer/' + this.ProfileData.email;
+        this.api.webUrl +
+        'become-influencer/' +
+        this.utility.getfromLocalStorage('email');
       let target = '_blank';
       const browser = this.iab.create(url, target, this.options);
 
@@ -245,5 +256,9 @@ export class AppComponent {
         }
       );
     }
+  }
+
+  getFooterEvent(evt) {
+    this.utility.menuHandler.next(this.router.url);
   }
 }

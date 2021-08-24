@@ -124,7 +124,7 @@
                   >
 
                   <h5 class="followersCounter" *ngIf="social?.followers > 0">
-                    {{social?.followers}} Followers
+                    {{utility.followerCountFormat(social?.followers)}} Followers
                   </h5>
                 </ion-item>
               </ion-list>

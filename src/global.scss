@@ -25,6 +25,46 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+$poppins: "Poppins", sans-serif;
+$purple: #35b6f7;
+$lighgrey: #f5f5f5;
+$lighblue: #272d4e;
+$lightgery2: #fbfbfb;
+$orange: #dc8d41;
+$white: #fff;
+$green: #22b369;
+$red: #c53434;
+$uppercase: uppercase;
+$center: center;
+$left: left;
+$right: right;
+$relative: relative;
+$absolute: absolute;
+$middle: middle;
+$block: block;
+$flex: flex;
+$p-20: 20px;
+$font-18: 18px;
+$font-500: 500;
+$font-600: 600;
+$size-10: 10px;
+$size-14: 14px;
+$size-15: 15px;
+$size-16: 16px;
+$size-17: 17px;
+$size-18: 18px;
+$size-19: 19px;
+$size-20: 20px;
+$size-21: 21px;
+$size-22: 22px;
+$size-23: 23px;
+$size-24: 24px;
+$size-25: 25px;
+$size-26: 26px;
+$size-30: 30px;
+$size-40: 40px;
+$full: 100%;
+
 /*ion Searchbar Style*/
 ion-searchbar {
   .searchbar-input-container {

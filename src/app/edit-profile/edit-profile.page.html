@@ -1,62 +1,192 @@
- 
 <ion-header>
   <ion-toolbar>
-    <ion-button class="left backArrow">
+    <ion-button class="left backArrow" (click)="goBack()">
       <ion-icon name="arrow-back-outline"></ion-icon>
     </ion-button>
-    <ion-title class="pxElement">Profile</ion-title> 
-    <ion-button class="right bottom addNewButton">
+    <ion-title class="pxElement">Profile</ion-title>
+    <ion-button class="right bottom addNewButton" (click)="updateProfile ()">
       <span>Save</span>
-  </ion-button>     
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>    
-    <div class="infueeFormOuter">
-      <div class="changeUserImg">
-         <div class="changeUserImg__border">
-            <img [src]="[userObj?.image]" alt="ion" onError="src = './../assets/images/client-image.jpg'" />
-         </div>
-         <div class="changeUserImg__browseImage">
-            <ion-input type="file"></ion-input>
-            <ion-icon name="camera"></ion-icon>
-         </div>
+<ion-content>
+  <app-preloader *ngIf="isPreloader"></app-preloader>
+  <app-no-data *ngIf="!isPreloader && !userObj?.first_name"
+    >No Data Found</app-no-data
+  >
+  <div class="infueeFormOuter" *ngIf="!isPreloader && userObj?.first_name">
+    <div class="changeUserImg">
+      <div class="changeUserImg__border">
+        <img
+          [src]="[userImage]"
+          alt="ion"
+          onError="src = './../assets/images/client-image.jpg'"
+        />
       </div>
-      <form class="loginForm">
-        <ion-list no-lines>
-          <div class="formGroup">  
-            <ion-input class="formField" type="text" value=""></ion-input>
-            <ion-label>Name</ion-label>            
-          </div>
-          <div class="formGroup">  
-            <ion-input class="formField" type="email" value=""></ion-input>
-            <ion-label>Email Address</ion-label>            
-          </div>
-          <div class="formGroup">  
-            <ion-input class="formField" type="date" value=""></ion-input>
-            <ion-label>Date of Birth</ion-label>            
-          </div>
-          <div class="formGroup">  
-            <ion-input class="formField" type="text" value=""></ion-input>
-            <ion-label>Password</ion-label>
-            <button class="typeToggle">
-              <ion-icon name="eye-outline" (click)="showHideConfirm()"></ion-icon>
-            </button>
-          </div>
-          <div class="formGroup">
-            <div class="headingText">
-               <ion-title>Two-Fector Authentication</ion-title>
-               <div class="seeAllText">
-                  <span>Want an extra level of account security? Enable Two-facto authentication.</span>
-               </div>
+      <div class="changeUserImg__browseImage">
+        <ion-input
+          type="file"
+          #fileInput
+          type="file"
+          accept="image/*"
+          (change)="uploadProfile($event)"
+          class="display"
+        ></ion-input>
+        <ion-icon name="camera"></ion-icon>
+      </div>
+    </div>
+    <form class="loginForm" [formGroup]="updateProfileForm">
+      <ion-list no-lines>
+        <div class="formGroup">
+          <ion-input
+            class="formField"
+            type="text"
+            name="first_name"
+            formControlName="first_name"
+            [ngClass]="{ 'is-invalid': f.first_name.touched && f.first_name.errors }"
+          ></ion-input>
+          <div
+            *ngIf="f.first_name.touched && f.first_name.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.first_name.errors.required">
+              First Name is required
             </div>
           </div>
-          <div class="formGroup">  
-            <ion-input class="formField" type="text" value=""></ion-input>
-            <ion-label>Phone Number</ion-label>            
-          </div>
-        </ion-list>
-      </form>
-    </div>
-</ion-content>
+          <ion-label>Name</ion-label>
+        </div>
 
+        <div class="formGroup">
+          <ion-datetime
+            displayFormat="MM/DD/YYYY"
+            min="1960-12-01"
+            max="2021-12-31"
+            name="date_of_bith"
+            formControlName="date_of_bith"
+            placeholder="Date Of Birth"
+            class="formField"
+          ></ion-datetime>
+
+          <div
+            *ngIf="f.date_of_bith.touched && f.date_of_bith.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.date_of_bith.errors.required">
+              Date of birth is required
+            </div>
+          </div>
+          <ion-label>Date of Birth</ion-label>
+        </div>
+        <div class="formGroup">
+          <ion-select
+            placeholder="Select Country Code"
+            name="country_code"
+            formControlName="country_code"
+            class="formField"
+            [ngClass]="{ 'is-invalid': f.country_code.touched && f.country_code.errors }"
+          >
+            <ion-select-option
+              *ngFor="let c of countryCodeList"
+              [value]="c?.code"
+              >{{(c?.code ? '+' + c?.code + '[' + c?.name + ']':
+              '')}}</ion-select-option
+            >
+          </ion-select>
+          <div
+            *ngIf="f.country_code.touched && f.country_code.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.country_code.errors.required">
+              Country Code is required
+            </div>
+          </div>
+        </div>
+        <div class="formGroup">
+          <ion-input
+            type="number"
+            name="phone"
+            class="formField"
+            formControlName="phone"
+            [ngClass]="{ 'is-invalid': f.phone.touched && f.phone.errors }"
+          ></ion-input>
+
+          <div
+            *ngIf="f.phone.touched && f.phone.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.phone.errors.required">Phone is required</div>
+            <div *ngIf="f.phone.errors.pattern">Phone is invalid</div>
+          </div>
+          <ion-label>Phone Number</ion-label>
+        </div>
+        <div class="formGroup">
+          <ion-input
+            type="text"
+            name="address"
+            formControlName="address"
+            (ionInput)="updateSearchResults()"
+            placeholder="Address"
+            class="formField"
+            (ionBlur)="outsideInput($event)"
+          ></ion-input>
+          <ion-list [hidden]="!autocompleteItems.length">
+            <ion-item
+              *ngFor="let item of autocompleteItems"
+              (click)="selectSearchResult(item)"
+            >
+              {{ item.description }}
+            </ion-item>
+          </ion-list>
+          <div
+            *ngIf="f.address.touched && f.address.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.address.errors.required">Address is required</div>
+          </div>
+          <ion-label>Address</ion-label>
+        </div>
+
+        <div class="formGroup">
+          <ion-input
+            type="text"
+            placeholder="School, Highschool, College (Optional)"
+            name="school"
+            formControlName="school"
+            class="formField"
+          ></ion-input>
+        </div>
+
+        <div class="formGroup">
+          <div class="headingText">
+            <ion-title>Two-Fector Authentication</ion-title>
+            <div class="seeAllText">
+              <span
+                >Want an extra level of account security? Enable Two-facto
+                authentication.</span
+              >
+            </div>
+          </div>
+        </div>
+        <!-- <div class="formGroup">
+          <ion-input class="formField" type="text" value=""></ion-input>
+          <ion-label>Phone Number</ion-label>
+        </div> -->
+        <ion-button
+          *ngIf="!userObj?.is_two_fa || userObj?.is_two_fa == 0"
+          class="commonButton"
+          expand="block"
+          (click)="openTwoFactorAuth()"
+          >Enable Two-Factor Authentication</ion-button
+        >
+        <ion-button
+          *ngIf="userObj?.is_two_fa && userObj?.is_two_fa == 1"
+          class="commonButton disableButton"
+          expand="block"
+          (click)="disableTwoFactorAuth()"
+          >Disable Two-Factor Authentication</ion-button
+        >
+      </ion-list>
+    </form>
+  </div>
+</ion-content>

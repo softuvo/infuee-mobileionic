@@ -108,15 +108,27 @@ const routes: Routes = [
     path: 'profile',
     loadChildren: () =>
       import('./profile/profile.module').then((m) => m.ProfilePageModule),
-  }, 
+  },
   {
     path: 'edit-profile',
     loadChildren: () =>
-      import('./edit-profile/edit-profile.module').then((m) => m.EditProfilePageModule),
+      import('./edit-profile/edit-profile.module').then(
+        (m) => m.EditProfilePageModule
+      ),
   },
   {
     path: 'become-influencers',
-    loadChildren: () => import('./become-influencers/become-influencers.module').then( m => m.BecomeInfluencersPageModule)
+    loadChildren: () =>
+      import('./become-influencers/become-influencers.module').then(
+        (m) => m.BecomeInfluencersPageModule
+      ),
+  },
+  {
+    path: 'two-factor-authentication',
+    loadChildren: () =>
+      import(
+        './two-factor-authentication/two-factor-authentication.module'
+      ).then((m) => m.TwoFactorAuthenticationPageModule),
   },
 ];
 @NgModule({

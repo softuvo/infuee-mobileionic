@@ -1,17 +1,47 @@
-<ion-row>
-    <ion-col text-center>
-        <div class="pophover" *ngIf="data?.design == 'success'">
-            <h3>Successful</h3>
-            <p>{{data?.message}}</p>
-        </div>
-        <div class="pophover" *ngIf="data?.design == 'error'">
-            <h3>Error</h3>
-            <p>{{data?.message}}</p>
-        </div>
-       
-        <ion-row class="pop-border" padding text-center>
-            <span *ngIf="data?.ok == 'ok'" class="ok-btn" (click)="popOver()">Okay</span>
-            <span *ngIf="data?.cancel == 'cancel'" (click)="popOver()" class="cancel-btn">Cancel</span>
-        </ion-row>
-    </ion-col>
+<ion-row *ngIf="popOverType == 'test'">
+  <ion-col text-center>
+    <div class="pophover" *ngIf="data?.design == 'success'">
+      <h3>Successful</h3>
+      <p>{{ data?.message }}</p>
+    </div>
+    <div class="pophover" *ngIf="data?.design == 'error'">
+      <h3>Error</h3>
+      <p>{{ data?.message }}</p>
+    </div>
+
+    <ion-row class="pop-border" padding text-center>
+      <span *ngIf="data?.ok == 'ok'" class="ok-btn" (click)="popOver()"
+        >Okay</span
+      >
+      <span
+        *ngIf="data?.cancel == 'cancel'"
+        (click)="popOver()"
+        class="cancel-btn"
+        >Cancel</span
+      >
+    </ion-row>
+  </ion-col>
+</ion-row>
+
+<ion-row *ngIf="popOverType == 'confirm'">
+  <ion-col text-center>
+    <div class="pop-content">
+      <h3>{{ data?.title ? data?.title : "" }}</h3>
+      <p>{{ data?.text ? data?.text : "" }}</p>
+    </div>
+
+    <ion-row>
+      <div class="pop-buttons">
+        <span *ngIf="data?.yes == true" class="ok-btn" (click)="yesPopOver()"
+          >Yes</span
+        >
+        <span
+          *ngIf="data?.cancel == true"
+          (click)="cancelPopOver()"
+          class="cancel-btn"
+          >Cancel</span
+        >
+      </div>
+    </ion-row>
+  </ion-col>
 </ion-row>

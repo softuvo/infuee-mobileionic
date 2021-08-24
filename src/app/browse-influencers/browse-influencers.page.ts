@@ -49,7 +49,15 @@ export class BrowseInfluencersPage implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.utility.sideMenuHandler.subscribe((res: any) => {
+      if (res && res == this.router.url) {
+        if (this.content != undefined) {
+          this.content.scrollToTop(400);
+        }
+      }
+    });
+  }
 
   ionViewWillEnter() {
     this.isPreloader = true;
@@ -69,7 +77,6 @@ export class BrowseInfluencersPage implements OnInit {
   }
 
   getInfluencerData() {
-  
     this.pageNumber = 1;
     this.loadStatus = false;
     let d: any = {
@@ -192,11 +199,5 @@ export class BrowseInfluencersPage implements OnInit {
 
   openMenu() {
     this.menu.toggle();
-  }
-
-  getFooterEvent(evt) {
-    if (evt && evt == 'scrollTop') {
-      this.content.scrollToTop(400);
-    }
   }
 }

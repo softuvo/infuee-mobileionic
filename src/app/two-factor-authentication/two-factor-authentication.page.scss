@@ -1,0 +1,57 @@
+@import "../../../src/global.scss";
+ion-toolbar {
+  padding: 0 7px;
+  a {
+    img {
+      width: 100%;
+      max-width: 20px;
+    }
+  }
+}
+ion-content {
+  font-family: $poppins;
+  .two-factor-form {
+    margin: 0 10px 20px;
+    padding: 20px 20px;
+    background: #f2f2f2;
+    border-radius: 20px;
+    h2 {
+      text-align: $center;
+      color: $lighblue;
+      font-weight: $font-600;
+      margin-top: 0;
+    }
+    .form-group {
+      margin-bottom: 15px;
+      ion-label {
+        margin-bottom: 7px;
+        display: block;
+      }
+      ion-input,
+      ion-select {
+        background: #fff;
+        border-radius: 25px;
+        height: 47px;
+      }
+      &.text-center {
+        text-align: $center;
+      }
+      button {
+        width: 160px;
+        padding: 14px 0;
+        color: $white;
+        text-transform: $uppercase;
+        font-size: 16px;
+        border-radius: 25px;
+        font-weight: $font-600;
+        &.submit-btn {
+          background: $purple;
+          margin-bottom: 10px;
+        }
+        &.cancel-btn {
+          background: $red;
+        }
+      }
+    }
+  }
+}

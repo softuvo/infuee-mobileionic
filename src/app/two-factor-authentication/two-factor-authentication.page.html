@@ -1,0 +1,78 @@
+<!-- <ion-header> -->
+<ion-toolbar>
+  <a (click)="back()"><ion-icon name="arrow-back-outline"></ion-icon></a>
+</ion-toolbar>
+<!-- </ion-header> -->
+
+<ion-content>
+  <div class="two-factor-form">
+    <h2>Enable Two-Factor Authentication</h2>
+    <form>
+      <div class="form-group">
+        <ion-label>Country Code</ion-label>
+        <ion-select
+          placeholder="Select Country Code"
+          name="country_code"
+          [(ngModel)]="country_code"
+          [ngClass]="{ 'is-invalid': !utility.isValidString(this.country_code) && isRequestOtp }"
+        >
+          <ion-select-option *ngFor="let c of countryCodeList" [value]="c?.code"
+            >{{(c?.code ? '+' + c?.code + '[' + c?.name + ']':
+            '')}}</ion-select-option
+          >
+        </ion-select>
+      </div>
+
+      <div class="form-group">
+        <ion-label>Mobile Number</ion-label>
+        <ion-input
+          type="number"
+          name="mobile_number"
+          [(ngModel)]="mobile_number"
+          placeholder="Enter Mobile Number"
+          [ngClass]="{ 'is-invalid': !utility.isValidString(this.mobile_number) && isRequestOtp }"
+        ></ion-input>
+      </div>
+
+      <div class="form-group">
+        <ion-label>Current Password</ion-label>
+        <ion-input
+          type="password"
+          autocomplete="off"
+          name="password"
+          [(ngModel)]="password"
+          placeholder="Enter Password"
+          [ngClass]="{ 'is-invalid': !utility.isValidString(this.password) && isRequestOtp }"
+        ></ion-input>
+      </div>
+
+      <!-- <ng-container *ngIf="otpStatus"> -->
+      <div class="form-group" *ngIf="otpStatus">
+        <ion-label>OTP</ion-label>
+        <ion-input
+          type="password"
+          name="otp"
+          [(ngModel)]="otp"
+          placeholder="XXXXXX"
+        ></ion-input>
+      </div>
+      <!-- </ng-container> -->
+
+      <div class="form-group text-center">
+        <ng-container *ngIf="!otpStatus"
+          ><button type="button" (click)="requestOtp()" class="submit-btn">
+            Request otp
+          </button></ng-container
+        >
+        <ng-container *ngIf="otpStatus"
+          ><button type="button" (click)="enable()" class="submit-btn">
+            Enable
+          </button></ng-container
+        >
+        <button type="button" (click)="back()" class="cancel-btn">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</ion-content>

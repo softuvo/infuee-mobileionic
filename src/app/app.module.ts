@@ -16,6 +16,7 @@ import { SpinnerDialog } from '@ionic-native/spinner-dialog/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { PopoverComponent } from './components/popover/popover.component';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
   declarations: [AppComponent,PopoverComponent],
@@ -27,6 +28,7 @@ import { PopoverComponent } from './components/popover/popover.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    ComponentsModule,
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

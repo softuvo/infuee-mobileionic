@@ -24,11 +24,13 @@ export class UtilityService {
   public data = [];
   public username = '';
   public profileUrl;
-  loader;
-  isLoading = false;
+  public loader;
+  public isLoading = false;
 
-  menuHandler = new BehaviorSubject('');
-  sideMenuHandler = this.menuHandler.asObservable();
+  public menuHandler = new BehaviorSubject('');
+  public sideMenuHandler = this.menuHandler.asObservable();
+  public footerHandler = new BehaviorSubject('');
+  public footerMenuHandler = this.footerHandler.asObservable();
   // bsModalRef: BsModalRef;
   constructor(
     private router: Router,
@@ -37,7 +39,7 @@ export class UtilityService {
     public alertController: AlertController,
     public toastController: ToastController,
     private platform: Platform,
-    public popoverController: PopoverController,
+    public popoverController: PopoverController
   ) {}
   async presentLoading() {
     this.loader = await this.loadingController.create({
@@ -428,22 +430,32 @@ export class UtilityService {
     return starRating;
   }
 
-  async presentPopover(type?: any,data?: any, ev?:any) {
+  followerCountFormat(num) {
+    if (num >= 1000000) return this.intlFormat(num / 1000000) + 'M';
+    if (num >= 1000) return this.intlFormat(num / 1000) + 'k';
+    return this.intlFormat(num);
+  }
+
+  intlFormat(num) {
+    return new Intl.NumberFormat().format(Math.round(num * 10) / 10);
+  }
+
+  async presentPopover(type?: any, data?: any, ev?: any) {
     const popover = await this.popoverController.create({
       component: PopoverComponent,
-     // translucent: true,
+      // translucent: true,
       componentProps: {
         popOverType: type,
         data: data,
       },
-      event : ev,
+      event: ev,
       keyboardClose: true,
       cssClass: 'custome',
       backdropDismiss: false,
     });
     await popover.present();
-    return popover.onDidDismiss().then(data => {
-      return true;
+    return popover.onDidDismiss().then((data) => {
+      return data;
     });
   }
 }
