@@ -27,8 +27,20 @@ export class AppComponent {
   public selectedIndex = 0;
   public userPage = [
     {
+      title: 'Browse Jobs',
+      url: '',
+    },
+    {
+      title: 'Campaign',
+      url: 'campaign',
+    },
+    {
       title: 'Become Influencer',
       url: 'become-influencer',
+    },
+    {
+      title: 'Browse Influencers',
+      url: 'browse-influencers',
     },
   ];
 
@@ -36,6 +48,14 @@ export class AppComponent {
     {
       title: 'Browse Jobs',
       url: '',
+    },
+    {
+      title: 'Campaign',
+      url: 'campaign',
+    },
+    {
+      title: 'Browse Influencers',
+      url: 'browse-influencers',
     },
   ];
   @ViewChild(IonRouterOutlet, { static: true }) routerOutlet: IonRouterOutlet;

@@ -23,13 +23,10 @@
 
     <ion-content class="menuLinks">
       <ion-list>
-        <ion-item>
-          <a
-            href="javascript:void(0);"
-            (click)="goPage(p?.url)"
-            *ngFor="let p of appPages; let i = index"
-            >{{ p.title }}</a
-          >
+        <ion-item *ngFor="let p of appPages; let i = index">
+          <a href="javascript:void(0);" (click)="goPage(p?.url)">{{
+            p.title
+          }}</a>
         </ion-item>
         <!-- <ion-item>
           <a href="javascript:void(0);" (click)="goPage('browse-influencers')"
@@ -90,7 +87,9 @@
         router.url == '/chat' ||
         router.url == '/profile' ||
         router.url == '/notification' ||
-        router.url == '/edit-profile'
+        router.url == '/edit-profile' ||
+        router.url == '/campaign' ||
+        router.url == 'create-campaign'
     }"
   ></ion-router-outlet>
   <app-footer-nav
@@ -99,7 +98,9 @@
       router.url == '/chat' ||
       router.url == '/profile' ||
       router.url == '/notification' ||
-      router.url == '/edit-profile'
+      router.url == '/edit-profile' ||
+      router.url == '/campaign' ||
+      router.url == '/create-campaign'
     "
     (footerEvent)="getFooterEvent($event)"
   ></app-footer-nav>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-create-campaign',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-campaign.page.scss'],
 })
 export class CreateCampaignPage implements OnInit {
+  constructor(private navCtrl: NavController) {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  goBack() {
+    this.navCtrl.back();
   }
-
 }

@@ -63,11 +63,11 @@ export class LoginPage implements OnInit {
         } else {
           if (res.status.toLowerCase() == 'success') {
             this.utility.hideLoader();
+            this.utility.saveToLocalStorage(
+              'email',
+              this.loginForm.value.email
+            );
             if (res.is_two_fa == 1) {
-              this.utility.saveToLocalStorage(
-                'email',
-                this.loginForm.value.email
-              );
               this.router.navigate(['verification', { isLogin: 1 }]);
               return;
             }

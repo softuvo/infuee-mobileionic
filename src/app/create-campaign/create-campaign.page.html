@@ -1,89 +1,62 @@
- 
 <ion-header>
   <ion-toolbar>
-    <ion-button class="left backArrow">
+    <ion-button class="left backArrow" (click)="goBack()">
       <ion-icon name="arrow-back-outline"></ion-icon>
     </ion-button>
-    <ion-title class="pxElement">Create Campaign</ion-title>  
+    <ion-title class="pxElement">Create Campaign</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>    
-    <div class="infueeFormOuter">
-      <form class="loginForm">
-        <ion-list no-lines>
-          <div class="formGroup">  
-            <ion-input class="formField" type="text" value=""></ion-input>
-            <ion-label>Title</ion-label>            
+<ion-content>
+  <div class="infueeFormOuter">
+    <form class="loginForm">
+      <ion-list no-lines>
+        <div class="formGroup">
+          <ion-input class="formField" type="text" value=""></ion-input>
+          <ion-label>Title</ion-label>
+        </div>
+        <div class="formGroup">
+          <ion-textarea class="formField" type="text" value=""></ion-textarea>
+          <ion-label>Description</ion-label>
+        </div>
+        <div class="formGroup selectOptionBar">
+          <ion-select placeholder="Whitethorn, CA, USA">
+            <ion-select-option value="1">Canada</ion-select-option>
+            <ion-select-option value="2">UK</ion-select-option>
+            <ion-select-option value="3">Australia</ion-select-option>
+            <ion-select-option value="4">New Zealand</ion-select-option>
+          </ion-select>
+          <ion-label>Add Location</ion-label>
+        </div>
+        <div class="formGroup">
+          <ion-input
+            class="formField"
+            type="text"
+            value=""
+            placeholder="www.exampale.com"
+          ></ion-input>
+          <ion-label>Website URL</ion-label>
+        </div>
+        <div class="formGroup browseFile">
+          <div class="browseFile__text">
+            <h4>Upload an image</h4>
+            <span>Choose a file or grag it here</span>
           </div>
-          <div class="formGroup">  
-            <ion-textarea class="formField" type="text" value=""></ion-textarea>
-            <ion-label>Description</ion-label>            
-          </div>
-          <div class="formGroup selectOptionBar">
-            <ion-select placeholder="Whitethorn, CA, USA">
-              <ion-select-option value="1">Canada</ion-select-option>
-              <ion-select-option value="2">UK</ion-select-option>
-              <ion-select-option value="3">Australia</ion-select-option>
-              <ion-select-option value="4">New Zealand</ion-select-option>
-            </ion-select>
-            <ion-label>Add Location</ion-label>
-          </div>
-          <div class="formGroup">  
-            <ion-input class="formField" type="text" value="" placeholder="www.exampale.com"></ion-input>
-            <ion-label>Website URL</ion-label>      
-          </div>
-          <div class="formGroup browseFile">
-            <div class="browseFile__text">
-               <h4>Upload an image</h4>
-               <span>Choose a file or grag it here</span>
-            </div>
-            <ion-input class="formField" type="file" id="coverImage"></ion-input>
-            <ion-label>Campaign logo</ion-label>
-          </div>
-          
-          <div class="buttonOuter flexColWrap">
-              <div class="buttonOuter__item">
-                <ion-button class="formButton formButton--cancel" type="submit">Cancel</ion-button>
-              </div>
-              <div class="buttonOuter__item">
-                <ion-button class="formButton" type="submit">Create</ion-button>
-              </div>
-          </div>
-        </ion-list>
-      </form>
-    </div>
-</ion-content>
+          <ion-input class="formField" type="file" id="coverImage"></ion-input>
+          <ion-label>Campaign logo</ion-label>
+        </div>
 
-<ion-footer>
-  <ion-toolbar>
-      <div class="bottomFixedLinks">
-        <ul>
-          <li>
-            <a href="javascript:void(0);">
-              <ion-icon name="home-outline"></ion-icon>
-              <span>Home</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0);">
-              <ion-icon name="chatbubbles-outline"></ion-icon>
-              <span>Chat</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0);">
-              <ion-icon name="notifications-outline"></ion-icon>
-              <span>Notification</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0);">
-              <ion-icon name="person-outline"></ion-icon>
-              <span>Profile</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-  </ion-toolbar>
-</ion-footer>
+        <div class="buttonOuter flexColWrap">
+          <div class="buttonOuter__item">
+            <ion-button class="formButton formButton--cancel" type="submit"
+              >Cancel</ion-button
+            >
+          </div>
+          <div class="buttonOuter__item">
+            <ion-button class="formButton" type="submit">Create</ion-button>
+          </div>
+        </div>
+      </ion-list>
+    </form>
+  </div>
+</ion-content>

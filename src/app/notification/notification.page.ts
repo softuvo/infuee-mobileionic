@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { IonContent, MenuController } from '@ionic/angular';
+import { IonContent, MenuController, NavController } from '@ionic/angular';
 import { UtilityService } from '../services/utility.service';
 
 @Component({
@@ -13,7 +13,8 @@ export class NotificationPage implements OnInit {
   constructor(
     private menu: MenuController,
     public utility: UtilityService,
-    public router: Router
+    public router: Router,
+    private navCtrl: NavController
   ) {}
 
   ngOnInit() {
@@ -28,5 +29,9 @@ export class NotificationPage implements OnInit {
 
   openMenu() {
     this.menu.toggle();
+  }
+
+  goBack() {
+    this.navCtrl.back();
   }
 }
